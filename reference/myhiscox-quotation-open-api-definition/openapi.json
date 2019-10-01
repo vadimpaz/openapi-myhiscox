@@ -21,7 +21,6 @@
   "paths": {
     "/cover-data/{version}/{projectId}": {
       "get": {
-        "operationId" : 4.1,
         "summary": "Get cover-data based on risk data answers",
         "tags": [
           "cover-data"
@@ -57,7 +56,8 @@
             "type": "string",
             "in": "header",
             "name": "email",
-            "description": "Broker email"
+            "description": "Broker email",
+            "required": true
           },
           {
             "in": "body",
@@ -70,7 +70,8 @@
             }
           }
         ],
-        "description": "Getting cover data based on risk data info"
+        "description": "Getting cover data based on risk data info",
+        "operationId": 4.1
       },
       "parameters": [
         {
@@ -89,7 +90,6 @@
         }
       ],
       "post": {
-        "operationId" : 4.2,
         "summary": "",
         "responses": {
           "200": {
@@ -120,7 +120,8 @@
             "type": "string",
             "in": "header",
             "name": "emal",
-            "description": "broker email"
+            "description": "broker email",
+            "required": true
           },
           {
             "in": "body",
@@ -140,12 +141,12 @@
         ],
         "tags": [
           "cover-data"
-        ]
+        ],
+        "operationId": 4.2
       }
     },
     "/risk-data/{version}/{projectId}": {
       "get": {
-        "operationId" : 3.1,
         "summary": "Get risk-data based on product variants",
         "tags": [
           "risk-data"
@@ -173,7 +174,8 @@
           {
             "type": "string",
             "in": "header",
-            "name": "email"
+            "name": "email",
+            "required": true
           },
           {
             "in": "body",
@@ -186,7 +188,8 @@
             },
             "description": "Selected product variants list"
           }
-        ]
+        ],
+        "operationId": 3.1
       },
       "parameters": [
         {
@@ -205,7 +208,6 @@
         }
       ],
       "post": {
-        "operationId" : 3.2,
         "summary": "",
         "responses": {
           "200": {
@@ -238,7 +240,8 @@
             "type": "string",
             "in": "header",
             "name": "email",
-            "description": "Broker email"
+            "description": "Broker email",
+            "required": true
           },
           {
             "in": "body",
@@ -252,7 +255,8 @@
         "description": "Store question answers for risk data",
         "tags": [
           "risk-data"
-        ]
+        ],
+        "operationId": 3.2
       }
     },
     "/products/{version}/{area}": {
@@ -273,7 +277,6 @@
         }
       ],
       "get": {
-        "operationId" : 2,
         "summary": "",
         "responses": {
           "200": {
@@ -326,17 +329,18 @@
             "type": "string",
             "in": "header",
             "name": "email",
-            "description": "broker email"
+            "description": "broker email",
+            "required": true
           }
         ],
         "tags": [
           "products"
-        ]
+        ],
+        "operationId": 2
       }
     },
     "quotation/{version}": {
       "post": {
-        "operationId" : 1,
         "summary": "Start new quotation",
         "responses": {
           "200": {
@@ -389,7 +393,8 @@
         ],
         "tags": [
           "quotation"
-        ]
+        ],
+        "operationId": 1
       },
       "parameters": [
         {
@@ -403,7 +408,6 @@
     },
     "/policy-summary": {
       "get": {
-        "operationId" : 5.1,
         "summary": "Get policy summary information",
         "responses": {
           "200": {
@@ -428,7 +432,8 @@
             "type": "string",
             "in": "header",
             "name": "email",
-            "description": "broker email"
+            "description": "broker email",
+            "required": true
           },
           {
             "in": "body",
@@ -446,10 +451,10 @@
         "tags": [
           "policy-summary"
         ],
-        "description": "Get Policy Summary Info"
+        "description": "Get Policy Summary Info",
+        "operationId": 5.1
       },
       "post": {
-        "operationId" : 5.2,
         "summary": "",
         "responses": {
           "200": {
@@ -483,7 +488,8 @@
             "type": "string",
             "in": "header",
             "name": "email",
-            "description": "broker email"
+            "description": "broker email",
+            "required": true
           },
           {
             "in": "body",
@@ -496,7 +502,8 @@
         "tags": [
           "policy-summary"
         ],
-        "description": "Post Policy Summary Info"
+        "description": "Post Policy Summary Info",
+        "operationId": 5.2
       }
     }
   },
