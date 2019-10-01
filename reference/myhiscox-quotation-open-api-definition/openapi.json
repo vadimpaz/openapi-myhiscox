@@ -21,6 +21,7 @@
   "paths": {
     "/cover-data/{version}/{projectId}": {
       "get": {
+        "operationId" : 4.1,
         "summary": "Get cover-data based on risk data answers",
         "tags": [
           "cover-data"
@@ -88,6 +89,7 @@
         }
       ],
       "post": {
+        "operationId" : 4.2,
         "summary": "",
         "responses": {
           "200": {
@@ -143,6 +145,7 @@
     },
     "/risk-data/{version}/{projectId}": {
       "get": {
+        "operationId" : 3.1,
         "summary": "Get risk-data based on product variants",
         "tags": [
           "risk-data"
@@ -202,6 +205,7 @@
         }
       ],
       "post": {
+        "operationId" : 3.2,
         "summary": "",
         "responses": {
           "200": {
@@ -269,6 +273,7 @@
         }
       ],
       "get": {
+        "operationId" : 2,
         "summary": "",
         "responses": {
           "200": {
@@ -331,6 +336,7 @@
     },
     "quotation/{version}": {
       "post": {
+        "operationId" : 1,
         "summary": "Start new quotation",
         "responses": {
           "200": {
@@ -397,6 +403,7 @@
     },
     "/policy-summary": {
       "get": {
+        "operationId" : 5.1,
         "summary": "Get policy summary information",
         "responses": {
           "200": {
@@ -442,6 +449,7 @@
         "description": "Get Policy Summary Info"
       },
       "post": {
+        "operationId" : 5.2,
         "summary": "",
         "responses": {
           "200": {
