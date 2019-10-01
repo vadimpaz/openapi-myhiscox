@@ -1,0 +1,15 @@
+{
+  "title": "ActivityProductVariant",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "activity": {
+      "$ref": "./activity.v1.json"
+    },
+    "productVariant": {
+      "$ref": "./productvariant.v1.json"
+    }
+  }
+}
