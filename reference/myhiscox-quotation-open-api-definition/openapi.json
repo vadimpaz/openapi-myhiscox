@@ -14,6 +14,486 @@
   "consumes": [
     "application/json"
   ],
-  "paths": {},
-  "definitions": {}
+  "paths": {
+    "quotation/{version}": {
+      "post": {
+        "summary": "Start new quotation",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "projectId": {
+                  "type": "integer"
+                },
+                "sectors": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "./models/sector.v1.json"
+                  }
+                },
+                "activities": {
+                  "type": [
+                    "string",
+                    "array"
+                  ],
+                  "items": {
+                    "$ref": "./models/activity.v1.json"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "Start new quotation process",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "./models/area.v1.json"
+            }
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept Language",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "broker email",
+            "required": true
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "type": "string",
+          "name": "version",
+          "in": "path",
+          "required": true,
+          "description": "endpoint API version"
+        }
+      ]
+    },
+    "/products/{version}/{area}": {
+      "parameters": [
+        {
+          "type": "string",
+          "name": "version",
+          "in": "path",
+          "required": true,
+          "description": "API version"
+        },
+        {
+          "type": "string",
+          "name": "area",
+          "in": "path",
+          "required": true,
+          "description": "area of business"
+        }
+      ],
+      "get": {
+        "summary": "",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {
+                "projectId": {
+                  "type": "integer"
+                },
+                "productVatriants": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "./models/activityproductvariant.v1.json"
+                  }
+                }
+              }
+            },
+            "examples": {}
+          }
+        },
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "description": "Get products variants based on area",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "type": "array",
+              "description": "List of activities",
+              "items": {
+                "$ref": "./models/activity.v1.json"
+              }
+            },
+            "description": ""
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "broker email"
+          }
+        ]
+      }
+    },
+    "/risk-data/{version}/{projectId}": {
+      "get": {
+        "summary": "Get risk-data based on product variants",
+        "tags": [
+          "risk-data"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "projectId": {
+                  "type": "integer"
+                },
+                "risk.data": {
+                  "type": "object",
+                  "properties": {
+                    "questions": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "./models/question.v1.json"
+                      }
+                    },
+                    "answers": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "./models/answer.v1.json"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "projectId": {
+                  "type": "integer"
+                },
+                "questions": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "./models/question.v1.json"
+                  }
+                },
+                "answers": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "./models/answer.v1.json"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "Retrieve disk-data based on list of product variantas, [also for existing project Id]",
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "./models/productvariant.v1.json"
+              }
+            },
+            "description": "Selected product variants list"
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "type": "string",
+          "name": "version",
+          "in": "path",
+          "required": true,
+          "description": "API version"
+        },
+        {
+          "type": "integer",
+          "name": "projectId",
+          "in": "path",
+          "required": true,
+          "description": "retrieve risk-data based on productId"
+        }
+      ],
+      "post": {
+        "summary": "",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "projectId": {
+                  "type": "integer"
+                },
+                "quesions": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "./models/question.v1.json"
+                  }
+                },
+                "answers": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "./models/answer.v1.json"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "Broker email"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "projectid": {
+                  "type": "integer"
+                },
+                "questions": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "./models/question.v1.json"
+                  }
+                },
+                "answers": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "./models/answer.v1.json"
+                  }
+                }
+              }
+            },
+            "description": ""
+          }
+        ],
+        "description": "Store question answers for risk data"
+      }
+    },
+    "/cover-data/{version}/{projectId}": {
+      "get": {
+        "summary": "Get cover-data based on risk data answers",
+        "tags": [
+          "cover-data"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "projectId": {
+                  "type": "integer"
+                },
+                "cover-data": {
+                  "type": "object",
+                  "properties": {
+                    "questions": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "./models/question.v1.json"
+                      }
+                    },
+                    "answers": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "./models/answer.v1.json"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "Broker email"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "projectId": {
+                  "type": "integer"
+                },
+                "risk.data": {
+                  "type": "object",
+                  "properties": {
+                    "questions": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "./models/question.v1.json"
+                      }
+                    },
+                    "answers": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "./models/answer.v1.json"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "description": "Getting cover data based on risk data info"
+      },
+      "parameters": [
+        {
+          "type": "string",
+          "name": "version",
+          "in": "path",
+          "required": true,
+          "description": "API version"
+        },
+        {
+          "type": "integer",
+          "name": "projectId",
+          "in": "path",
+          "required": true,
+          "description": "retrieve cover data based on projectId"
+        }
+      ],
+      "post": {
+        "summary": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "Store cover data",
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "emal",
+            "description": "broker email"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "projectId": {},
+                "cover-data": {
+                  "type": "object",
+                  "properties": {
+                    "questions": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "./models/question.v1.json"
+                      }
+                    },
+                    "answers": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "./models/answer.v1.json"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {},
+  "securityDefinitions": {
+    "API Key - 1": {
+      "name": "API Key",
+      "type": "apiKey",
+      "in": "query",
+      "description": "X-API-KEY"
+    }
+  }
 }
