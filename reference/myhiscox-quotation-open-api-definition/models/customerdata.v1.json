@@ -1,0 +1,21 @@
+{
+  "title": "CustomerData",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "questions": {
+      "type": "array",
+      "items": {
+        "$ref": "./question.v1.json"
+      }
+    },
+    "answers": {
+      "type": "array",
+      "items": {
+        "$ref": "./answer.v1.json"
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Answer",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    }
+  }
+}

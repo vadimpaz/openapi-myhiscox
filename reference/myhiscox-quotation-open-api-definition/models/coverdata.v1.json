@@ -1,0 +1,21 @@
+{
+  "title": "CoverData",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "questions": {
+      "type": "array",
+      "items": {
+        "$ref": "./question.v1.json"
+      }
+    },
+    "answers": {
+      "type": "array",
+      "items": {
+        "$ref": "./answer.v1.json"
+      }
+    }
+  }
+}

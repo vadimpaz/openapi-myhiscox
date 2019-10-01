@@ -1,0 +1,15 @@
+{
+  "title": "Activity",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "sector": {
+      "$ref": "./sector.v1.json"
+    }
+  }
+}

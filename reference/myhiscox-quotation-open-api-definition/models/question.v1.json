@@ -1,0 +1,15 @@
+{
+  "title": "Question",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "text": {
+      "type": "string"
+    },
+    "": {
+      "type": "string"
+    }
+  }
+}

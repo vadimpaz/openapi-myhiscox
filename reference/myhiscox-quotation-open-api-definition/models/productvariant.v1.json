@@ -1,0 +1,15 @@
+{
+  "title": "ProductVariant",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "product": {
+      "$ref": "./product.v1.json"
+    }
+  }
+}
