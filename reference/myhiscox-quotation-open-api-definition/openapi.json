@@ -2,7 +2,11 @@
   "swagger": "2.0",
   "info": {
     "title": "Myhiscox Quotation Open API definition",
-    "version": "1.0"
+    "version": "1.0",
+    "contact": {
+      "name": "Hiscox"
+    },
+    "description": "Start policy creation API\n"
   },
   "host": "localhost:3000",
   "schemes": [
@@ -131,6 +135,9 @@
               }
             }
           }
+        ],
+        "tags": [
+          "cover-data"
         ]
       }
     },
@@ -238,7 +245,10 @@
             "description": ""
           }
         ],
-        "description": "Store question answers for risk data"
+        "description": "Store question answers for risk data",
+        "tags": [
+          "risk-data"
+        ]
       }
     },
     "/products/{version}/{area}": {
@@ -313,6 +323,9 @@
             "name": "email",
             "description": "broker email"
           }
+        ],
+        "tags": [
+          "products"
         ]
       }
     },
@@ -367,6 +380,9 @@
             "description": "broker email",
             "required": true
           }
+        ],
+        "tags": [
+          "quotation"
         ]
       },
       "parameters": [
@@ -382,7 +398,6 @@
     "/policy-summary": {
       "get": {
         "summary": "Get policy summary information",
-        "tags": [],
         "responses": {
           "200": {
             "description": "OK",
@@ -420,7 +435,11 @@
               }
             }
           }
-        ]
+        ],
+        "tags": [
+          "policy-summary"
+        ],
+        "description": "Get Policy Summary Info"
       },
       "post": {
         "summary": "",
@@ -465,7 +484,11 @@
               "$ref": "./models/policysummary.v1.json"
             }
           }
-        ]
+        ],
+        "tags": [
+          "policy-summary"
+        ],
+        "description": "Post Policy Summary Info"
       }
     }
   },
