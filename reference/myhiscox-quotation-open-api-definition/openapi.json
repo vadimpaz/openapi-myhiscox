@@ -144,15 +144,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "type": "object",
-              "properties": {
-                "projectId": {
-                  "type": "integer"
-                },
-                "riskData": {
-                  "$ref": "./models/riskdata.v1.json"
-                }
-              }
+              "$ref": "./models/riskdata.v1.json"
             }
           }
         },
@@ -212,6 +204,9 @@
               "properties": {
                 "projectId": {
                   "type": "integer"
+                },
+                "status": {
+                  "type": "string"
                 }
               }
             }
@@ -238,15 +233,7 @@
             "in": "body",
             "name": "body",
             "schema": {
-              "type": "object",
-              "properties": {
-                "projectid": {
-                  "type": "integer"
-                },
-                "riskData": {
-                  "$ref": "./models/riskdata.v1.json"
-                }
-              }
+              "$ref": "./models/riskdata.v1.json"
             },
             "description": ""
           }
@@ -346,6 +333,9 @@
                   "items": {
                     "$ref": "./models/sector.v1.json"
                   }
+                },
+                "status": {
+                  "type": "string"
                 }
               }
             },
@@ -388,6 +378,98 @@
           "description": "endpoint API version"
         }
       ]
+    },
+    "/policy-summary": {
+      "get": {
+        "summary": "Get policy summary information",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "./models/policysummary.v1.json"
+            }
+          }
+        },
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "broker email"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "projectId": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "post": {
+        "summary": "",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "projectId": {
+                  "type": "integer"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept Language",
+            "description": "API Language\n"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "broker email"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "./models/policysummary.v1.json"
+            }
+          }
+        ]
+      }
     }
   },
   "definitions": {},

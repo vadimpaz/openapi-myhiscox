@@ -1,0 +1,27 @@
+{
+  "title": "PolicySummaryDTO",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "riskData": {
+      "$ref": "./riskdata.v1.json"
+    },
+    "coverDatra": {
+      "$ref": "./coverdata.v1.json"
+    },
+    "payment": {
+      "$ref": "./paymentmethod.v1.json"
+    },
+    "sumAssured": {
+      "type": "number"
+    },
+    "premium": {
+      "type": "number"
+    },
+    "isClean": {
+      "type": "boolean"
+    }
+  }
+}
