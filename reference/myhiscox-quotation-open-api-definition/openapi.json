@@ -19,7 +19,7 @@
     "application/json"
   ],
   "paths": {
-    "/cover-data/{version}/{projectId}": {
+    "/cover-data/{projectId}": {
       "get": {
         "summary": "Get cover-data based on risk data answers",
         "tags": [
@@ -78,13 +78,6 @@
         "operationId": 4.1
       },
       "parameters": [
-        {
-          "type": "string",
-          "name": "version",
-          "in": "path",
-          "required": true,
-          "description": "API version"
-        },
         {
           "type": "integer",
           "name": "projectId",
@@ -152,7 +145,7 @@
         "operationId": 4.2
       }
     },
-    "/risk-data/{version}/{projectId}": {
+    "/risk-data/{projectId}": {
       "get": {
         "summary": "Get risk-data based on product variants",
         "tags": [
@@ -199,13 +192,6 @@
         "operationId": 3.1
       },
       "parameters": [
-        {
-          "type": "string",
-          "name": "version",
-          "in": "path",
-          "required": true,
-          "description": "API version"
-        },
         {
           "type": "integer",
           "name": "projectId",
@@ -266,21 +252,13 @@
         "operationId": 3.2
       }
     },
-    "/products/{version}/{area}": {
+    "/products-variants/{activityId}": {
       "parameters": [
         {
           "type": "string",
-          "name": "version",
+          "name": "activityId",
           "in": "path",
-          "required": true,
-          "description": "API version"
-        },
-        {
-          "type": "string",
-          "name": "area",
-          "in": "path",
-          "required": true,
-          "description": "area of business"
+          "required": true
         }
       ],
       "get": {
@@ -311,7 +289,7 @@
             "API Key - 1": []
           }
         ],
-        "description": "Get products variants based on area",
+        "description": "Get products variants based on PSC project area",
         "parameters": [
           {
             "in": "body",
@@ -346,7 +324,7 @@
         "operationId": 2
       }
     },
-    "quotation/{version}": {
+    "quotation": {
       "post": {
         "summary": "Start new quotation",
         "responses": {
@@ -372,7 +350,7 @@
             }
           }
         },
-        "description": "Start new quotation process",
+        "description": "1. Start new quotation process",
         "parameters": [
           {
             "in": "body",
@@ -385,7 +363,7 @@
           {
             "type": "string",
             "in": "header",
-            "name": "Accept Language",
+            "name": "Accept-Language",
             "description": ""
           },
           {
@@ -401,15 +379,7 @@
         ],
         "operationId": 1
       },
-      "parameters": [
-        {
-          "type": "string",
-          "name": "version",
-          "in": "path",
-          "required": true,
-          "description": "endpoint API version"
-        }
-      ]
+      "parameters": []
     },
     "/policy-summary": {
       "get": {
@@ -469,9 +439,6 @@
               "properties": {
                 "projectId": {
                   "type": "integer"
-                },
-                "status": {
-                  "type": "string"
                 }
               }
             }
@@ -530,7 +497,41 @@
       "get": {
         "summary": "Get budget pdf",
         "tags": [],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "file": {
+                  "type": [
+                    "string",
+                    "object"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "description": "Getting budget PDF created in server ",
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept-Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": ""
+          }
+        ]
       }
     },
     "/sectors-activities/{projectId}": {
@@ -567,11 +568,27 @@
             "description": "broker email",
             "required": true
           }
-        ]
+        ],
+        "description": "Get sectors and activities based on PSC projectId"
       },
       "parameters": [
         {
           "type": "integer",
+          "name": "projectId",
+          "in": "path",
+          "required": true
+        }
+      ]
+    },
+    "/product-variants/{projectId}": {
+      "get": {
+        "summary": "Get project sectos and activities",
+        "tags": [],
+        "responses": {}
+      },
+      "parameters": [
+        {
+          "type": "string",
           "name": "projectId",
           "in": "path",
           "required": true

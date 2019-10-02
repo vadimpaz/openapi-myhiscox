@@ -3,9 +3,6 @@
   "type": "object",
   "description": "",
   "properties": {
-    "id": {
-      "type": "string"
-    },
     "riskData": {
       "$ref": "./riskdata.v1.json"
     },
