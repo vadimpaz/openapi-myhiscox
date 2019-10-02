@@ -1,5 +1,5 @@
 {
-  "title": "RiskDataDTO",
+  "title": "RiskDataObject",
   "type": "object",
   "properties": {
     "questions": {

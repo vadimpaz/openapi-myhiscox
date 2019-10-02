@@ -1,5 +1,5 @@
 {
-  "title": "CoverDataDTO",
+  "title": "CoverDataObject",
   "type": "object",
   "properties": {
     "questions": {

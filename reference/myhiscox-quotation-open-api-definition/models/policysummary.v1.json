@@ -1,5 +1,5 @@
 {
-  "title": "PolicySummaryDTO",
+  "title": "PolicySummaryObject",
   "type": "object",
   "description": "",
   "properties": {
