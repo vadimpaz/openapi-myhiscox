@@ -357,20 +357,18 @@
               "properties": {
                 "projectId": {
                   "type": "integer"
-                },
-                "sectors": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "./models/sector.v1.json"
-                  }
-                },
-                "status": {
-                  "type": "string"
                 }
               }
             },
             "examples": {
               "example-1": {}
+            }
+          },
+          "401": {
+            "description": "Unauthorized, invalid token or email",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
           }
         },
@@ -534,6 +532,51 @@
         "tags": [],
         "responses": {}
       }
+    },
+    "/sectors-activities/{projectId}": {
+      "get": {
+        "summary": "Get project sectos and activities",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "./models/sector.v1.json"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept-Language",
+            "description": ""
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "broker email",
+            "required": true
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "type": "integer",
+          "name": "projectId",
+          "in": "path",
+          "required": true
+        }
+      ]
     }
   },
   "definitions": {},
