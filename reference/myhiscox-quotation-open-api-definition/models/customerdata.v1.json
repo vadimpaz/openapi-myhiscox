@@ -16,6 +16,9 @@
       "items": {
         "$ref": "./answer.v1.json"
       }
+    },
+    "policyHolder": {
+      "$ref": "./policyholder.v1.json"
     }
   }
 }

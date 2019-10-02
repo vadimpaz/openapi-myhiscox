@@ -1,0 +1,9 @@
+{
+  "title": "PolicyHolder",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    }
+  }
+}

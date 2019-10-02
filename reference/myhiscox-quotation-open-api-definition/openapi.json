@@ -512,6 +512,28 @@
         "description": "Post Policy Summary Info",
         "operationId": 5.2
       }
+    },
+    "/customer-info": {
+      "get": {
+        "summary": "Get customer and policy holder info",
+        "tags": [],
+        "responses": {}
+      },
+      "post": {
+        "summary": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/budget-document": {
+      "get": {
+        "summary": "Get budget pdf",
+        "tags": [],
+        "responses": {}
+      }
     }
   },
   "definitions": {},
