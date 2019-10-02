@@ -252,78 +252,6 @@
         "operationId": 3.2
       }
     },
-    "/products-variants/{activityId}": {
-      "parameters": [
-        {
-          "type": "string",
-          "name": "activityId",
-          "in": "path",
-          "required": true
-        }
-      ],
-      "get": {
-        "summary": "",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "headers": {},
-            "schema": {
-              "type": "object",
-              "properties": {
-                "projectId": {
-                  "type": "integer"
-                },
-                "productVatriants": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "./models/activityproductvariant.v1.json"
-                  }
-                }
-              }
-            },
-            "examples": {}
-          }
-        },
-        "security": [
-          {
-            "API Key - 1": []
-          }
-        ],
-        "description": "Get products variants based on PSC project area",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "type": "object",
-              "description": "List of activities",
-              "properties": {
-                "activity": {
-                  "$ref": "./models/activity.v1.json"
-                }
-              }
-            },
-            "description": ""
-          },
-          {
-            "type": "string",
-            "in": "header",
-            "name": "Accept Language"
-          },
-          {
-            "type": "string",
-            "in": "header",
-            "name": "email",
-            "description": "broker email",
-            "required": true
-          }
-        ],
-        "tags": [
-          "products"
-        ],
-        "operationId": 2
-      }
-    },
     "quotation": {
       "post": {
         "summary": "Start new quotation",
@@ -580,11 +508,12 @@
         }
       ]
     },
-    "/product-variants/{projectId}": {
+    "/product-variants/project/{projectId}": {
       "get": {
         "summary": "Get project sectos and activities",
         "tags": [],
-        "responses": {}
+        "responses": {},
+        "description": "Get produc variants based on APC projectId"
       },
       "parameters": [
         {
@@ -594,6 +523,32 @@
           "required": true
         }
       ]
+    },
+    "/product-variants/activity": {
+      "get": {
+        "summary": "Get product variants based on PSC project activity",
+        "tags": [],
+        "responses": {},
+        "description": "Get produc variants based on PSC project activity",
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept-Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "broker email"
+          }
+        ]
+      }
     }
   },
   "definitions": {},
