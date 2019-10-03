@@ -155,7 +155,15 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "./models/riskdata.v1.json"
+              "type": "object",
+              "properties": {
+                "projectId": {
+                  "type": "integer"
+                },
+                "riskData": {
+                  "$ref": "./models/riskdata.v1.json"
+                }
+              }
             }
           }
         },
@@ -210,9 +218,6 @@
               "properties": {
                 "projectId": {
                   "type": "integer"
-                },
-                "status": {
-                  "type": "string"
                 }
               }
             }
