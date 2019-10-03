@@ -252,7 +252,7 @@
         "operationId": 3.2
       }
     },
-    "quotation": {
+    "v1.0/quotation": {
       "post": {
         "summary": "Start new quotation",
         "responses": {
@@ -410,7 +410,25 @@
       "get": {
         "summary": "Get customer and policy holder info",
         "tags": [],
-        "responses": {}
+        "responses": {},
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept-Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "broker"
+          }
+        ]
       },
       "post": {
         "summary": "",
@@ -462,7 +480,7 @@
         ]
       }
     },
-    "/sectors-activities/{projectId}": {
+    "/v1.0/sectors-activities/{projectId}": {
       "get": {
         "summary": "Get project sectos and activities",
         "tags": [],
@@ -513,23 +531,7 @@
         "summary": "Get project sectos and activities",
         "tags": [],
         "responses": {},
-        "description": "Get produc variants based on APC projectId"
-      },
-      "parameters": [
-        {
-          "type": "string",
-          "name": "projectId",
-          "in": "path",
-          "required": true
-        }
-      ]
-    },
-    "/product-variants/activity": {
-      "get": {
-        "summary": "Get product variants based on PSC project activity",
-        "tags": [],
-        "responses": {},
-        "description": "Get produc variants based on PSC project activity",
+        "description": "Get produc variants based on APC projectId",
         "security": [
           {
             "API Key - 1": []
@@ -548,7 +550,59 @@
             "description": "broker email"
           }
         ]
-      }
+      },
+      "parameters": [
+        {
+          "type": "integer",
+          "name": "projectId",
+          "in": "path",
+          "required": true
+        }
+      ]
+    },
+    "/v1.0/product-variant/activity/{activityId}": {
+      "get": {
+        "summary": "Get product variants based on PSC project activity",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "./models/productvariant.v1.json"
+              }
+            }
+          }
+        },
+        "description": "Get produc variants based on PSC project activity. Update activityId project.",
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept-Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "broker email"
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "type": "integer",
+          "name": "activityId",
+          "in": "path",
+          "required": true
+        }
+      ]
     }
   },
   "definitions": {},
