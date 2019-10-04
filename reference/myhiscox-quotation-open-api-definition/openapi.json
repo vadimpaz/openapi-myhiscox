@@ -288,7 +288,7 @@
             }
           }
         },
-        "description": "Start new quotation process with business area.\nPOST\n  1 Read JSON Request object Business Area type.\n  2 If BusinessArea exist \n    2.1 Create new Project\n    2.2 Assign businss area project\n    2.3 Return ProjectId created\n  3. Otherwise \n    3.1 Return error if not exist area\n    3.2 Return error by inserting project\n",
+        "description": "Start new quotation process with business area.\nPOST\n  1 Read JSON Request object Business Area type.\n  2 If BusinessArea exist \n    2.1 Create new Project\n    2.2 Assign business area in project created\n    2.3 Update API flag in project created\n    2.3 Return ProjectId created\n  3. Otherwise \n    3.1 Return error if not exist area\n    3.2 Return error by inserting project\n",
         "parameters": [
           {
             "in": "body",
@@ -344,7 +344,19 @@
             "API Key - 1": []
           }
         ],
-        "parameters": []
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept-Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "broker email"
+          }
+        ]
       }
     },
     "/policy-summary": {
