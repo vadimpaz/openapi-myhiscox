@@ -195,6 +195,11 @@
               }
             },
             "description": "Selected product variants list"
+          },
+          {
+            "type": "array",
+            "in": "query",
+            "name": "product-variants"
           }
         ],
         "operationId": 3.1
@@ -257,9 +262,9 @@
         "operationId": 3.2
       }
     },
-    "v1.0/quotation": {
+    "v1.0/business-area/{areaId}": {
       "post": {
-        "summary": "Start new quotation",
+        "summary": "Business area to start new project quotation",
         "responses": {
           "200": {
             "description": "OK",
@@ -283,7 +288,7 @@
             }
           }
         },
-        "description": "1. Start new quotation process",
+        "description": "Start new quotation process with business area.\nPOST\n  1 Read JSON Request object Business Area type.\n  2 If BusinessArea exist \n    2.1 Create new Project\n    2.2 Assign businss area project\n    2.3 Return ProjectId created\n  3. Otherwise \n    3.1 Return error if not exist area\n    3.2 Return error by inserting project\n",
         "parameters": [
           {
             "in": "body",
@@ -312,7 +317,35 @@
         ],
         "operationId": 1
       },
-      "parameters": []
+      "parameters": [
+        {
+          "type": "integer",
+          "name": "areaId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "./models/area.v1.json"
+              }
+            }
+          }
+        },
+        "description": "Retieve business areas\nGET\n  1. If areaId not present return list of array for business areas DTO\n  2. If areaId present retrieve array of one item from existing business area",
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": []
+      }
     },
     "/policy-summary": {
       "get": {
