@@ -288,7 +288,7 @@
             }
           }
         },
-        "description": "Start new quotation process with business area.\nPOST\n  1 Read JSON Request object Business Area type.\n  2 If BusinessArea exist \n    2.1 Create new Project\n    2.2 Assign business area in project created\n    2.3 Assign id_user based on broker email in header request objet\n    2.4 Assign id_state to value 1 - Draft\n    2.5 Assign id_screen to value 1 - Risk-data\n    2.6 Update API flag in project created\n    2.7 Return ProjectId created\n  3. Otherwise \n    3.1 Return error if not exist area\n    3.2 Return error by inserting project\n",
+        "description": "Start new quotation process with business area.\nPOST\n  1 Read JSON Request object Business Area type.\n  2 If BusinessArea exist for version 1.0 = PSC\n    2.1 Create new Project\n    2.2 Assign business area in project created\n    2.3 Assign id_user based on broker email in header request objet\n    2.4 Assign id_state to value 1 - Draft\n    2.5 Assign id_screen to value 1 - Risk-data\n    2.6 Update API flag in project created\n    2.7 Return ProjectId created\n  3. Otherwise \n    3.1 Return error if not exist area\n    3.2 Return error by inserting project\n",
         "parameters": [
           {
             "in": "body",
