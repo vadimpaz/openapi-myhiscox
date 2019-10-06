@@ -147,7 +147,7 @@
     },
     "/v1/risk-data/{projectId}": {
       "get": {
-        "summary": "Get risk-data based on product variants",
+        "summary": "Get risk-data based on projectId",
         "tags": [
           "risk-data"
         ],
@@ -155,15 +155,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "type": "object",
-              "properties": {
-                "projectId": {
-                  "type": "integer"
-                },
-                "riskData": {
-                  "$ref": "./models/riskdata.v1.json"
-                }
-              }
+              "$ref": "./models/riskdata.v1.json"
             }
           },
           "401": {
@@ -191,17 +183,6 @@
             "in": "header",
             "name": "email",
             "required": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "./models/productvariant.v1.json"
-              }
-            },
-            "description": "Selected product variants list"
           },
           {
             "type": "array",
@@ -638,40 +619,6 @@
         }
       }
     },
-    "/product-variants/project/{projectId}": {
-      "get": {
-        "summary": "Get project sectos and activities",
-        "tags": [],
-        "responses": {},
-        "description": "Get produc variants based on APC projectId",
-        "security": [
-          {
-            "API Key - 1": []
-          }
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "in": "header",
-            "name": "Accept-Language"
-          },
-          {
-            "type": "string",
-            "in": "header",
-            "name": "email",
-            "description": "broker email"
-          }
-        ]
-      },
-      "parameters": [
-        {
-          "type": "integer",
-          "name": "projectId",
-          "in": "path",
-          "required": true
-        }
-      ]
-    },
     "/v1/product-variants/activity/{projectId}": {
       "get": {
         "summary": "Get product variants based on projectId Activity",
@@ -763,7 +710,7 @@
             "description": "broker email"
           }
         ],
-        "description": "POST\n\nBased onp product variants selected , retrieve risk data questions\n",
+        "description": "POST\n\nBased onp product variants selected , and retrieve risk data questions\n",
         "security": [
           {
             "API Key - 1": []
