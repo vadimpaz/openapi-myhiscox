@@ -21,7 +21,7 @@
   "paths": {
     "/cover-data/{projectId}": {
       "get": {
-        "summary": "Get cover-data based on risk data answers",
+        "summary": "Get cover-data based on projectId por product-variants",
         "tags": [
           "cover-data"
         ],
@@ -29,15 +29,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "type": "object",
-              "properties": {
-                "projectId": {
-                  "type": "integer"
-                },
-                "coverData": {
-                  "$ref": "./models/coverdata.v1.json"
-                }
-              }
+              "$ref": "./models/coverdata.v1.json"
             }
           }
         },
@@ -71,7 +63,8 @@
           },
           {
             "type": "string",
-            "in": "query"
+            "in": "query",
+            "name": "product.variants"
           }
         ],
         "description": "Getting cover data based on risk data info",
@@ -147,7 +140,7 @@
     },
     "/v1/risk-data/{projectId}": {
       "get": {
-        "summary": "Get risk-data based on projectId",
+        "summary": "Get risk-data based on projectId or product-variants",
         "tags": [
           "risk-data"
         ],
@@ -361,7 +354,7 @@
         ]
       }
     },
-    "/policy-summary": {
+    "/policy-summary/{projectId}": {
       "get": {
         "summary": "Get policy summary information",
         "responses": {
@@ -389,24 +382,12 @@
             "name": "email",
             "description": "broker email",
             "required": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "projectId": {
-                  "type": "integer"
-                }
-              }
-            }
           }
         ],
         "tags": [
           "policy-summary"
         ],
-        "description": "Get Policy Summary Info",
+        "description": "GET\n\nGet Policy Summary Info",
         "operationId": 5.1
       },
       "post": {
@@ -454,15 +435,30 @@
         "tags": [
           "policy-summary"
         ],
-        "description": "Post Policy Summary Info",
+        "description": "POST\n\nPost Policy Summary Info",
         "operationId": 5.2
-      }
+      },
+      "parameters": [
+        {
+          "type": "integer",
+          "name": "projectId",
+          "in": "path",
+          "required": true
+        }
+      ]
     },
-    "/customer-info": {
+    "/customer-info/{projectId}": {
       "get": {
         "summary": "Get customer and policy holder info",
         "tags": [],
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "./models/customerdata.v1.json"
+            }
+          }
+        },
         "security": [
           {
             "API Key - 1": []
@@ -480,16 +476,43 @@
             "name": "email",
             "description": "broker"
           }
-        ]
+        ],
+        "description": "GET\n\nget policy holder info"
       },
       "post": {
         "summary": "",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "projectId": {
+                  "type": "integer"
+                }
+              }
+            }
           }
+        },
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "./models/customerdata.v1.json"
+            }
+          }
+        ],
+        "description": "POST\n\npost policy holder info"
+      },
+      "parameters": [
+        {
+          "type": "integer",
+          "name": "projectId",
+          "in": "path",
+          "required": true
         }
-      }
+      ]
     },
     "/budget-document": {
       "get": {
@@ -668,55 +691,7 @@
           "in": "path",
           "required": true
         }
-      ],
-      "post": {
-        "summary": "POST product variant",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "./models/riskdata.v1.json"
-            }
-          },
-          "401": {
-            "description": "Unauthorized, invalid token or email",
-            "schema": {
-              "type": "object",
-              "properties": {}
-            }
-          }
-        },
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "./models/productvariant.v1.json"
-              }
-            },
-            "description": "List of product variants selected"
-          },
-          {
-            "type": "string",
-            "in": "header",
-            "name": "Accept-Language"
-          },
-          {
-            "type": "string",
-            "in": "header",
-            "name": "email",
-            "description": "broker email"
-          }
-        ],
-        "description": "POST\n\nBased onp product variants selected , and retrieve risk data questions\n",
-        "security": [
-          {
-            "API Key - 1": []
-          }
-        ]
-      }
+      ]
     }
   },
   "definitions": {},
