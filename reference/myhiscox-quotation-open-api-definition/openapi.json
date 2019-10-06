@@ -338,7 +338,7 @@
             }
           }
         },
-        "description": "Retieve business areas\nGET\n  1. If areaId not present return list of array for business areas DTO\n  2. If areaId present retrieve array of one item from existing business area",
+        "description": "Retieve business areas\nGET\n  1. If areaId not present return list of array for business areas DTO\n  2. If areaId is present retrieve array of items related to parameter business area",
         "security": [
           {
             "API Key - 1": []
