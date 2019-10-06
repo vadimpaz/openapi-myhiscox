@@ -145,7 +145,7 @@
         "operationId": 4.2
       }
     },
-    "/risk-data/{projectId}": {
+    "/v1/risk-data/{projectId}": {
       "get": {
         "summary": "Get risk-data based on product variants",
         "tags": [
@@ -165,9 +165,16 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized, invalid token or email",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
           }
         },
-        "description": "Retrieve disk-data based on list of product variantas, [also for existing project Id]",
+        "description": "GET\n\nRetrieve disk-data based on list of product variantas, [also for existing project Id]",
         "security": [
           {
             "API Key - 1": []
@@ -226,6 +233,13 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized, invalid token or email",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
           }
         },
         "security": [
@@ -255,14 +269,14 @@
             "description": ""
           }
         ],
-        "description": "Store question answers for risk data",
+        "description": "POST\n\nStore question answers for risk data",
         "tags": [
           "risk-data"
         ],
         "operationId": 3.2
       }
     },
-    "v1.0/business-area/{areaId}": {
+    "v1/business-area/{areaId}": {
       "post": {
         "summary": "Business area to start new project quotation",
         "responses": {
@@ -288,7 +302,7 @@
             }
           }
         },
-        "description": "Start new quotation process with business area.\nPOST\n  1 Read Area Id parameter.\n  2 For v.1 of this endpoint, areaId = 1 or 'PSC' (if string locate id in business area entity (1))\n  3.Create new Project entitiy and set:\n    3.1 business area to value 1 PSC\n    3.2 id_user based on broker email in header request objet\n    3.3 id_state to value 1 - Draft \n    3.4 id_screen to value 4 - Risk-data.\n    3.5 createdAt date to current day\n    3.6 Update API flag in project created\n    3.7 Return ProjectId created\n  3. Otherwise \n    3.1 Return error if not exist area\n    3.2 Return error by inserting project\n",
+        "description": "POST\n\nStart new quotation process with business area.\n  1 Read Area Id parameter.\n  2 For v.1 of this endpoint, areaId = 1 or 'PSC' (if string locate id in business area entity (1))\n  3.Create new Project entitiy and set:\n    3.1 business area to value 1 PSC\n    3.2 id_user based on broker email in header request objet\n    3.3 id_state to value 1 - Draft \n    3.4 id_screen to value 4 - Risk-data.\n    3.5 createdAt date to current day\n    3.6 Update API flag in project created\n    3.7 Return ProjectId created\n  3. Otherwise \n    3.1 Return error if not exist area\n    3.2 Return error by inserting project\n",
         "parameters": [
           {
             "in": "body",
@@ -326,7 +340,7 @@
         }
       ],
       "get": {
-        "summary": "",
+        "summary": "Get Business Areas",
         "responses": {
           "200": {
             "description": "OK",
@@ -336,9 +350,16 @@
                 "$ref": "./models/area.v1.json"
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized, invalid token or email",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
           }
         },
-        "description": "Retieve business areas\nGET\n  1. If areaId not present return list of array for business areas DTO\n  2. If areaId is present retrieve array of items related to parameter business area",
+        "description": "GET\n\nRetieve business areas\n  1. If areaId not present return list of array for business areas DTO\n  2. If areaId is present retrieve array of items related to parameter business area",
         "security": [
           {
             "API Key - 1": []
@@ -530,9 +551,9 @@
         ]
       }
     },
-    "/v1.0/sectors-activities/{projectId}": {
+    "/v1/sectors-activities/{projectId}": {
       "get": {
-        "summary": "Get project sectos and activities",
+        "summary": "Get project sectors and activities",
         "tags": [],
         "responses": {
           "200": {
@@ -542,6 +563,13 @@
               "items": {
                 "$ref": "./models/sector.v1.json"
               }
+            }
+          },
+          "401": {
+            "description": "Unauthorized, invalid token or email",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
           }
         },
@@ -565,7 +593,7 @@
             "required": true
           }
         ],
-        "description": "Get sectors and activities based on PSC projectId"
+        "description": "GET\n\nGet sectors and activities based on projectId Area"
       },
       "parameters": [
         {
@@ -574,7 +602,41 @@
           "in": "path",
           "required": true
         }
-      ]
+      ],
+      "post": {
+        "summary": "POST project activity sector",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "./models/activity.v1.json"
+            },
+            "description": "Activity DTO\n -- activityId\n -- sectorId"
+          }
+        ],
+        "description": "POST \n\nFind projectId and update activity project based on JSON request DTO\n\nIF project updated with activity\n  return list of prouct variants associated to data stored in project:\n     - sector / activity",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "projectId": {
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized, invalid token or email",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        }
+      }
     },
     "/product-variants/project/{projectId}": {
       "get": {
@@ -610,9 +672,9 @@
         }
       ]
     },
-    "/v1.0/product-variant/activity/{activityId}": {
+    "/v1/product-variants/activity/{projectId}": {
       "get": {
-        "summary": "Get product variants based on PSC project activity",
+        "summary": "Get product variants based on projectId Activity",
         "tags": [],
         "responses": {
           "200": {
@@ -623,9 +685,16 @@
                 "$ref": "./models/productvariant.v1.json"
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized, invalid token or email",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
           }
         },
-        "description": "Get produc variants based on PSC project activity. Update activityId project.",
+        "description": "GET\n\nObtaing produc variants based based on projectId, sector activities.",
         "security": [
           {
             "API Key - 1": []
@@ -648,11 +717,59 @@
       "parameters": [
         {
           "type": "integer",
-          "name": "activityId",
+          "name": "projectId",
           "in": "path",
           "required": true
         }
-      ]
+      ],
+      "post": {
+        "summary": "POST product variant",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "./models/riskdata.v1.json"
+            }
+          },
+          "401": {
+            "description": "Unauthorized, invalid token or email",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "./models/productvariant.v1.json"
+              }
+            },
+            "description": "List of product variants selected"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept-Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "broker email"
+          }
+        ],
+        "description": "POST\n\nBased onp product variants selected , retrieve risk data questions\n",
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ]
+      }
     }
   },
   "definitions": {},
