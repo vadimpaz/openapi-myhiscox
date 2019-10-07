@@ -250,12 +250,12 @@
         "operationId": 3.2
       }
     },
-    "v1/business-area/{areaId}": {
+    "v1/business-areas/{areaId}": {
       "post": {
         "summary": "Business area to start new project quotation",
         "responses": {
-          "200": {
-            "description": "OK",
+          "201": {
+            "description": "Created new project",
             "schema": {
               "type": "object",
               "properties": {
@@ -276,7 +276,7 @@
             }
           }
         },
-        "description": "POST\n\nStart new quotation process with business area.\n  1 Read Area Id parameter.\n  2 For v.1 of this endpoint, areaId = 1 or 'PSC' (if string locate id in business area entity (1))\n  3.Create new Project entitiy and set:\n    3.1 business area to value 1 PSC\n    3.2 id_user based on broker email in header request objet\n    3.3 id_state to value 1 - Draft \n    3.4 id_screen to value 4 - Risk-data.\n    3.5 createdAt date to current day\n    3.6 Update API flag in project created\n    3.7 Return ProjectId created\n  3. Otherwise \n    3.1 Return error if not exist area\n    3.2 Return error by inserting project\n",
+        "description": "POST\n\nStart new quotation process with business area.\n  1 Read Area Id parameter.\n  2 For v.1 of this endpoint, areaId = 1 or 'PSC' (if string locate id in business area entity (1))\n  3.Create new Project entitiy and set:\n    3.1 business area to value 1 PSC\n    3.2 id_user based on broker email in header request objet\n    3.3 id_state to value key 1 of entity State - Draft \n    3.4 id_screen to value 4 - Risk-data.\n    3.5 createdAt date to current day\n    3.6 Update API flag in project created\n    3.7 Return ProjectId created\n  3. Otherwise \n    3.1 Return error if not exist area\n    3.2 Return error by inserting project\n",
         "parameters": [
           {
             "in": "body",
@@ -333,7 +333,7 @@
             }
           }
         },
-        "description": "GET\n\nRetieve business areas\n  1. If areaId not present return list of array for business areas DTO\n  2. If areaId is present retrieve array of items related to parameter business area",
+        "description": "GET\n\nRetieve business areas\n  1. If areaId parameter not present, return list of array for business areas DTO\n  2. If areaId parameter is present, retrieve in array the item DTO based on areaId",
         "security": [
           {
             "API Key - 1": []
