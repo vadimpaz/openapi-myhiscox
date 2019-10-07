@@ -243,7 +243,7 @@
             "description": ""
           }
         ],
-        "description": "POST\n\nStore question answers for risk data",
+        "description": "POST\n\nStore question answers for risk data project",
         "tags": [
           "risk-data"
         ],
@@ -642,7 +642,7 @@
         }
       }
     },
-    "/v1/product-variants/activity/{projectId}": {
+    "/v1/product-variants/{projectId}": {
       "get": {
         "summary": "Get product variants based on projectId Activity",
         "tags": [],
@@ -664,7 +664,7 @@
             }
           }
         },
-        "description": "GET\n\nObtaing produc variants based based on projectId, sector activities.",
+        "description": "GET\n\nFind project based on project Id parameter\nIf project exist \n Obtaing produc variants located en projectHasProductVariant entity and also\n also find broker email in new entity brokerageHasProductVariant https://hiscox.atlassian.net/browse/EUEQT-1729  ",
         "security": [
           {
             "API Key - 1": []
@@ -691,7 +691,53 @@
           "in": "path",
           "required": true
         }
-      ]
+      ],
+      "post": {
+        "summary": "",
+        "responses": {
+          "201": {
+            "description": "Created list of Project has Product Variants",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "projectId": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "./models/productvariant.v1.json"
+              }
+            },
+            "description": "List of product variant selected"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept-Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "broker email"
+          }
+        ],
+        "description": "POST\n\nFind project based in projectId parameter\nIf project exist\n  Insert list of product variants in ProjectHasProductVariant entity\nelse retunt project not exist error\n",
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ]
+      }
     }
   },
   "definitions": {},
