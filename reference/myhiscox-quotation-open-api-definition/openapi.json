@@ -597,7 +597,7 @@
             "required": true
           }
         ],
-        "description": "GET\n\nGet sectors and activities based on projectId Area"
+        "description": "GET\n\nGet sectors and activities based on Project.\n  Find project based on projectId parameter and determinated the activity\n  Based on activity set the Sector DTO properties and return this DTO"
       },
       "parameters": [
         {
@@ -616,10 +616,10 @@
             "schema": {
               "$ref": "./models/activity.v1.json"
             },
-            "description": "Activity DTO\n -- activityId\n -- sectorId"
+            "description": "Activity DTO\n -- activity\n -- sector"
           }
         ],
-        "description": "POST \n\nFind projectId and update activity project based on JSON request DTO\n\nIF project updated with activity\n  return list of prouct variants associated to data stored in project:\n     - sector / activity",
+        "description": "POST \n\nFind Project based on projectId parameter \nIf project exist \n Update activity project based on JSON request DTO\n Update proect updatedAt property\n Return project Id updated\nelse\n  return error project not exist ",
         "responses": {
           "200": {
             "description": "OK",
