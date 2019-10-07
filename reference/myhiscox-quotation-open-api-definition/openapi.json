@@ -159,7 +159,7 @@
             }
           }
         },
-        "description": "GET\n\nRetrieve disk-data based on list of product variantas, [also for existing project Id]",
+        "description": "GET\n\nFind project based on project Id parameter\nIf project exist \n Retrieve list of project has product variants\n for each product variant retrieve questions structure\nelse return project not exist error    \n\n",
         "security": [
           {
             "API Key - 1": []
@@ -243,7 +243,7 @@
             "description": ""
           }
         ],
-        "description": "POST\n\nStore question answers for risk data project",
+        "description": "POST\n\n\nFind Project based on projectId parameter \nIf project exist \n Store risk-data divided in question and answers in Json request object\n Return project Id updated\nelse\n  return error project not exist \n",
         "tags": [
           "risk-data"
         ],
@@ -664,7 +664,7 @@
             }
           }
         },
-        "description": "GET\n\nFind project based on project Id parameter\nIf project exist \n Obtaing produc variants located en projectHasProductVariant entity and also\n also find broker email in new entity brokerageHasProductVariant https://hiscox.atlassian.net/browse/EUEQT-1729  ",
+        "description": "GET\n\nFind project based on project Id parameter\nIf project exist \n Obtaing produc variants located en projectHasProductVariant entity and also\n also find broker email in new entity brokerageHasProductVariant \n  https://hiscox.atlassian.net/browse/EUEQT-1729\nelse return project not exist error    ",
         "security": [
           {
             "API Key - 1": []
@@ -731,7 +731,7 @@
             "description": "broker email"
           }
         ],
-        "description": "POST\n\nFind project based in projectId parameter\nIf project exist\n  Insert list of product variants in ProjectHasProductVariant entity\nelse retunt project not exist error\n",
+        "description": "POST\n\nFind project based in projectId parameter\nIf project exist\n  Insert list of product variants in ProjectHasProductVariant entity\n Return project Id updated\nelse\n  return error project not exist  \n",
         "security": [
           {
             "API Key - 1": []
