@@ -708,7 +708,7 @@
         }
       ],
       "post": {
-        "summary": "",
+        "summary": "Post project product variants",
         "responses": {
           "201": {
             "description": "Created list of Project has Product Variants",
@@ -746,7 +746,7 @@
             "description": "broker email"
           }
         ],
-        "description": "POST\n\nFind project based in projectId parameter\nIf project exist\n  if list of product variants exists in BrokerageProducVariants\n    Insert list of product variants in ProjectHasProductVariant entity\n Return project Id updated\nelse\n  return error project not exist  \n",
+        "description": "POST\n\nFind project based in projectId parameter\nIf project exist\n  if element list of product variants exists in ProductVagiantHasBrokerage\n    Insert list of product variants in ProjectHasProductVariant entity\n Return project Id updated\nelse\n  return error project not exist  \n",
         "security": [
           {
             "API Key - 1": []
