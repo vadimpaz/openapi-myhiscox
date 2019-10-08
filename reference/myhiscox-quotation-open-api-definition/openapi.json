@@ -699,12 +699,12 @@
         ]
       }
     },
-    "/v1/quotation": {
+    "/v1/quotation/psc": {
       "post": {
         "summary": "Unique endpoint consolidate quotation creation",
         "tags": [],
         "responses": {},
-        "description": "POST\n\nQuotation consolidation Endpoint\nIntegrate POST request in one endpoint to create quotation\n- POST /business-areas/\n- POST /sectors-activities/\n- POST /product-variants/\n- POST /risk-data            .... sprint 39\n\n\n",
+        "description": "POST\n\nQuotation consolidation Endpoint\nIntegrate POST request in one endpoint to create quotation\n- POST /business-areas/psc\n- POST /sectors-activities/\n- POST /product-variants/\n- POST /risk-data            .... sprint 39\n\n\n",
         "security": [
           {
             "API Key - 1": []
@@ -730,9 +730,10 @@
             }
           }
         ]
-      }
+      },
+      "parameters": []
     },
-    "/v1/business-areas/{areaId}": {
+    "/v1/business-areas": {
       "get": {
         "summary": "Get Business Areas",
         "tags": [],
@@ -747,7 +748,7 @@
             }
           }
         },
-        "description": "GET\n\nRetieve business areas\n  1. If areaId parameter not present, return list of array for business areas DTO\n  2. If areaId parameter is present, retrieve in array the item DTO based on areaId",
+        "description": "GET\n\nRetieve business areas\n  1. Return list of array for business areas DTO\n",
         "security": [
           {
             "API Key - 1": []
@@ -767,14 +768,7 @@
           }
         ]
       },
-      "parameters": [
-        {
-          "type": "integer",
-          "name": "areaId",
-          "in": "path",
-          "required": true
-        }
-      ]
+      "parameters": []
     }
   },
   "definitions": {},
