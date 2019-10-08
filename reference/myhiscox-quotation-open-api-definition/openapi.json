@@ -250,7 +250,7 @@
         "operationId": 3.2
       }
     },
-    "v1/business-areas/{areaId}": {
+    "v1/business-areas/psc": {
       "post": {
         "summary": "Business area to start new project quotation",
         "responses": {
@@ -276,16 +276,8 @@
             }
           }
         },
-        "description": "POST\n\nStart new quotation process with business area.\n  1 Read Area Id parameter.\n  2 For v.1 of this endpoint, areaId = 1 or 'PSC' (if string locate id in business area entity (1))\n  3.Create new Project entitiy and set:\n    3.1 business area to value 1 PSC\n    3.2 id_user based on broker email in header request objet\n    3.3 id_state to value key 1 of entity State - Draft \n    3.4 id_screen to value 4 - Risk-data.\n    3.5 createdAt date to current day\n    3.6 Update API flag in project created\n    3.7 Return ProjectId created\n  3. Otherwise \n    3.1 Return error if not exist area\n    3.2 Return error by inserting project\n",
+        "description": "POST\n\nStart new quotation process with business area PSC.\n  1 For v.1 of this endpoint, area will be 'PSC' (if string locate id in business area entity (1))\n  2.Create new Project entitiy and set:\n    2.1 business area to value 1 PSC\n    2.2 id_user based on broker email in header request objet\n    2.3 id_state to value key 1 of entity State - Draft \n    2.4 id_screen to value 4 - Risk-data.\n    2.5 createdAt date to current day\n    2.6 Update API flag in project created\n    2.7 Return ProjectId created\n\n",
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "./models/area.v1.json"
-            },
-            "description": "Area Object in request body. PSC or APC (future)"
-          },
           {
             "type": "string",
             "in": "header",
@@ -305,54 +297,7 @@
         ],
         "operationId": 1
       },
-      "parameters": [
-        {
-          "type": "integer",
-          "name": "areaId",
-          "in": "path",
-          "required": true
-        }
-      ],
-      "get": {
-        "summary": "Get Business Areas",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "./models/area.v1.json"
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized, invalid token or email",
-            "schema": {
-              "type": "object",
-              "properties": {}
-            }
-          }
-        },
-        "description": "GET\n\nRetieve business areas\n  1. If areaId parameter not present, return list of array for business areas DTO\n  2. If areaId parameter is present, retrieve in array the item DTO based on areaId",
-        "security": [
-          {
-            "API Key - 1": []
-          }
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "in": "header",
-            "name": "Accept-Language"
-          },
-          {
-            "type": "string",
-            "in": "header",
-            "name": "email",
-            "description": "broker email"
-          }
-        ]
-      }
+      "parameters": []
     },
     "/policy-summary/{projectId}": {
       "get": {
@@ -786,6 +731,50 @@
           }
         ]
       }
+    },
+    "/v1/business-areas/{areaId}": {
+      "get": {
+        "summary": "Get Business Areas",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "./models/area.v1.json"
+              }
+            }
+          }
+        },
+        "description": "GET\n\nRetieve business areas\n  1. If areaId parameter not present, return list of array for business areas DTO\n  2. If areaId parameter is present, retrieve in array the item DTO based on areaId",
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept-Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "broker email"
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "type": "integer",
+          "name": "areaId",
+          "in": "path",
+          "required": true
+        }
+      ]
     }
   },
   "definitions": {},
