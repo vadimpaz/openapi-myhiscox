@@ -603,7 +603,7 @@
         }
       }
     },
-    "/v1/product-variants/{projectId}": {
+    "/v1/product-variants": {
       "get": {
         "summary": "Get product variants based on projectId Activity",
         "tags": [],
@@ -625,7 +625,7 @@
             }
           }
         },
-        "description": "GET\n\nFind project based on project Id parameter\nIf project exist \n Obtaing produc variants located en projectHasProductVariant entity and also\n also find broker email in new entity BrokerageHasProductVariant \n  https://hiscox.atlassian.net/browse/EUEQT-1729\nelse return project not exist error    ",
+        "description": "GET\n\nFind Project based on project JSON request Body parameter\nIf project exist \n Obtaing produc variants located en projectHasProductVariant entity and also\n also find broker email in new entity BrokerageHasProductVariant \n  https://hiscox.atlassian.net/browse/EUEQT-1729\nelse return project not exist error    ",
         "security": [
           {
             "API Key - 1": []
@@ -642,17 +642,22 @@
             "in": "header",
             "name": "email",
             "description": "broker email"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "projectId": {
+                  "type": "integer"
+                }
+              }
+            }
           }
         ]
       },
-      "parameters": [
-        {
-          "type": "integer",
-          "name": "projectId",
-          "in": "path",
-          "required": true
-        }
-      ],
+      "parameters": [],
       "post": {
         "summary": "Post project product variants",
         "responses": {
@@ -673,9 +678,20 @@
             "in": "body",
             "name": "body",
             "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "./models/productvariant.v1.json"
+              "type": "object",
+              "properties": {
+                "projectId": {
+                  "type": "integer"
+                },
+                "productVariants": {
+                  "type": [
+                    "string",
+                    "array"
+                  ],
+                  "items": {
+                    "$ref": "./models/productvariant.v1.json"
+                  }
+                }
               }
             },
             "description": "List of product variant selected"
