@@ -19,7 +19,7 @@
     "application/json"
   ],
   "paths": {
-    "/cover-data/{projectId}": {
+    "/cover-data": {
       "get": {
         "summary": "Get cover-data based on projectId por product-variants",
         "tags": [
@@ -70,15 +70,7 @@
         "description": "Getting cover data based on risk data info",
         "operationId": 4.1
       },
-      "parameters": [
-        {
-          "type": "integer",
-          "name": "projectId",
-          "in": "path",
-          "required": true,
-          "description": "retrieve cover data based on projectId"
-        }
-      ],
+      "parameters": [],
       "post": {
         "summary": "",
         "responses": {
@@ -138,7 +130,7 @@
         "operationId": 4.2
       }
     },
-    "/v1/risk-data/{projectId}": {
+    "/v1/risk-data": {
       "get": {
         "summary": "Get risk-data based on projectId or product-variants",
         "tags": [
@@ -159,7 +151,7 @@
             }
           }
         },
-        "description": "GET\n\nFind project based on project Id parameter\nIf project exist \n Retrieve list of project has product variants\n for each product variant retrieve questions structure\nelse return project not exist error    \n\n",
+        "description": "GET\n\nFind Project based on project JSON request Body parameter\nIf project exist \n Retrieve list of project has product variants\n for each product variant retrieve questions structure\nelse return project not exist error    \n\n",
         "security": [
           {
             "API Key - 1": []
@@ -185,15 +177,7 @@
         ],
         "operationId": 3.1
       },
-      "parameters": [
-        {
-          "type": "integer",
-          "name": "projectId",
-          "in": "path",
-          "required": true,
-          "description": "retrieve risk-data based on productId"
-        }
-      ],
+      "parameters": [],
       "post": {
         "summary": "",
         "responses": {
@@ -243,7 +227,7 @@
             "description": ""
           }
         ],
-        "description": "POST\n\n\nFind Project based on projectId parameter \nIf project exist \n Store risk-data divided in question and answers in Json request object\n Return project Id updated\nelse\n  return error project not exist \n",
+        "description": "POST\n\n\nFind Project based on project JSON request Body parameter\nIf project exist \n Store risk-data divided in question and answers in Json request object\n Return project Id updated\nelse\n  return error project not exist \n",
         "tags": [
           "risk-data"
         ],
@@ -299,7 +283,7 @@
       },
       "parameters": []
     },
-    "/policy-summary/{projectId}": {
+    "/policy-summary": {
       "get": {
         "summary": "Get policy summary information",
         "responses": {
@@ -383,16 +367,9 @@
         "description": "POST\n\nPost Policy Summary Info",
         "operationId": 5.2
       },
-      "parameters": [
-        {
-          "type": "integer",
-          "name": "projectId",
-          "in": "path",
-          "required": true
-        }
-      ]
+      "parameters": []
     },
-    "/customer-info/{projectId}": {
+    "/customer-info": {
       "get": {
         "summary": "Get customer and policy holder info",
         "tags": [],
@@ -450,16 +427,9 @@
         ],
         "description": "POST\n\npost policy holder info"
       },
-      "parameters": [
-        {
-          "type": "integer",
-          "name": "projectId",
-          "in": "path",
-          "required": true
-        }
-      ]
+      "parameters": []
     },
-    "/document/{type}/{projectId}": {
+    "/document/{type}": {
       "get": {
         "summary": "Get budget/quote/particular condition pdf",
         "tags": [],
@@ -479,7 +449,7 @@
             }
           }
         },
-        "description": "Getting budget PDF based on projectId created in server ",
+        "description": "Getting budget PDF based on project JSON request Body parameter created in server ",
         "security": [
           {
             "API Key - 1": []
@@ -505,12 +475,6 @@
           "name": "type",
           "in": "path",
           "description": "document type",
-          "required": true
-        },
-        {
-          "type": "integer",
-          "name": "projectId",
-          "in": "path",
           "required": true
         }
       ]
