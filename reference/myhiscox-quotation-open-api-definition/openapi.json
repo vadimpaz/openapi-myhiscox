@@ -515,7 +515,7 @@
         }
       ]
     },
-    "/v1/sectors-activities/{projectId}": {
+    "/v1/sectors-activities": {
       "get": {
         "summary": "Get project sectors and activities",
         "tags": [],
@@ -557,16 +557,9 @@
             "required": true
           }
         ],
-        "description": "GET\n\nGet sectors and activities based on Project.\n  Find project based on projectId parameter and determinated the activity\n  Based on activity set the Sector DTO properties and return this DTO"
+        "description": "GET\n\nGet sectors and activities\n  Return list of Sector DTOs and inside each element list of activities DTO"
       },
-      "parameters": [
-        {
-          "type": "integer",
-          "name": "projectId",
-          "in": "path",
-          "required": true
-        }
-      ],
+      "parameters": [],
       "post": {
         "summary": "POST project activity sector",
         "parameters": [
@@ -574,12 +567,20 @@
             "in": "body",
             "name": "body",
             "schema": {
-              "$ref": "./models/activity.v1.json"
+              "type": "object",
+              "properties": {
+                "projectId": {
+                  "type": "integer"
+                },
+                "activity": {
+                  "$ref": "./models/activity.v1.json"
+                }
+              }
             },
             "description": "Activity DTO\n -- activity\n -- sector"
           }
         ],
-        "description": "POST \n\nFind Project based on projectId parameter \nIf project exist \n Update activity project based on JSON request DTO\n Update proect updatedAt property\n Return project Id updated\nelse\n  return error project not exist ",
+        "description": "POST \n\nFind Project based on project JSON request Body parameter \nIf project exist \n Update activity project based on JSON request DTO\n Update proect updatedAt property\n Return project Id updated\nelse\n  return error project not exist ",
         "responses": {
           "200": {
             "description": "OK",
