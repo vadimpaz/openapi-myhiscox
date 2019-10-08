@@ -514,7 +514,7 @@
         }
       ]
     },
-    "/budget-document": {
+    "/doc-budget/{projectId}": {
       "get": {
         "summary": "Get budget pdf",
         "tags": [],
@@ -534,7 +534,7 @@
             }
           }
         },
-        "description": "Getting budget PDF created in server ",
+        "description": "Getting budget PDF based on projectId created in server ",
         "security": [
           {
             "API Key - 1": []
@@ -553,7 +553,15 @@
             "description": ""
           }
         ]
-      }
+      },
+      "parameters": [
+        {
+          "type": "integer",
+          "name": "projectId",
+          "in": "path",
+          "required": true
+        }
+      ]
     },
     "/v1/sectors-activities/{projectId}": {
       "get": {
@@ -664,7 +672,7 @@
             }
           }
         },
-        "description": "GET\n\nFind project based on project Id parameter\nIf project exist \n Obtaing produc variants located en projectHasProductVariant entity and also\n also find broker email in new entity brokerageHasProductVariant \n  https://hiscox.atlassian.net/browse/EUEQT-1729\nelse return project not exist error    ",
+        "description": "GET\n\nFind project based on project Id parameter\nIf project exist \n Obtaing produc variants located en projectHasProductVariant entity and also\n also find broker email in new entity BrokerageHasProductVariant \n  https://hiscox.atlassian.net/browse/EUEQT-1729\nelse return project not exist error    ",
         "security": [
           {
             "API Key - 1": []
@@ -738,6 +746,24 @@
           }
         ]
       }
+    },
+    "/doc-quote/{projectId}": {
+      "get": {
+        "summary": "Get quote pdf",
+        "tags": [
+          "document"
+        ],
+        "responses": {},
+        "description": "Getting quote PDF based on projectId created in server "
+      },
+      "parameters": [
+        {
+          "type": "integer",
+          "name": "projectId",
+          "in": "path",
+          "required": true
+        }
+      ]
     }
   },
   "definitions": {},
