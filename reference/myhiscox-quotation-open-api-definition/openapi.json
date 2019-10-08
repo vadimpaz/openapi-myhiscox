@@ -173,6 +173,18 @@
             "type": "array",
             "in": "query",
             "name": "product-variants"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "projectId": {
+                  "type": "integer"
+                }
+              }
+            }
           }
         ],
         "operationId": 3.1
@@ -222,7 +234,15 @@
             "in": "body",
             "name": "body",
             "schema": {
-              "$ref": "./models/riskdata.v1.json"
+              "type": "object",
+              "properties": {
+                "projectId": {
+                  "type": "integer"
+                },
+                "riskData": {
+                  "$ref": "./models/riskdata.v1.json"
+                }
+              }
             },
             "description": ""
           }
