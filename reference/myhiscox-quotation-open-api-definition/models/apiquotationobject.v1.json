@@ -1,0 +1,31 @@
+{
+  "title": "APIQuotationObject",
+  "type": "object",
+  "description": "",
+  "properties": {
+    "area": {
+      "$ref": "./area.v1.json"
+    },
+    "activity": {
+      "$ref": "./activity.v1.json"
+    },
+    "productVariants": {
+      "type": "array",
+      "items": {
+        "$ref": "./productvariant.v1.json"
+      }
+    },
+    "riskData": {
+      "type": "string"
+    },
+    "coverData": {
+      "type": "string"
+    },
+    "customerInfo": {
+      "type": "string"
+    },
+    "": {
+      "type": "string"
+    }
+  }
+}

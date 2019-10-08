@@ -514,9 +514,9 @@
         }
       ]
     },
-    "/doc-budget/{projectId}": {
+    "/document/{type}/{projectId}": {
       "get": {
-        "summary": "Get budget pdf",
+        "summary": "Get budget/quote/particular condition pdf",
         "tags": [],
         "responses": {
           "200": {
@@ -555,6 +555,13 @@
         ]
       },
       "parameters": [
+        {
+          "type": "string",
+          "name": "type",
+          "in": "path",
+          "description": "document type",
+          "required": true
+        },
         {
           "type": "integer",
           "name": "projectId",
@@ -739,7 +746,7 @@
             "description": "broker email"
           }
         ],
-        "description": "POST\n\nFind project based in projectId parameter\nIf project exist\n  Insert list of product variants in ProjectHasProductVariant entity\n Return project Id updated\nelse\n  return error project not exist  \n",
+        "description": "POST\n\nFind project based in projectId parameter\nIf project exist\n  if list of product variants exists in BrokerageProducVariants\n    Insert list of product variants in ProjectHasProductVariant entity\n Return project Id updated\nelse\n  return error project not exist  \n",
         "security": [
           {
             "API Key - 1": []
@@ -747,23 +754,38 @@
         ]
       }
     },
-    "/doc-quote/{projectId}": {
-      "get": {
-        "summary": "Get quote pdf",
-        "tags": [
-          "document"
-        ],
+    "/v1/quotation": {
+      "post": {
+        "summary": "Unique endpoint consolidate quotation creation",
+        "tags": [],
         "responses": {},
-        "description": "Getting quote PDF based on projectId created in server "
-      },
-      "parameters": [
-        {
-          "type": "integer",
-          "name": "projectId",
-          "in": "path",
-          "required": true
-        }
-      ]
+        "description": "POST\n\nQuotation consolidation Endpoint\nIntegrate POST request in one endpoint to create quotation\n- POST /business-areas/\n- POST /sectors-activities/\n- POST /product-variants/\n- POST /risk-data            .... sprint 39\n\n\n",
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept-Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "broker email"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "./models/apiquotationobject.v1.json"
+            }
+          }
+        ]
+      }
     }
   },
   "definitions": {},
