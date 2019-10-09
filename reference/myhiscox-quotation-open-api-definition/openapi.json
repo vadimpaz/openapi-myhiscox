@@ -52,19 +52,9 @@
             "required": true
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "./models/productvariant.v1.json"
-              }
-            }
-          },
-          {
-            "type": "string",
+            "type": "array",
             "in": "query",
-            "name": "product.variants",
+            "name": "product-variants",
             "required": true
           }
         ],
@@ -116,53 +106,6 @@
       }
     },
     "/v1/risk-data": {
-      "get": {
-        "summary": "Get risk-data based product-variants",
-        "tags": [
-          "risk-data"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "./models/riskdata.v1.json"
-            }
-          },
-          "401": {
-            "description": "Unauthorized, invalid token or email",
-            "schema": {
-              "type": "object",
-              "properties": {}
-            }
-          }
-        },
-        "description": "GET\n\nGetting list of product variants in query parameter\n Validate product variants exists\n for each product variant retrieve questions structure\n   \n\n",
-        "security": [
-          {
-            "API Key - 1": []
-          }
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "in": "header",
-            "name": "Accept Language"
-          },
-          {
-            "type": "string",
-            "in": "header",
-            "name": "email",
-            "required": true
-          },
-          {
-            "type": "array",
-            "in": "query",
-            "name": "product-variants",
-            "required": true
-          }
-        ],
-        "operationId": 3.1
-      },
       "parameters": [],
       "post": {
         "summary": "Create risk-data questions and answers",
@@ -273,47 +216,6 @@
       "parameters": []
     },
     "/policy-summary": {
-      "get": {
-        "summary": "Get policy summary information",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "./models/policysummary.v1.json"
-            }
-          }
-        },
-        "security": [
-          {
-            "API Key - 1": []
-          }
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "in": "header",
-            "name": "Accept language"
-          },
-          {
-            "type": "string",
-            "in": "header",
-            "name": "email",
-            "description": "broker email",
-            "required": true
-          },
-          {
-            "type": "string",
-            "in": "query",
-            "name": "projectId",
-            "required": true
-          }
-        ],
-        "tags": [
-          "policy-summary"
-        ],
-        "description": "GET\n\nGet Policy Summary Info",
-        "operationId": 5.1
-      },
       "post": {
         "summary": "",
         "responses": {
@@ -813,6 +715,29 @@
           }
         ]
       }
+    },
+    "/policy-summary/project/{projectId}": {
+      "get": {
+        "summary": "Get Policy Summary Info",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "./models/policysummary.v1.json"
+            }
+          }
+        },
+        "description": "GET\n\nGet Policy Summary Info"
+      },
+      "parameters": [
+        {
+          "type": "integer",
+          "name": "projectId",
+          "in": "path",
+          "required": true
+        }
+      ]
     }
   },
   "definitions": {},
