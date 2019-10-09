@@ -280,7 +280,7 @@
             }
           }
         },
-        "description": "POST\n\nStart new quotation process with business area PSC.\n  1 For v.1 of this endpoint, area will be 'PSC' (if string locate id in business area entity (1))\n  2.Create new Project entitiy and set:\n    2.1 business area to value 1 PSC\n    2.2 id_user based on broker email in header request objet\n    2.3 id_state to value entity State - Draft (1) \n    2.4 id_screen to value entoty Screen - Activities (1) .\n    2.5 createdAt date to current day\n    2.6 id_souce to value entity Source - with slug api\n    2.7 Return ProjectId created\n\n",
+        "description": "POST\n\nStart new quotation process with business area PSC.\n  1 For v.1 of this endpoint, area will be 'PSC' (if string locate id in business area entity (1))\n  2.Create new Project entitiy and set:\n    2.1 business area to value 1 PSC\n    2.2 id_user based on broker email in header request objet\n    2.3 id_state to value entity State - Draft (1) \n    2.4 id_screen to value entoty Screen - Activities (1) .\n    2.5 createdAt date to current day\n    2.6 id_souce to value entity Source - with slug 'api'\n    2.7 Return ProjectId created\n\n",
         "parameters": [
           {
             "type": "string",
@@ -564,7 +564,7 @@
             "description": "Activity DTO\n -- activity\n -- sector"
           }
         ],
-        "description": "POST \n\nFind Project based on project JSON request Body parameter \nIf project exist \n Update activity project based on JSON request DTO\n Update proect updatedAt property\n Return project Id updated\nelse\n  return error project not exist ",
+        "description": "POST \n\nFind Project based on project JSON request Body parameter DTO\nIf project exist \n Update activity in Project based on activity JSON request Body parameter DTO\n Update project updatedAt property\n Return project Id updated\nelse\n  return error project not exist ",
         "responses": {
           "200": {
             "description": "OK",
@@ -609,7 +609,7 @@
             }
           }
         },
-        "description": "GET\n\nFind Project based on project JSON request Body parameter\nIf project exist \n Obtaing produc variants located en projectHasProductVariant entity and also\n also find broker email in new entity BrokerageHasProductVariant \n  https://hiscox.atlassian.net/browse/EUEQT-1729\nelse return project not exist error    ",
+        "description": "GET\n\nFind Project based on project JSON request Body parameter\nIf project exist \n Obtaing produc variants located in projectHasProductVariant entity and also\n in entity BrokerageHasProductVariant based on broker email\n \n  ",
         "security": [
           {
             "API Key - 1": []
@@ -692,7 +692,7 @@
             "description": "broker email"
           }
         ],
-        "description": "POST\n\nFind project based in projectId parameter\nIf project exist\n  if element list of product variants exists in ProductVagiantHasBrokerage\n    Insert list of product variants in ProjectHasProductVariant entity\n Return project Id updated\nelse\n  return error project not exist  \n",
+        "description": "POST\n\nFind Project based on project JSON request Body parameter DTO\nIf project exist\n  foreach element in list of product variants --> exists in BrokerageHasProductVariant\n    Insert element in ProjectHasProductVariant entity\n  Return project Id updated\n\n",
         "security": [
           {
             "API Key - 1": []
