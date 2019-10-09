@@ -64,28 +64,21 @@
           {
             "type": "string",
             "in": "query",
-            "name": "product.variants"
+            "name": "product.variants",
+            "required": true
           }
         ],
-        "description": "Getting cover data based on risk data info",
+        "description": "Getting cover data based on risk data info based on product variants list",
         "operationId": 4.1
       },
       "parameters": [],
       "post": {
         "summary": "",
         "responses": {
-          "200": {
-            "description": "OK",
+          "201": {
+            "description": "Created",
             "schema": {
-              "type": "object",
-              "properties": {
-                "projectId": {
-                  "type": "integer"
-                },
-                "status": {
-                  "type": "string"
-                }
-              }
+              "type": "object"
             }
           }
         },
@@ -112,15 +105,7 @@
             "in": "body",
             "name": "body",
             "schema": {
-              "type": "object",
-              "properties": {
-                "projectId": {
-                  "type": "integer"
-                },
-                "coverData": {
-                  "$ref": "./models/coverdata.v1.json"
-                }
-              }
+              "$ref": "./models/coverdata.v1.json"
             }
           }
         ],
@@ -132,7 +117,7 @@
     },
     "/v1/risk-data": {
       "get": {
-        "summary": "Get risk-data based on projectId or product-variants",
+        "summary": "Get risk-data based product-variants",
         "tags": [
           "risk-data"
         ],
@@ -151,7 +136,7 @@
             }
           }
         },
-        "description": "GET\n\nFind Project based on project JSON request Body parameter\nIf project exist \n Retrieve list of project has product variants\n for each product variant retrieve questions structure\nelse return project not exist error    \n\n",
+        "description": "GET\n\nGetting list of product variants in query parameter\n Validate product variants exists\n for each product variant retrieve questions structure\n   \n\n",
         "security": [
           {
             "API Key - 1": []
@@ -172,36 +157,20 @@
           {
             "type": "array",
             "in": "query",
-            "name": "product-variants"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "projectId": {
-                  "type": "integer"
-                }
-              }
-            }
+            "name": "product-variants",
+            "required": true
           }
         ],
         "operationId": 3.1
       },
       "parameters": [],
       "post": {
-        "summary": "",
+        "summary": "Create risk-data questions and answers",
         "responses": {
-          "200": {
-            "description": "OK",
+          "201": {
+            "description": "Created",
             "schema": {
-              "type": "object",
-              "properties": {
-                "projectId": {
-                  "type": "integer"
-                }
-              }
+              "type": "object"
             }
           },
           "401": {
@@ -331,6 +300,12 @@
             "name": "email",
             "description": "broker email",
             "required": true
+          },
+          {
+            "type": "string",
+            "in": "query",
+            "name": "projectId",
+            "required": true
           }
         ],
         "tags": [
@@ -345,12 +320,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "type": "object",
-              "properties": {
-                "projectId": {
-                  "type": "integer"
-                }
-              }
+              "type": "object"
             }
           }
         },
@@ -416,23 +386,25 @@
             "type": "string",
             "in": "header",
             "name": "email",
-            "description": "broker"
+            "description": "broker",
+            "required": true
+          },
+          {
+            "type": "integer",
+            "in": "query",
+            "name": "projectId",
+            "required": true
           }
         ],
-        "description": "GET\n\nget policy holder info"
+        "description": "GET\n\nget policy holder info based in project Id"
       },
       "post": {
         "summary": "",
         "responses": {
-          "200": {
-            "description": "OK",
+          "201": {
+            "description": "Created",
             "schema": {
-              "type": "object",
-              "properties": {
-                "projectId": {
-                  "type": "integer"
-                }
-              }
+              "type": "object"
             }
           }
         },
@@ -443,9 +415,26 @@
             "schema": {
               "$ref": "./models/customerdata.v1.json"
             }
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept-Languge"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "broker email",
+            "required": true
           }
         ],
-        "description": "POST\n\npost policy holder info"
+        "description": "POST\n\npost policy holder info",
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ]
       },
       "parameters": []
     },
@@ -569,12 +558,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "type": "object",
-              "properties": {
-                "projectId": {
-                  "type": "integer"
-                }
-              }
+              "type": "object"
             }
           },
           "401": {
@@ -609,7 +593,7 @@
             }
           }
         },
-        "description": "GET\n\nFind Project based on project JSON request Body parameter\nIf project exist \n Obtaing produc variants located in projectHasProductVariant entity and also\n in entity BrokerageHasProductVariant based on broker email\n \n  ",
+        "description": "GET\n\nFind Project based on projectid query parameter\nIf project exist \n Obtaing produc variants located in projectHasProductVariant entity and also\n in entity BrokerageHasProductVariant based on broker email\n \n  ",
         "security": [
           {
             "API Key - 1": []
@@ -628,16 +612,9 @@
             "description": "broker email"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "projectId": {
-                  "type": "integer"
-                }
-              }
-            }
+            "type": "string",
+            "in": "query",
+            "name": "projectId"
           }
         ]
       },
@@ -648,13 +625,10 @@
           "201": {
             "description": "Created list of Project has Product Variants",
             "schema": {
-              "type": "object",
-              "properties": {
-                "projectId": {
-                  "type": "integer"
-                }
-              }
-            }
+              "type": "object"
+            },
+            "headers": {},
+            "examples": {}
           }
         },
         "parameters": [
@@ -704,7 +678,23 @@
       "post": {
         "summary": "Unique endpoint consolidate quotation creation",
         "tags": [],
-        "responses": {},
+        "responses": {
+          "201": {
+            "description": "Created quotation",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            },
+            "headers": {}
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
         "description": "POST\n\nQuotation consolidation Endpoint\nIntegrate POST request in one endpoint to create quotation\n- POST /business-areas/psc\n- POST /sectors-activities/\n- POST /product-variants/\n- POST /risk-data            .... sprint 39\n\n\n",
         "security": [
           {
@@ -770,6 +760,46 @@
         ]
       },
       "parameters": []
+    },
+    "/v1/quotation": {
+      "get": {
+        "summary": "Get quotation consolidate information",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "./models/apiquotationobject.v1.json"
+            }
+          }
+        },
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept-Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "broker email"
+          },
+          {
+            "type": "integer",
+            "in": "query",
+            "name": "projectId",
+            "description": "",
+            "required": true
+          }
+        ],
+        "description": "GET\n\nGet quote consolidate information based on project Id"
+      }
     }
   },
   "definitions": {},

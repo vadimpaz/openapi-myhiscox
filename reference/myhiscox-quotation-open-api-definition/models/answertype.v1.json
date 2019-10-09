@@ -1,14 +1,11 @@
 {
-  "title": "Answer",
+  "title": "AnswerType",
   "type": "object",
   "properties": {
     "id": {
       "type": "integer"
     },
-    "answerType": {
-      "$ref": "./answertype.v1.json"
-    },
-    "value": {
+    "": {
       "type": "string"
     }
   }

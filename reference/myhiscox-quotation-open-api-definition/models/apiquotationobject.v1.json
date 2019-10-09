@@ -16,16 +16,13 @@
       }
     },
     "riskData": {
-      "type": "string"
+      "$ref": "./riskdata.v1.json"
     },
     "coverData": {
-      "type": "string"
+      "$ref": "./coverdata.v1.json"
     },
     "customerInfo": {
-      "type": "string"
-    },
-    "": {
-      "type": "string"
+      "$ref": "./customerdata.v1.json"
     }
   }
 }
