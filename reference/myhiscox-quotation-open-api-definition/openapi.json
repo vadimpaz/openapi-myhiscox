@@ -19,7 +19,7 @@
     "application/json"
   ],
   "paths": {
-    "/cover-data": {
+    "/v1/quotation/project/´{projectId}/cover-data": {
       "get": {
         "summary": "Get cover-data based on projectId por product-variants",
         "tags": [
@@ -61,7 +61,14 @@
         "description": "Getting cover data based on risk data info based on product variants list",
         "operationId": 4.1
       },
-      "parameters": [],
+      "parameters": [
+        {
+          "type": "string",
+          "name": "projectId",
+          "in": "path",
+          "required": true
+        }
+      ],
       "post": {
         "summary": "",
         "responses": {
@@ -105,8 +112,15 @@
         "operationId": 4.2
       }
     },
-    "/v1/risk-data": {
-      "parameters": [],
+    "/v1/quotation/project/{projectId}/risk-data/": {
+      "parameters": [
+        {
+          "type": "string",
+          "name": "projectId",
+          "in": "path",
+          "required": true
+        }
+      ],
       "post": {
         "summary": "Create risk-data questions and answers",
         "responses": {
@@ -146,29 +160,51 @@
             "in": "body",
             "name": "body",
             "schema": {
-              "type": "object",
-              "properties": {
-                "projectId": {
-                  "type": "integer"
-                },
-                "riskData": {
-                  "$ref": "./models/riskdata.v1.json"
-                }
-              }
+              "$ref": "./models/riskdata.v1.json"
             },
             "description": ""
           }
         ],
-        "description": "POST\n\n\nFind Project based on project JSON request Body parameter\nIf project exist \n Store risk-data divided in question and answers in Json request object\n Return project Id updated\nelse\n  return error project not exist \n",
+        "description": "POST\n\nFind Project based on project JSON request Body parameter\nIf project exist \n Store risk-data divided in question and answers in Json request object\n Return project Id updated\nelse\n  return error project not exist \n",
         "tags": [
           "risk-data"
         ],
         "operationId": 3.2
+      },
+      "get": {
+        "summary": "Getting project risk-data",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "./models/riskdata.v1.json"
+            }
+          }
+        },
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept-Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "broker email"
+          }
+        ],
+        "description": "GET\n\nObtaining risk data based on project Id path parameter"
       }
     },
-    "/policy-summary": {
+    "/v1/quotation/project/{projectId}/policy-summary": {
       "post": {
-        "summary": "",
+        "summary": "Store policy summary information",
         "responses": {
           "200": {
             "description": "OK",
@@ -210,9 +246,28 @@
         "description": "POST\n\nPost Policy Summary Info",
         "operationId": 5.2
       },
-      "parameters": []
+      "parameters": [
+        {
+          "type": "string",
+          "name": "projectId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Obtaining policy summary information",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "./models/policysummary.v1.json"
+            }
+          }
+        },
+        "description": "Get Policy Summary Info"
+      }
     },
-    "/customer-info": {
+    "/v1/quotation/project/{projectId}/customer-info": {
       "get": {
         "summary": "Get customer and policy holder info",
         "tags": [],
@@ -249,7 +304,7 @@
             "required": true
           }
         ],
-        "description": "GET\n\nget policy holder info based in project Id"
+        "description": "GET\n\nget policy holder info based on project Id"
       },
       "post": {
         "summary": "",
@@ -289,9 +344,16 @@
           }
         ]
       },
-      "parameters": []
+      "parameters": [
+        {
+          "type": "integer",
+          "name": "projectId",
+          "in": "path",
+          "required": true
+        }
+      ]
     },
-    "/document/{type}": {
+    "/v1/quotation/project/projectId/document/{type}": {
       "get": {
         "summary": "Get budget/quote/particular condition pdf",
         "tags": [],
@@ -357,7 +419,7 @@
         }
       ],
       "put": {
-        "summary": "",
+        "summary": "Update activity per project",
         "responses": {
           "200": {
             "description": "OK"
@@ -384,67 +446,6 @@
           }
         ]
       }
-    },
-    "/v1/quotation/project/{projectId}/product-variants/{product-variantId}": {
-      "get": {
-        "summary": "Get product variants based on projectId",
-        "tags": [],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "./models/productvariant.v1.json"
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized, invalid token or email",
-            "schema": {
-              "type": "object",
-              "properties": {}
-            }
-          }
-        },
-        "description": "GET\n\nFind Project based on projectid query parameter\nIf project exist \n Obtaing produc variants located in projectHasProductVariant entity and also\n in entity BrokerageHasProductVariant based on broker email\n \n  ",
-        "security": [
-          {
-            "API Key - 1": []
-          }
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "in": "header",
-            "name": "Accept-Language"
-          },
-          {
-            "type": "string",
-            "in": "header",
-            "name": "email",
-            "description": "broker email"
-          },
-          {
-            "type": "string",
-            "in": "query",
-            "name": "projectId"
-          }
-        ]
-      },
-      "parameters": [
-        {
-          "type": "integer",
-          "name": "projectId",
-          "in": "path",
-          "required": true
-        },
-        {
-          "type": "string",
-          "name": "product-variantId",
-          "in": "path"
-        }
-      ]
     },
     "/v1/quotation/business-area/psc": {
       "post": {
@@ -585,36 +586,39 @@
           "in": "path",
           "required": true
         }
-      ]
-    },
-    "/policy-summary/project/{projectId}": {
+      ],
       "get": {
-        "summary": "Get Policy Summary Info",
-        "tags": [],
+        "summary": "Get project product variants",
         "responses": {
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "./models/policysummary.v1.json"
+              "type": "array",
+              "items": {
+                "$ref": "./models/productvariant.v1.json"
+              }
             }
           }
         },
-        "description": "GET\n\nGet Policy Summary Info"
-      },
-      "parameters": [
-        {
-          "type": "integer",
-          "name": "projectId",
-          "in": "path",
-          "required": true
-        }
-      ]
-    },
-    "/customer-info/project": {
-      "get": {
-        "summary": "Get Policy Summary Info",
-        "tags": [],
-        "responses": {}
+        "description": "GET\n\nFind Project based on projectid query parameter\nIf project exist \n Obtaing produc variants located in projectHasProductVariant entity and also\n in entity BrokerageHasProductVariant based on broker email",
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept-Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "broker email"
+          }
+        ]
       }
     },
     "/v1/quotation/project/{projectId}": {
