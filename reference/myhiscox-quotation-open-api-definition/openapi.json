@@ -533,9 +533,32 @@
         "description": "GET\n\nGet sectors and activities\n  Return list of Sector DTOs and inside each element list of activities DTO"
       },
       "parameters": [],
-      "post": {
-        "summary": "POST project activity sector",
+      "put": {
+        "summary": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "PUT\n\nFind Project based on project JSON request Body parameter DTO\nIf project exist \n Update activity in Project based on activity JSON request Body parameter DTO\n Update project updatedAt property\n Return project Id updated\n",
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
         "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept-Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "broker email",
+            "required": true
+          },
           {
             "in": "body",
             "name": "body",
@@ -552,23 +575,7 @@
             },
             "description": "Activity DTO\n -- activity\n -- sector"
           }
-        ],
-        "description": "POST \n\nFind Project based on project JSON request Body parameter DTO\nIf project exist \n Update activity in Project based on activity JSON request Body parameter DTO\n Update project updatedAt property\n Return project Id updated\nelse\n  return error project not exist ",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "object"
-            }
-          },
-          "401": {
-            "description": "Unauthorized, invalid token or email",
-            "schema": {
-              "type": "object",
-              "properties": {}
-            }
-          }
-        }
+        ]
       }
     },
     "/v1/product-variants": {

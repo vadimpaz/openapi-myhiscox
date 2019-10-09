@@ -10,6 +10,7 @@
     },
     "activities": {
       "type": "array",
+      "description": "this property for GET endpoint only used",
       "items": {
         "$ref": ""
       }
