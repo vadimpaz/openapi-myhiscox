@@ -280,7 +280,7 @@
             }
           }
         },
-        "description": "POST\n\nStart new quotation process with business area PSC.\n  1 For v.1 of this endpoint, area will be 'PSC' (if string locate id in business area entity (1))\n  2.Create new Project entitiy and set:\n    2.1 business area to value 1 PSC\n    2.2 id_user based on broker email in header request objet\n    2.3 id_state to value key 1 of entity State - Draft \n    2.4 id_screen to value 4 - Risk-data.\n    2.5 createdAt date to current day\n    2.6 Update API flag in project created\n    2.7 Return ProjectId created\n\n",
+        "description": "POST\n\nStart new quotation process with business area PSC.\n  1 For v.1 of this endpoint, area will be 'PSC' (if string locate id in business area entity (1))\n  2.Create new Project entitiy and set:\n    2.1 business area to value 1 PSC\n    2.2 id_user based on broker email in header request objet\n    2.3 id_state to value entity State - Draft (1) \n    2.4 id_screen to value entoty Screen - Activities (1) .\n    2.5 createdAt date to current day\n    2.6 id_souce to value entity Source - with slug api\n    2.7 Return ProjectId created\n\n",
         "parameters": [
           {
             "type": "string",
