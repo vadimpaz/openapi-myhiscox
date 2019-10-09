@@ -578,7 +578,7 @@
         ]
       }
     },
-    "/v1/product-variants": {
+    "/v1/product-variants/project/{projectId}": {
       "get": {
         "summary": "Get product variants based on projectId Activity",
         "tags": [],
@@ -625,61 +625,14 @@
           }
         ]
       },
-      "parameters": [],
-      "post": {
-        "summary": "Post project product variants",
-        "responses": {
-          "201": {
-            "description": "Created list of Project has Product Variants",
-            "schema": {
-              "type": "object"
-            },
-            "headers": {},
-            "examples": {}
-          }
-        },
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "projectId": {
-                  "type": "integer"
-                },
-                "productVariants": {
-                  "type": [
-                    "string",
-                    "array"
-                  ],
-                  "items": {
-                    "$ref": "./models/productvariant.v1.json"
-                  }
-                }
-              }
-            },
-            "description": "List of product variant selected"
-          },
-          {
-            "type": "string",
-            "in": "header",
-            "name": "Accept-Language"
-          },
-          {
-            "type": "string",
-            "in": "header",
-            "name": "email",
-            "description": "broker email"
-          }
-        ],
-        "description": "POST\n\nFind Project based on project JSON request Body parameter DTO\nIf project exist\n  foreach element in list of product variants --> exists in BrokerageHasProductVariant\n    Insert element in ProjectHasProductVariant entity\n  Return project Id updated\n\n",
-        "security": [
-          {
-            "API Key - 1": []
-          }
-        ]
-      }
+      "parameters": [
+        {
+          "type": "integer",
+          "name": "projectId",
+          "in": "path",
+          "required": true
+        }
+      ]
     },
     "/v1/quotation/psc": {
       "post": {
@@ -702,7 +655,7 @@
             }
           }
         },
-        "description": "POST\n\nQuotation consolidation Endpoint\nIntegrate POST request in one endpoint to create quotation\n- POST /business-areas/psc\n- POST /sectors-activities/\n- POST /product-variants/\n- POST /risk-data            .... sprint 39\n\n\n",
+        "description": "POST\n\nQuotation consolidation Endpoint\nIntegrate POST request in one endpoint to create quotation\n- POST /business-areas/psc\n- PUT  /sectors-activities/\n- POST /product-variants/\n- POST /risk-data            .... sprint 39\n\n- POST /cover-data/\n- POST /customer-info/\n\n",
         "security": [
           {
             "API Key - 1": []
@@ -806,6 +759,59 @@
           }
         ],
         "description": "GET\n\nGet quote consolidate information based on project Id"
+      }
+    },
+    "/v1/product-variants": {
+      "post": {
+        "summary": "Post project product variants",
+        "tags": [],
+        "responses": {
+          "201": {
+            "description": "Created list of Project has Product Variants",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "description": "POST\n\nFind Project based on project JSON request Body parameter DTO\nIf project exist\n  foreach element in list of product variants --> exists in BrokerageHasProductVariant\n    Insert element in ProjectHasProductVariant entity\n  Return project Id updated",
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept-Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "broker email",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "projectId": {
+                  "type": "integer"
+                },
+                "productVariants": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "./models/productvariant.v1.json"
+                  }
+                }
+              }
+            }
+          }
+        ]
       }
     }
   },
