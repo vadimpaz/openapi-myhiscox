@@ -13,9 +13,6 @@
       "items": {
         "$ref": "./answer.v1.json"
       }
-    },
-    "projectId": {
-      "type": "integer"
     }
   }
 }
