@@ -3,9 +3,6 @@
   "type": "object",
   "description": "",
   "properties": {
-    "area": {
-      "$ref": "./area.v1.json"
-    },
     "activity": {
       "$ref": "./activity.v1.json"
     },

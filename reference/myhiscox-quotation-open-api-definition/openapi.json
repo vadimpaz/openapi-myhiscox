@@ -447,7 +447,7 @@
         ]
       }
     },
-    "/v1/quotation/business-area/psc": {
+    "/v1/quotation/area/psc": {
       "post": {
         "summary": "Unique endpoint consolidate quotation creation",
         "tags": [],
@@ -468,7 +468,7 @@
             }
           }
         },
-        "description": "POST\n\nMain Core Quotation consolidation Endpoint\nIntegrate POST request in one endpoint to create quotation\n- POST /business-areas/psc\n- PUT  /sectors-activities/\n- POST /product-variants/\n- POST /risk-data            .... sprint 39\n\n- POST /cover-data/\n- POST /customer-info/\n\n",
+        "description": "POST\n\nMain Core Quotation consolidation Post Endpoint\nIntegrate POST request in one endpoint to create quotation\n- POST /business-areas/psc\n- PUT  /sectors-activities/\n- POST /product-variants/\n- POST /risk-data            .... sprint 39\n\n- POST /cover-data/\n- POST /customer-info/\n...\nTODO complete all calls\n",
         "security": [
           {
             "API Key - 1": []
@@ -658,7 +658,7 @@
             "required": true
           }
         ],
-        "description": "GET\n\nGet quote consolidate information based on project Id"
+        "description": "GET\n\nMain Core Quotation consolidation GetEndpoint\nGet quote consolidate information based on project Id\nIntegrate GET request in one endpoint to obtain quotation\n- GET /quotation/project/{projectId}/business-areas/\n- GET /quotation/project/{projectId}/sectors-activities/\n- GET /quotation/project/{projectId}/product-variants/\n- GET /quotation/project/{projectId}/risk-data            .... sprint 39\n\n- GET /quotation/project/{projectId}/cover-data/\n- GET /quotation/project/{projectId}/customer-info/\n...\nTODO complete all calls"
       },
       "parameters": [
         {
