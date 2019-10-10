@@ -13,7 +13,8 @@
       "type": "number"
     },
     "isClean": {
-      "type": "boolean"
+      "type": "boolean",
+      "description": "only for GET"
     },
     "paymentInstallment": {
       "$ref": "./paymentinstallment.v1.json"

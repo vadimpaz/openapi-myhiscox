@@ -57,7 +57,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "./models/productvariant.v1.json"
+                "type": "integer"
               }
             },
             "description": ""

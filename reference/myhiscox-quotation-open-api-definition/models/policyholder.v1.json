@@ -4,6 +4,15 @@
   "properties": {
     "id": {
       "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "adress": {
+      "type": "string"
+    },
+    "cp": {
+      "type": "string"
     }
   }
 }
