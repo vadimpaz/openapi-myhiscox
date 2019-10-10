@@ -103,13 +103,18 @@
             "name": "email",
             "description": "broker email"
           }
+        ],
+        "tags": [
+          "variants"
         ]
       }
     },
     "/v1/quotation/project/{projectId}": {
       "get": {
         "summary": "Get quotation consolidate information",
-        "tags": [],
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -157,8 +162,20 @@
     "/v1/quotation/sectors": {
       "get": {
         "summary": "Get List of Sectors and activities",
-        "tags": [],
-        "responses": {},
+        "tags": [
+          "sectors-activities"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "./models/sector.v1.json"
+              }
+            }
+          }
+        },
         "description": "GET\n\nGet List of Sectors and activities by each one\n  Return list of Sector DTOs and inside each element list of activities DTO\n\n",
         "security": [
           {
@@ -176,16 +193,6 @@
             "in": "header",
             "name": "email",
             "description": "broker email"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "./models/sector.v1.json"
-              }
-            }
           }
         ]
       },
@@ -233,17 +240,19 @@
             "required": true
           }
         ],
+        "operationId": 1,
         "tags": [
-          "quotation"
-        ],
-        "operationId": 1
+          "areas"
+        ]
       },
       "parameters": []
     },
     "/v1/quotation/business-areas": {
       "get": {
         "summary": "Get Business Areas",
-        "tags": [],
+        "tags": [
+          "areas"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -277,10 +286,12 @@
       },
       "parameters": []
     },
-    "/v1/quotation/area/psc": {
+    "/v1/quotation/psc": {
       "post": {
         "summary": "Unique endpoint consolidate quotation creation",
-        "tags": [],
+        "tags": [
+          "core"
+        ],
         "responses": {
           "201": {
             "description": "Created quotation",
@@ -368,13 +379,18 @@
             "description": "broker email",
             "required": true
           }
+        ],
+        "tags": [
+          "sectors-activities"
         ]
       }
     },
     "/v1/quotation/project/{projectId}/document/{type}": {
       "get": {
         "summary": "Get budget/quote/particular condition pdf",
-        "tags": [],
+        "tags": [
+          "documentation"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -429,7 +445,9 @@
     "/v1/quotation/project/{projectId}/customer-info": {
       "get": {
         "summary": "Get customer and policy holder info",
-        "tags": [],
+        "tags": [
+          "customer-info"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -574,7 +592,10 @@
             }
           }
         },
-        "description": "Get Policy Summary Info"
+        "description": "Get Policy Summary Info",
+        "tags": [
+          "policy-summary"
+        ]
       }
     },
     "/v1/quotation/project/{projectId}/risk-data/": {
