@@ -19,7 +19,7 @@
     "application/json"
   ],
   "paths": {
-    "/v1/quotation/project/{projectId}/product-variants": {
+    "/v1/quotation/project/{id}/product-variants": {
       "post": {
         "summary": "Create product variants per project",
         "tags": [],
@@ -67,9 +67,10 @@
       "parameters": [
         {
           "type": "string",
-          "name": "projectId",
+          "name": "id",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "projectId"
         }
       ],
       "get": {
@@ -101,7 +102,8 @@
             "type": "string",
             "in": "header",
             "name": "email",
-            "description": "broker email"
+            "description": "broker email",
+            "required": true
           }
         ],
         "tags": [
@@ -109,7 +111,7 @@
         ]
       }
     },
-    "/v1/quotation/project/{projectId}": {
+    "/v1/quotation/project/{id}": {
       "get": {
         "summary": "Get quotation consolidate information",
         "tags": [
@@ -138,7 +140,8 @@
             "type": "string",
             "in": "header",
             "name": "email",
-            "description": "broker email"
+            "description": "broker email",
+            "required": true
           },
           {
             "type": "integer",
@@ -153,9 +156,10 @@
       "parameters": [
         {
           "type": "integer",
-          "name": "projectId",
+          "name": "id",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "projectId"
         }
       ]
     },
@@ -192,13 +196,14 @@
             "type": "string",
             "in": "header",
             "name": "email",
-            "description": "broker email"
+            "description": "broker email",
+            "required": true
           }
         ]
       },
       "parameters": []
     },
-    "/v1/quotation/business-areas/psc": {
+    "/v1/quotation/business-areas/{area}": {
       "post": {
         "summary": "Business area to start new project quotation",
         "responses": {
@@ -245,7 +250,15 @@
           "areas"
         ]
       },
-      "parameters": []
+      "parameters": [
+        {
+          "type": "string",
+          "name": "area",
+          "in": "path",
+          "required": true,
+          "description": "area = 'psc'"
+        }
+      ]
     },
     "/v1/quotation/business-areas": {
       "get": {
@@ -280,13 +293,14 @@
             "type": "string",
             "in": "header",
             "name": "email",
-            "description": "broker email"
+            "description": "broker email",
+            "required": true
           }
         ]
       },
       "parameters": []
     },
-    "/v1/quotation/psc": {
+    "/v1/quotation/{area}": {
       "post": {
         "summary": "Unique endpoint consolidate quotation creation",
         "tags": [
@@ -309,7 +323,7 @@
             }
           }
         },
-        "description": "POST\n\nMain Core Quotation consolidation Post Endpoint\nIntegrate POST request in one endpoint to create quotation\n- POST /business-areas/psc\n- PUT  /sectors-activities/\n- POST /product-variants/\n- POST /risk-data            .... sprint 39\n\n- POST /cover-data/\n- POST /customer-info/\n...\nTODO complete all calls\n",
+        "description": "POST\n\nMain Core Quotation consolidation Post Endpoint\nIntegrate POST request in one endpoint to create quotation\n \n- POST /v1/quotation/business-areas/psc\n- PUT  /v1/quotation/project/{id}/activity/{activityId}\n- POST /v1/quotation/project/{id}/product-variants/\n- POST /v1/quotation/project/{id}/risk-data.... sprint 39\n\n- POST /v1/quotation/project/{id}/cover-data/\n- POST /v1/quotation/project/{id}/policy-summary/\n- POST /v1/quotation/project/{id}/customer-info/\n- POST /v1/quotation/project/{id}/period/{startDate}\n\n",
         "security": [
           {
             "API Key - 1": []
@@ -325,7 +339,8 @@
             "type": "string",
             "in": "header",
             "name": "email",
-            "description": "broker email"
+            "description": "broker email",
+            "required": true
           },
           {
             "in": "body",
@@ -337,15 +352,24 @@
           }
         ]
       },
-      "parameters": []
+      "parameters": [
+        {
+          "type": "string",
+          "name": "area",
+          "in": "path",
+          "required": true,
+          "description": "area = 'psc'"
+        }
+      ]
     },
-    "/v1/quotation/project/{projectId}/activity/{activityId}": {
+    "/v1/quotation/project/{id}/activity/{activityId}": {
       "parameters": [
         {
           "type": "integer",
-          "name": "projectId",
+          "name": "id",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "projectId"
         },
         {
           "type": "integer",
@@ -386,17 +410,25 @@
         ]
       }
     },
-    "/v1/quotation/project/{projectId}/quote-document": {
+    "/v1/quotation/project/{id}/document/{quote}": {
       "parameters": [
         {
           "type": "integer",
-          "name": "projectId",
+          "name": "id",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "projectId"
+        },
+        {
+          "type": "string",
+          "name": "quote",
+          "in": "path",
+          "required": true,
+          "description": "type quote"
         }
       ],
       "post": {
-        "summary": "",
+        "summary": "Store server quote document and retrieve",
         "responses": {
           "200": {
             "description": "OK",
@@ -411,15 +443,31 @@
                 "file"
               ]
             }
-          },
-          "": {
-            "description": "Prd return"
           }
         },
-        "description": "Getting document PDF based on type parameter \nThe process creates a quote policy file in server\n\n\n "
+        "description": "Getting document PDF based on type parameter \nThe process creates a quote policy file in server\n\n\n ",
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept-Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "broker email",
+            "required": true
+          }
+        ]
       }
     },
-    "/v1/quotation/project/{projectId}/customer-info": {
+    "/v1/quotation/project/{id}/customer-info": {
       "get": {
         "summary": "Get customer and policy holder info",
         "tags": [
@@ -501,13 +549,14 @@
       "parameters": [
         {
           "type": "integer",
-          "name": "projectId",
+          "name": "id",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "projectId"
         }
       ]
     },
-    "/v1/quotation/project/{projectId}/policy-summary": {
+    "/v1/quotation/project/{id}/policy-summary": {
       "post": {
         "summary": "Store policy summary information",
         "responses": {
@@ -554,9 +603,10 @@
       "parameters": [
         {
           "type": "string",
-          "name": "projectId",
+          "name": "id",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "projectId"
         }
       ],
       "get": {
@@ -572,16 +622,36 @@
         "description": "Get Policy Summary Info",
         "tags": [
           "policy-summary"
+        ],
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept-Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "broker email",
+            "required": true
+          }
         ]
       }
     },
-    "/v1/quotation/project/{projectId}/risk-data/": {
+    "/v1/quotation/project/{id}/risk-data": {
       "parameters": [
         {
           "type": "string",
-          "name": "projectId",
+          "name": "id",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "projecId"
         }
       ],
       "post": {
@@ -659,13 +729,14 @@
             "type": "string",
             "in": "header",
             "name": "email",
-            "description": "broker email"
+            "description": "broker email",
+            "required": true
           }
         ],
         "description": "GET\n\nObtaining risk data based on project Id path parameter"
       }
     },
-    "/v1/quotation/project/{projectId}/cover-data": {
+    "/v1/quotation/project/{id}/cover-data": {
       "get": {
         "summary": "Get cover-data based on projectId por product-variants",
         "tags": [
@@ -710,9 +781,10 @@
       "parameters": [
         {
           "type": "string",
-          "name": "projectId",
+          "name": "id",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "projectId"
         }
       ],
       "post": {
@@ -758,13 +830,14 @@
         "operationId": 4.2
       }
     },
-    "/v1/quotation/project/{projectId}/period/{startDate}": {
+    "/v1/quotation/project/{id}/period/{startDate}": {
       "parameters": [
         {
           "type": "string",
-          "name": "projectId",
+          "name": "id",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "projectId"
         },
         {
           "type": "string",
@@ -803,7 +876,8 @@
             "type": "string",
             "in": "header",
             "name": "email",
-            "description": "broker email"
+            "description": "broker email",
+            "required": true
           }
         ],
         "description": "finalze policy emition with specifing period and create quote document"
