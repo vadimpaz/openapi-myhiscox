@@ -898,7 +898,15 @@
         "tags": [
           "finalize"
         ],
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
         "description": "POST\n\nFinalize project policy submition \n  fill bank information",
         "security": [
           {
