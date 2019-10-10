@@ -410,7 +410,7 @@
         ]
       }
     },
-    "/v1/quotation/project/{id}/document/{quote}": {
+    "/v1/quotation/project/{id}/document/{type}": {
       "parameters": [
         {
           "type": "integer",
@@ -421,10 +421,10 @@
         },
         {
           "type": "string",
-          "name": "quote",
+          "name": "type",
           "in": "path",
           "required": true,
-          "description": "type quote"
+          "description": "type = 'quote'"
         }
       ],
       "post": {
