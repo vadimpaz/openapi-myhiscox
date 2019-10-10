@@ -509,7 +509,7 @@
         "description": "GET\n\nget policy holder info based on project Id"
       },
       "post": {
-        "summary": "",
+        "summary": "Store policy holder information",
         "responses": {
           "201": {
             "description": "Created",
