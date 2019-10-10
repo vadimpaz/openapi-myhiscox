@@ -1,12 +1,9 @@
 {
-  "title": "Activity",
+  "title": "Question_Request",
   "type": "object",
   "properties": {
     "id": {
       "type": "integer"
-    },
-    "name": {
-      "type": "string"
     }
   }
 }

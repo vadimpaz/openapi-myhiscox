@@ -60,7 +60,7 @@
                 "type": "integer"
               }
             },
-            "description": ""
+            "description": "Array of product variants Ids"
           }
         ]
       },
@@ -331,8 +331,9 @@
             "in": "body",
             "name": "body",
             "schema": {
-              "$ref": "./models/apiquotationobject.v1.json"
-            }
+              "$ref": "./models/apiquotationobject_request.v1.json"
+            },
+            "description": ""
           }
         ]
       },
@@ -700,7 +701,7 @@
             "required": true
           },
           {
-            "type": "array",
+            "type": "string",
             "in": "query",
             "name": "product-variants",
             "required": true

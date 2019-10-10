@@ -1,11 +1,11 @@
 {
-  "title": "Activity",
+  "title": "Answer_Request",
   "type": "object",
   "properties": {
     "id": {
       "type": "integer"
     },
-    "name": {
+    "value": {
       "type": "string"
     }
   }

@@ -1,0 +1,19 @@
+{
+  "title": "RiskDataObject_Request",
+  "type": "object",
+  "description": "",
+  "properties": {
+    "questions": {
+      "type": "array",
+      "items": {
+        "$ref": "./question_request.v1.json"
+      }
+    },
+    "answers": {
+      "type": "array",
+      "items": {
+        "$ref": "./answer_request.v1.json"
+      }
+    }
+  }
+}
