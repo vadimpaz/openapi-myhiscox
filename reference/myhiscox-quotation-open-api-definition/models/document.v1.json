@@ -1,0 +1,20 @@
+{
+  "title": "Document",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "content": {
+      "type": "string",
+      "format": "binary"
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "content",
+    "name"
+  ]
+}

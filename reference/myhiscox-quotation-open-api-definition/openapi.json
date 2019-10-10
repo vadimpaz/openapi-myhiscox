@@ -386,47 +386,6 @@
       }
     },
     "/v1/quotation/project/{projectId}/document/{type}": {
-      "get": {
-        "summary": "Get budget/quote/particular condition pdf",
-        "tags": [
-          "documentation"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "file": {
-                  "type": [
-                    "string",
-                    "object"
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "description": "Getting budget PDF based on project JSON request Body parameter created in server ",
-        "security": [
-          {
-            "API Key - 1": []
-          }
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "in": "header",
-            "name": "Accept-Language"
-          },
-          {
-            "type": "string",
-            "in": "header",
-            "name": "email",
-            "description": ""
-          }
-        ]
-      },
       "parameters": [
         {
           "type": "integer",
@@ -440,7 +399,27 @@
           "in": "path",
           "required": true
         }
-      ]
+      ],
+      "post": {
+        "summary": "",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "file": {
+                  "$ref": "./models/document.v1.json"
+                }
+              },
+              "required": [
+                "file"
+              ]
+            }
+          }
+        },
+        "description": "Getting document PDF based on type parameter \nThe process creates a file in server based on type login:\n - budget\n - quotation\n - particular conditions\n "
+      }
     },
     "/v1/quotation/project/{projectId}/customer-info": {
       "get": {
