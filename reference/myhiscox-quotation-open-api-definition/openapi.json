@@ -19,521 +19,6 @@
     "application/json"
   ],
   "paths": {
-    "/v1/quotation/project/´{projectId}/cover-data": {
-      "get": {
-        "summary": "Get cover-data based on projectId por product-variants",
-        "tags": [
-          "cover-data"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "./models/coverdata.v1.json"
-            }
-          }
-        },
-        "security": [
-          {
-            "API Key - 1": []
-          }
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "in": "header",
-            "name": "Accept Language"
-          },
-          {
-            "type": "string",
-            "in": "header",
-            "name": "email",
-            "description": "Broker email",
-            "required": true
-          },
-          {
-            "type": "array",
-            "in": "query",
-            "name": "product-variants",
-            "required": true
-          }
-        ],
-        "description": "Getting cover data based on risk data info based on product variants list",
-        "operationId": 4.1
-      },
-      "parameters": [
-        {
-          "type": "string",
-          "name": "projectId",
-          "in": "path",
-          "required": true
-        }
-      ],
-      "post": {
-        "summary": "",
-        "responses": {
-          "201": {
-            "description": "Created",
-            "schema": {
-              "type": "object"
-            }
-          }
-        },
-        "description": "Store cover data",
-        "security": [
-          {
-            "API Key - 1": []
-          }
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "in": "header",
-            "name": "Accept Language"
-          },
-          {
-            "type": "string",
-            "in": "header",
-            "name": "emal",
-            "description": "broker email",
-            "required": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "./models/coverdata.v1.json"
-            }
-          }
-        ],
-        "tags": [
-          "cover-data"
-        ],
-        "operationId": 4.2
-      }
-    },
-    "/v1/quotation/project/{projectId}/risk-data/": {
-      "parameters": [
-        {
-          "type": "string",
-          "name": "projectId",
-          "in": "path",
-          "required": true
-        }
-      ],
-      "post": {
-        "summary": "Create risk-data questions and answers",
-        "responses": {
-          "201": {
-            "description": "Created",
-            "schema": {
-              "type": "object"
-            }
-          },
-          "401": {
-            "description": "Unauthorized, invalid token or email",
-            "schema": {
-              "type": "object",
-              "properties": {}
-            }
-          }
-        },
-        "security": [
-          {
-            "API Key - 1": []
-          }
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "in": "header",
-            "name": "Accept Language"
-          },
-          {
-            "type": "string",
-            "in": "header",
-            "name": "email",
-            "description": "Broker email",
-            "required": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "./models/riskdata.v1.json"
-            },
-            "description": ""
-          }
-        ],
-        "description": "POST\n\nFind Project based on project JSON request Body parameter\nIf project exist \n Store risk-data divided in question and answers in Json request object\n Return project Id updated\nelse\n  return error project not exist \n",
-        "tags": [
-          "risk-data"
-        ],
-        "operationId": 3.2
-      },
-      "get": {
-        "summary": "Getting project risk-data",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "./models/riskdata.v1.json"
-            }
-          }
-        },
-        "security": [
-          {
-            "API Key - 1": []
-          }
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "in": "header",
-            "name": "Accept-Language"
-          },
-          {
-            "type": "string",
-            "in": "header",
-            "name": "email",
-            "description": "broker email"
-          }
-        ],
-        "description": "GET\n\nObtaining risk data based on project Id path parameter"
-      }
-    },
-    "/v1/quotation/project/{projectId}/policy-summary": {
-      "post": {
-        "summary": "Store policy summary information",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "object"
-            }
-          }
-        },
-        "security": [
-          {
-            "API Key - 1": []
-          }
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "in": "header",
-            "name": "Accept Language",
-            "description": "API Language\n"
-          },
-          {
-            "type": "string",
-            "in": "header",
-            "name": "email",
-            "description": "broker email",
-            "required": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "./models/policysummary.v1.json"
-            }
-          }
-        ],
-        "tags": [
-          "policy-summary"
-        ],
-        "description": "POST\n\nPost Policy Summary Info",
-        "operationId": 5.2
-      },
-      "parameters": [
-        {
-          "type": "string",
-          "name": "projectId",
-          "in": "path",
-          "required": true
-        }
-      ],
-      "get": {
-        "summary": "Obtaining policy summary information",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "./models/policysummary.v1.json"
-            }
-          }
-        },
-        "description": "Get Policy Summary Info"
-      }
-    },
-    "/v1/quotation/project/{projectId}/customer-info": {
-      "get": {
-        "summary": "Get customer and policy holder info",
-        "tags": [],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "./models/customerdata.v1.json"
-            }
-          }
-        },
-        "security": [
-          {
-            "API Key - 1": []
-          }
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "in": "header",
-            "name": "Accept-Language"
-          },
-          {
-            "type": "string",
-            "in": "header",
-            "name": "email",
-            "description": "broker",
-            "required": true
-          },
-          {
-            "type": "integer",
-            "in": "query",
-            "name": "projectId",
-            "required": true
-          }
-        ],
-        "description": "GET\n\nget policy holder info based on project Id"
-      },
-      "post": {
-        "summary": "",
-        "responses": {
-          "201": {
-            "description": "Created",
-            "schema": {
-              "type": "object"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "./models/customerdata.v1.json"
-            }
-          },
-          {
-            "type": "string",
-            "in": "header",
-            "name": "Accept-Languge"
-          },
-          {
-            "type": "string",
-            "in": "header",
-            "name": "email",
-            "description": "broker email",
-            "required": true
-          }
-        ],
-        "description": "POST\n\npost policy holder info",
-        "security": [
-          {
-            "API Key - 1": []
-          }
-        ]
-      },
-      "parameters": [
-        {
-          "type": "integer",
-          "name": "projectId",
-          "in": "path",
-          "required": true
-        }
-      ]
-    },
-    "/v1/quotation/project/projectId/document/{type}": {
-      "get": {
-        "summary": "Get budget/quote/particular condition pdf",
-        "tags": [],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "file": {
-                  "type": [
-                    "string",
-                    "object"
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "description": "Getting budget PDF based on project JSON request Body parameter created in server ",
-        "security": [
-          {
-            "API Key - 1": []
-          }
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "in": "header",
-            "name": "Accept-Language"
-          },
-          {
-            "type": "string",
-            "in": "header",
-            "name": "email",
-            "description": ""
-          }
-        ]
-      },
-      "parameters": [
-        {
-          "type": "string",
-          "name": "type",
-          "in": "path",
-          "description": "document type",
-          "required": true
-        }
-      ]
-    },
-    "/v1/quotation/project{projectId}/activity/{activityId}": {
-      "parameters": [
-        {
-          "type": "integer",
-          "name": "projectId",
-          "in": "path",
-          "required": true
-        },
-        {
-          "type": "integer",
-          "name": "activityId",
-          "in": "path",
-          "required": true
-        }
-      ],
-      "put": {
-        "summary": "Update activity per project",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "description": "PUT\n\nFind Project based on projectId path parameter\nIf project exist \n Update activity in Project based on activity path parameter\n Update project updatedAt field property\n\n",
-        "security": [
-          {
-            "API Key - 1": []
-          }
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "in": "header",
-            "name": "Accept-Language"
-          },
-          {
-            "type": "string",
-            "in": "header",
-            "name": "email",
-            "description": "broker email",
-            "required": true
-          }
-        ]
-      }
-    },
-    "/v1/quotation/area/psc": {
-      "post": {
-        "summary": "Unique endpoint consolidate quotation creation",
-        "tags": [],
-        "responses": {
-          "201": {
-            "description": "Created quotation",
-            "schema": {
-              "type": "object",
-              "properties": {}
-            },
-            "headers": {}
-          },
-          "401": {
-            "description": "Unauthorized",
-            "schema": {
-              "type": "object",
-              "properties": {}
-            }
-          }
-        },
-        "description": "POST\n\nMain Core Quotation consolidation Post Endpoint\nIntegrate POST request in one endpoint to create quotation\n- POST /business-areas/psc\n- PUT  /sectors-activities/\n- POST /product-variants/\n- POST /risk-data            .... sprint 39\n\n- POST /cover-data/\n- POST /customer-info/\n...\nTODO complete all calls\n",
-        "security": [
-          {
-            "API Key - 1": []
-          }
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "in": "header",
-            "name": "Accept-Language"
-          },
-          {
-            "type": "string",
-            "in": "header",
-            "name": "email",
-            "description": "broker email"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "./models/apiquotationobject.v1.json"
-            }
-          }
-        ]
-      },
-      "parameters": []
-    },
-    "/v1/quotation/business-areas": {
-      "get": {
-        "summary": "Get Business Areas",
-        "tags": [],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "./models/area.v1.json"
-              }
-            }
-          }
-        },
-        "description": "GET\n\nRetieve business areas\n  1. Return list of array for business areas DTO\n",
-        "security": [
-          {
-            "API Key - 1": []
-          }
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "in": "header",
-            "name": "Accept-Language"
-          },
-          {
-            "type": "string",
-            "in": "header",
-            "name": "email",
-            "description": "broker email"
-          }
-        ]
-      },
-      "parameters": []
-    },
     "/v1/quotation/project/{projectId}/product-variants": {
       "post": {
         "summary": "Create product variants per project",
@@ -669,7 +154,44 @@
         }
       ]
     },
-    "v1/quotation/business-areas/psc": {
+    "/v1/quotation/sectors": {
+      "get": {
+        "summary": "Get List of Sectors and activities",
+        "tags": [],
+        "responses": {},
+        "description": "GET\n\nGet List of Sectors and activities by each one\n  Return list of Sector DTOs and inside each element list of activities DTO\n\n",
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept-Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "broker email"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "./models/sector.v1.json"
+              }
+            }
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/v1/quotation/business-areas/psc": {
       "post": {
         "summary": "Business area to start new project quotation",
         "responses": {
@@ -718,12 +240,65 @@
       },
       "parameters": []
     },
-    "/v1/quotation/sectors": {
+    "/v1/quotation/business-areas": {
       "get": {
-        "summary": "Get List of Sectors and activities",
+        "summary": "Get Business Areas",
         "tags": [],
-        "responses": {},
-        "description": "GET\n\nGet List of Sectors and activities by each one\n  Return list of Sector DTOs and inside each element list of activities DTO\n\n",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "./models/area.v1.json"
+              }
+            }
+          }
+        },
+        "description": "GET\n\nRetieve business areas\n  1. Return list of array for business areas DTO\n",
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept-Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "broker email"
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/v1/quotation/area/psc": {
+      "post": {
+        "summary": "Unique endpoint consolidate quotation creation",
+        "tags": [],
+        "responses": {
+          "201": {
+            "description": "Created quotation",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            },
+            "headers": {}
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "description": "POST\n\nMain Core Quotation consolidation Post Endpoint\nIntegrate POST request in one endpoint to create quotation\n- POST /business-areas/psc\n- PUT  /sectors-activities/\n- POST /product-variants/\n- POST /risk-data            .... sprint 39\n\n- POST /cover-data/\n- POST /customer-info/\n...\nTODO complete all calls\n",
         "security": [
           {
             "API Key - 1": []
@@ -745,15 +320,445 @@
             "in": "body",
             "name": "body",
             "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "./models/sector.v1.json"
-              }
+              "$ref": "./models/apiquotationobject.v1.json"
             }
           }
         ]
       },
       "parameters": []
+    },
+    "/v1/quotation/project/{projectId}/activity/{activityId}": {
+      "parameters": [
+        {
+          "type": "integer",
+          "name": "projectId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "type": "integer",
+          "name": "activityId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "put": {
+        "summary": "Update activity per project",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "PUT\n\nFind Project based on projectId path parameter\nIf project exist \n Update activity in Project based on activity path parameter\n Update project updatedAt field property\n\n",
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept-Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "broker email",
+            "required": true
+          }
+        ]
+      }
+    },
+    "/v1/quotation/project/{projectId}/document/{type}": {
+      "get": {
+        "summary": "Get budget/quote/particular condition pdf",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "file": {
+                  "type": [
+                    "string",
+                    "object"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "description": "Getting budget PDF based on project JSON request Body parameter created in server ",
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept-Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": ""
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "type": "integer",
+          "name": "projectId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "type": "string",
+          "name": "type",
+          "in": "path",
+          "required": true
+        }
+      ]
+    },
+    "/v1/quotation/project/{projectId}/customer-info": {
+      "get": {
+        "summary": "Get customer and policy holder info",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "./models/customerdata.v1.json"
+            }
+          }
+        },
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept-Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "broker",
+            "required": true
+          },
+          {
+            "type": "integer",
+            "in": "query",
+            "name": "projectId",
+            "required": true
+          }
+        ],
+        "description": "GET\n\nget policy holder info based on project Id"
+      },
+      "post": {
+        "summary": "",
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "./models/customerdata.v1.json"
+            }
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept-Languge"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "broker email",
+            "required": true
+          }
+        ],
+        "description": "POST\n\npost policy holder info",
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "type": "integer",
+          "name": "projectId",
+          "in": "path",
+          "required": true
+        }
+      ]
+    },
+    "/v1/quotation/project/{projectId}/policy-summary": {
+      "post": {
+        "summary": "Store policy summary information",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept Language",
+            "description": "API Language\n"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "broker email",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "./models/policysummary.v1.json"
+            }
+          }
+        ],
+        "tags": [
+          "policy-summary"
+        ],
+        "description": "POST\n\nPost Policy Summary Info",
+        "operationId": 5.2
+      },
+      "parameters": [
+        {
+          "type": "string",
+          "name": "projectId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Obtaining policy summary information",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "./models/policysummary.v1.json"
+            }
+          }
+        },
+        "description": "Get Policy Summary Info"
+      }
+    },
+    "/v1/quotation/project/{projectId}/risk-data/": {
+      "parameters": [
+        {
+          "type": "string",
+          "name": "projectId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "post": {
+        "summary": "Create risk-data questions and answers",
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized, invalid token or email",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "Broker email",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "./models/riskdata.v1.json"
+            },
+            "description": ""
+          }
+        ],
+        "description": "POST\n\nFind Project based on project JSON request Body parameter\nIf project exist \n Store risk-data divided in question and answers in Json request object\n Return project Id updated\nelse\n  return error project not exist \n",
+        "tags": [
+          "risk-data"
+        ],
+        "operationId": 3.2
+      },
+      "get": {
+        "summary": "Getting project risk-data",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "./models/riskdata.v1.json"
+            }
+          }
+        },
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept-Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "broker email"
+          }
+        ],
+        "description": "GET\n\nObtaining risk data based on project Id path parameter"
+      }
+    },
+    "/v1/quotation/project/{projectId}/cover-data": {
+      "get": {
+        "summary": "Get cover-data based on projectId por product-variants",
+        "tags": [
+          "cover-data"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "./models/coverdata.v1.json"
+            }
+          }
+        },
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "Broker email",
+            "required": true
+          },
+          {
+            "type": "array",
+            "in": "query",
+            "name": "product-variants",
+            "required": true
+          }
+        ],
+        "description": "Getting cover data based on risk data info based on product variants list",
+        "operationId": 4.1
+      },
+      "parameters": [
+        {
+          "type": "string",
+          "name": "projectId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "post": {
+        "summary": "",
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "description": "Store cover data",
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "emal",
+            "description": "broker email",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "./models/coverdata.v1.json"
+            }
+          }
+        ],
+        "tags": [
+          "cover-data"
+        ],
+        "operationId": 4.2
+      }
     }
   },
   "definitions": {},
