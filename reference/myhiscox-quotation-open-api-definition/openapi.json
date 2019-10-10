@@ -386,17 +386,11 @@
         ]
       }
     },
-    "/v1/quotation/project/{projectId}/document/{type}": {
+    "/v1/quotation/project/{projectId}/quote-document": {
       "parameters": [
         {
           "type": "integer",
           "name": "projectId",
-          "in": "path",
-          "required": true
-        },
-        {
-          "type": "string",
-          "name": "type",
           "in": "path",
           "required": true
         }
@@ -417,9 +411,12 @@
                 "file"
               ]
             }
+          },
+          "": {
+            "description": "Prd return"
           }
         },
-        "description": "Getting document PDF based on type parameter \nThe process creates a file in server based on type login:\n - budget\n - quotation\n - particular conditions\n "
+        "description": "Getting document PDF based on type parameter \nThe process creates a quote policy file in server\n\n\n "
       }
     },
     "/v1/quotation/project/{projectId}/customer-info": {
@@ -759,6 +756,57 @@
           "cover-data"
         ],
         "operationId": 4.2
+      }
+    },
+    "/v1/quotation/project/{projectId}/period/{startDate}": {
+      "parameters": [
+        {
+          "type": "string",
+          "name": "projectId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "type": "string",
+          "name": "startDate",
+          "in": "path",
+          "required": true,
+          "description": "format yyyy-mm-dd"
+        }
+      ],
+      "post": {
+        "summary": "Finalize policy emition with start date",
+        "tags": [
+          "period"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept-Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "broker email"
+          }
+        ],
+        "description": "finalze policy emition with specifing period and create quote document"
       }
     }
   },
