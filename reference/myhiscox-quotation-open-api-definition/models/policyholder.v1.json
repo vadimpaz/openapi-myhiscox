@@ -14,5 +14,11 @@
     "cp": {
       "type": "string"
     }
-  }
+  },
+  "required": [
+    "id",
+    "name",
+    "adress",
+    "cp"
+  ]
 }

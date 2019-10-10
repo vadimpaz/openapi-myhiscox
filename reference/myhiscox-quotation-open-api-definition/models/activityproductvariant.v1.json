@@ -11,5 +11,10 @@
     "productVariant": {
       "$ref": "./productvariant.v1.json"
     }
-  }
+  },
+  "required": [
+    "id",
+    "activity",
+    "productVariant"
+  ]
 }

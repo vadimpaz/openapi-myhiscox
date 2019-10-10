@@ -17,5 +17,10 @@
     "policyHolder": {
       "$ref": "./policyholder.v1.json"
     }
-  }
+  },
+  "required": [
+    "questions",
+    "answers",
+    "policyHolder"
+  ]
 }

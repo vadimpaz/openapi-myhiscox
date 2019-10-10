@@ -17,9 +17,13 @@
     },
     "user": {
       "type": "string"
+    },
+    "area": {
+      "$ref": "./area.v1.json"
     }
   },
   "required": [
-    "id"
+    "id",
+    "area"
   ]
 }

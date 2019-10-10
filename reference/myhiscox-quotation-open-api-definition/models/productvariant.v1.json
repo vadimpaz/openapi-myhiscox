@@ -11,5 +11,10 @@
     "product": {
       "$ref": "./product.v1.json"
     }
-  }
+  },
+  "required": [
+    "id",
+    "name",
+    "product"
+  ]
 }

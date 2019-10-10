@@ -1,9 +1,0 @@
-{
-  "title": "APIQuotationObject_Request",
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string"
-    }
-  }
-}

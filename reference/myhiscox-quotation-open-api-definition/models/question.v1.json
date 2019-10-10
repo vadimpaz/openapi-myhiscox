@@ -7,9 +7,9 @@
     },
     "text": {
       "type": "string"
-    },
-    "": {
-      "type": "string"
     }
-  }
+  },
+  "required": [
+    "id"
+  ]
 }

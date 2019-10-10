@@ -10,11 +10,12 @@
       "$ref": "./coverdata.v1.json"
     },
     "premium": {
-      "type": "number"
+      "type": "number",
+      "description": "calculated"
     },
     "isClean": {
       "type": "boolean",
-      "description": "only for GET"
+      "description": "calculated"
     },
     "paymentInstallment": {
       "$ref": "./paymentinstallment.v1.json"
@@ -22,5 +23,11 @@
     "paymentMethod": {
       "$ref": "./paymentmethod.v1.json"
     }
-  }
+  },
+  "required": [
+    "riskData",
+    "coverDatra",
+    "paymentInstallment",
+    "paymentMethod"
+  ]
 }

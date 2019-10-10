@@ -323,7 +323,7 @@
             }
           }
         },
-        "description": "POST\n\nMain Core Quotation consolidation Post Endpoint\nIntegrate POST request in one endpoint to create quotation\n \n- POST /v1/quotation/business-areas/psc\n- PUT  /v1/quotation/project/{id}/activity/{activityId}\n- POST /v1/quotation/project/{id}/product-variants/\n- POST /v1/quotation/project/{id}/risk-data.... sprint 39\n\n- POST /v1/quotation/project/{id}/cover-data/\n- POST /v1/quotation/project/{id}/policy-summary/\n- POST /v1/quotation/project/{id}/customer-info/\n- POST /v1/quotation/project/{id}/period/{startDate}\n\n",
+        "description": "POST\n\nMain Core Quotation consolidation Post Endpoint\nIntegrate POST request in one endpoint to create quotation\n \n- POST /v1/quotation/business-areas/psc\n- PUT  /v1/quotation/project/{id}/activity/{activityId}\n- POST /v1/quotation/project/{id}/product-variants/\n- POST /v1/quotation/project/{id}/risk-data\n\n- POST /v1/quotation/project/{id}/cover-data/\n- POST /v1/quotation/project/{id}/policy-summary/\n- POST /v1/quotation/project/{id}/customer-info/\n- POST /v1/quotation/project/{id}/period/{startDate}\n- POST /v1/quotation/project/{id}/period/finalize\n",
         "security": [
           {
             "API Key - 1": []
@@ -346,7 +346,7 @@
             "in": "body",
             "name": "body",
             "schema": {
-              "$ref": "./models/apiquotationobject_request.v1.json"
+              "$ref": "./models/apiquotationobject.v1.json"
             },
             "description": ""
           }
@@ -881,6 +881,51 @@
           }
         ],
         "description": "finalze policy emition with specifing period and create quote document"
+      }
+    },
+    "/v1/quotation/project/{id}/finalize": {
+      "parameters": [
+        {
+          "type": "string",
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "projectId"
+        }
+      ],
+      "post": {
+        "summary": "ending policy request",
+        "tags": [
+          "finalize"
+        ],
+        "responses": {},
+        "description": "POST\n\nFinalize project policy submition \n  fill bank information",
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept-Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "broker email"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        ]
       }
     }
   },

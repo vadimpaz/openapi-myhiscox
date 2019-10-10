@@ -9,7 +9,12 @@
       "$ref": "./answertype.v1.json"
     },
     "value": {
-      "type": "string"
+      "type": "string",
+      "description": "used in POST"
     }
-  }
+  },
+  "required": [
+    "id",
+    "answerType"
+  ]
 }

@@ -14,5 +14,9 @@
         "$ref": "./answer.v1.json"
       }
     }
-  }
+  },
+  "required": [
+    "questions",
+    "answers"
+  ]
 }

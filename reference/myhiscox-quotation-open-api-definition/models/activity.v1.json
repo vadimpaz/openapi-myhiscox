@@ -6,7 +6,11 @@
       "type": "integer"
     },
     "name": {
-      "type": "string"
+      "type": "string",
+      "description": "used in GET"
     }
-  }
+  },
+  "required": [
+    "id"
+  ]
 }
