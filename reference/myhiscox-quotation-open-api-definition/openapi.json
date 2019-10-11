@@ -323,7 +323,7 @@
             }
           }
         },
-        "description": "POST\n\nMain Core Quotation consolidation Post Endpoint\nIntegrate POST request in one endpoint to create quotation\n \n- POST /v1/quotation/business-areas/psc\n- PUT  /v1/quotation/project/{id}/activity/{activityId}\n- POST /v1/quotation/project/{id}/product-variants/\n- POST /v1/quotation/project/{id}/risk-data\n\n- POST /v1/quotation/project/{id}/cover-data/\n- POST /v1/quotation/project/{id}/policy-summary/\n- POST /v1/quotation/project/{id}/customer-info/\n- POST /v1/quotation/project/{id}/period/{startDate}\n\nThis endpoint generated policy before to be approved (emitida)\n",
+        "description": "POST\n\nMain Core Quotation consolidation Post Endpoint\nIntegrate POST request in one endpoint to create quotation\n \n- POST /v1/quotation/business-areas/psc\n- PUT  /v1/quotation/project/{id}/activity/{activityId}\n- POST /v1/quotation/project/{id}/product-variants/\n- POST /v1/quotation/project/{id}/risk-data\n\n- POST /v1/quotation/project/{id}/cover-data/\n- POST /v1/quotation/project/{id}/policy-summary/\n- POST /v1/quotation/project/{id}/customer-info/\n- POST /v1/quotation/project/{id}/period/{startDate}\n\nThis endpoint generated policy before to be approved (solicitud Emisión)\n",
         "security": [
           {
             "API Key - 1": []
@@ -350,7 +350,8 @@
             },
             "description": ""
           }
-        ]
+        ],
+        "operationId": "1"
       },
       "parameters": [
         {

@@ -27,6 +27,12 @@
     "policyNumber": {
       "type": "string",
       "description": "used in response Object"
+    },
+    "isClean": {
+      "type": "boolean"
+    },
+    "premium": {
+      "type": "number"
     }
   }
 }
