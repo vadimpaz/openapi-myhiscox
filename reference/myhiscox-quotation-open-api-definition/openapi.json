@@ -151,7 +151,7 @@
             "required": true
           }
         ],
-        "description": "GET\n\nMain Core Quotation consolidation GetEndpoint\nGet quote consolidate information based on project Id\nIntegrate GET request in one endpoint to obtain quotation\n\n- GET /quotation/project/{projectId}/business-areas/\n- GET /quotation/project/{projectId}/sectors-activities/\n- GET /quotation/project/{projectId}/product-variants/\n- GET /quotation/project/{projectId}/risk-data            \n- GET /quotation/project/{projectId}/cover-data/\n- GET /quotation/project/{projectId}/policy-summary/\n- GET /quotation/project/{projectId}/customer-info/\n- GET /quotation/project/{projectId}/period/"
+        "description": "GET\n\nMain Core Quotation consolidation GetEndpoint\nGet quote consolidate information based on project Id\nIntegrate GET request in one endpoint to obtain quotation\n\n- GET /quotation/project/{projectId}/business-areas/\n- GET /quotation/project/{projectId}/sectors-activities/\n- GET /quotation/project/{projectId}/product-variants/\n- GET /quotation/project/{projectId}/risk-data            \n- GET /quotation/project/{projectId}/cover-data/\n- GET /quotation/project/{projectId}/premium/\n- GET /quotation/project/{projectId}/customer-info/\n- GET /quotation/project/{projectId}/period/"
       },
       "parameters": [
         {
@@ -323,7 +323,7 @@
             }
           }
         },
-        "description": "POST\n\nMain Core Quotation consolidation Post Endpoint\nIntegrate POST request in one endpoint to create quotation\n \n- POST /v1/quotation/business-areas/psc\n- PUT  /v1/quotation/project/{id}/activity/{activityId}\n- POST /v1/quotation/project/{id}/product-variants/\n- POST /v1/quotation/project/{id}/risk-data\n\n- POST /v1/quotation/project/{id}/cover-data/\n- POST /v1/quotation/project/{id}/policy-summary/\n- POST /v1/quotation/project/{id}/customer-info/\n- POST /v1/quotation/project/{id}/period/{startDate}\n\nThis endpoint generated policy before to be approved (solicitud Emisión)\n",
+        "description": "POST\n\nMain Core Quotation consolidation Post Endpoint\nIntegrate POST request in one endpoint to create quotation\n \n- POST /v1/quotation/business-areas/psc\n- PUT  /v1/quotation/project/{id}/activity/{activityId}\n- POST /v1/quotation/project/{id}/product-variants/\n- POST /v1/quotation/project/{id}/risk-data\n\n- POST /v1/quotation/project/{id}/cover-data/\n- POST /v1/quotation/project/{id}/premium/\n- POST /v1/quotation/project/{id}/customer-info/\n- POST /v1/quotation/project/{id}/period/{startDate}\n\nThis endpoint generated policy before to be approved (solicitud Emisión)\n",
         "security": [
           {
             "API Key - 1": []
