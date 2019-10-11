@@ -245,7 +245,7 @@
             "required": true
           }
         ],
-        "operationId": 1,
+        "operationId": "\"1\"",
         "tags": [
           "areas"
         ]
@@ -557,7 +557,7 @@
         }
       ]
     },
-    "/v1/quotation/project/{id}/policy-summary": {
+    "/v1/quotation/project/{id}/premium": {
       "post": {
         "summary": "Store policy summary information",
         "responses": {
@@ -595,11 +595,11 @@
             }
           }
         ],
+        "description": "POST\n\nPremium calculation based on payment method",
+        "operationId": 5.2,
         "tags": [
-          "policy-summary"
-        ],
-        "description": "POST\n\nPost Policy Summary Info",
-        "operationId": 5.2
+          "premium"
+        ]
       },
       "parameters": [
         {
@@ -620,10 +620,7 @@
             }
           }
         },
-        "description": "Get Policy Summary Info",
-        "tags": [
-          "policy-summary"
-        ],
+        "description": "GET \n\nObtaining Policy Premium based on payment information",
         "security": [
           {
             "API Key - 1": []
@@ -642,6 +639,9 @@
             "description": "broker email",
             "required": true
           }
+        ],
+        "tags": [
+          "premium"
         ]
       }
     },
