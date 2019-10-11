@@ -151,7 +151,7 @@
             "required": true
           }
         ],
-        "description": "GET\n\nMain Core Quotation consolidation GetEndpoint\nGet quote consolidate information based on project Id\nIntegrate GET request in one endpoint to obtain quotation\n- GET /quotation/project/{projectId}/business-areas/\n- GET /quotation/project/{projectId}/sectors-activities/\n- GET /quotation/project/{projectId}/product-variants/\n- GET /quotation/project/{projectId}/risk-data            \n- GET /quotation/project/{projectId}/cover-data/\n- GET /quotation/project/{projectId}/policy-summary/\n- GET /quotation/project/{projectId}/customer-info/\n- GET /quotation/project/{projectId}/period/"
+        "description": "GET\n\nMain Core Quotation consolidation GetEndpoint\nGet quote consolidate information based on project Id\nIntegrate GET request in one endpoint to obtain quotation\n\n- GET /quotation/project/{projectId}/business-areas/\n- GET /quotation/project/{projectId}/sectors-activities/\n- GET /quotation/project/{projectId}/product-variants/\n- GET /quotation/project/{projectId}/risk-data            \n- GET /quotation/project/{projectId}/cover-data/\n- GET /quotation/project/{projectId}/policy-summary/\n- GET /quotation/project/{projectId}/customer-info/\n- GET /quotation/project/{projectId}/period/"
       },
       "parameters": [
         {
@@ -929,8 +929,7 @@
             "in": "body",
             "name": "body",
             "schema": {
-              "type": "object",
-              "properties": {}
+              "$ref": "./models/finalizeobject.v1.json"
             }
           }
         ]
