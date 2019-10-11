@@ -23,6 +23,10 @@
     },
     "startDate": {
       "type": "string"
+    },
+    "policyNumber": {
+      "type": "string",
+      "description": "used in response Object"
     }
   }
 }
