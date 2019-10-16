@@ -39,6 +39,24 @@
     },
     "area": {
       "$ref": "./area.v1.json"
+    },
+    "backInformation": {
+      "$ref": "./bankinformation.v1.json"
+    },
+    "paymentInstallment": {
+      "$ref": "./paymentinstallment.v1.json"
+    },
+    "paymentMethod": {
+      "$ref": "./paymentmethod.v1.json"
+    },
+    "endDate": {
+      "type": "string"
+    },
+    "policyHolder": {
+      "$ref": "./policyholder.v1.json"
     }
-  }
+  },
+  "required": [
+    "area"
+  ]
 }

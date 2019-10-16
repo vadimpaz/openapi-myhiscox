@@ -10,6 +10,9 @@
     },
     "policyHolder": {
       "$ref": "./policyholder.v1.json"
+    },
+    "": {
+      "type": "string"
     }
   }
 }
