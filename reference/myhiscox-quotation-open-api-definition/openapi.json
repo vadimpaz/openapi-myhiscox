@@ -300,7 +300,7 @@
       },
       "parameters": []
     },
-    "/v1/quotation/{area}": {
+    "/v1/quotation": {
       "post": {
         "summary": "Unique endpoint consolidate quotation creation",
         "tags": [
@@ -353,15 +353,7 @@
         ],
         "operationId": "1"
       },
-      "parameters": [
-        {
-          "type": "string",
-          "name": "area",
-          "in": "path",
-          "required": true,
-          "description": "area = 'psc'"
-        }
-      ]
+      "parameters": []
     },
     "/v1/quotation/project/{id}/activity/{activityId}": {
       "parameters": [
