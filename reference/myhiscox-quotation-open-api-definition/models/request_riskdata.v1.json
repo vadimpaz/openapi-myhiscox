@@ -13,6 +13,12 @@
       "items": {
         "$ref": "./request_answer.v1.json"
       }
+    },
+    "productVariant": {
+      "$ref": "./response_productvariant.v1.json"
+    },
+    "": {
+      "type": "string"
     }
   }
 }

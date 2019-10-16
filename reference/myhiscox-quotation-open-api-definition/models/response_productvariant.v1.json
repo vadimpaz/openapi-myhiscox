@@ -7,6 +7,9 @@
     },
     "name": {
       "type": "string"
+    },
+    "product": {
+      "$ref": "./response_product.v1.json"
     }
   }
 }

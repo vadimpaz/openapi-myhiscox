@@ -1,5 +1,5 @@
 {
-  "title": "PaymentInstallment",
+  "title": "Response_Product",
   "type": "object",
   "properties": {
     "id": {
@@ -8,9 +8,5 @@
     "name": {
       "type": "string"
     }
-  },
-  "required": [
-    "id",
-    "name"
-  ]
+  }
 }
