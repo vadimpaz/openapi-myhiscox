@@ -10,6 +10,9 @@
       "items": {
         "$ref": "./document.v1.json"
       }
+    },
+    "projectId": {
+      "type": "integer"
     }
   }
 }

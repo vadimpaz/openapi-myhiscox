@@ -591,7 +591,7 @@
             "in": "body",
             "name": "body",
             "schema": {
-              "$ref": "./models/policysummary.v1.json"
+              "$ref": "./models/apiquotationobject.v1.json"
             }
           }
         ],
@@ -694,7 +694,7 @@
             "in": "body",
             "name": "body",
             "schema": {
-              "$ref": "./models/riskdata.v1.json"
+              "$ref": "./models/apiquotationobject.v1.json"
             },
             "description": ""
           }
@@ -821,7 +821,7 @@
             "in": "body",
             "name": "body",
             "schema": {
-              "$ref": "./models/coverdata.v1.json"
+              "$ref": "./models/apiquotationobject.v1.json"
             }
           }
         ],
@@ -859,6 +859,11 @@
             "schema": {
               "type": "object",
               "properties": {}
+            }
+          },
+          "201": {
+            "schema": {
+              "$ref": "./models/apiquotationobject.v1.json"
             }
           }
         },
