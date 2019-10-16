@@ -5,16 +5,12 @@
     "id": {
       "type": "integer"
     },
-    "answerType": {
-      "$ref": "./answertype.v1.json"
-    },
     "value": {
       "type": "string",
       "description": "used in POST"
     }
   },
   "required": [
-    "id",
-    "answerType"
+    "id"
   ]
 }
