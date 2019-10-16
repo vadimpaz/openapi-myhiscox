@@ -1,0 +1,9 @@
+{
+  "title": "Response_CustomerData",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    }
+  }
+}

@@ -1,16 +1,12 @@
 {
-  "title": "Area",
+  "title": "Request_Answer",
   "type": "object",
   "properties": {
     "id": {
       "type": "integer"
     },
-    "name": {
+    "value": {
       "type": "string"
     }
-  },
-  "required": [
-    "id",
-    "name"
-  ]
+  }
 }

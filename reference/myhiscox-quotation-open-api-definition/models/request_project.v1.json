@@ -1,0 +1,42 @@
+{
+  "title": "Request_Project",
+  "type": "object",
+  "properties": {
+    "idProject": {
+      "type": "integer"
+    },
+    "area": {
+      "$ref": "./request_area.v1.json"
+    },
+    "activity": {
+      "$ref": "./request_activity.v1.json"
+    },
+    "policyNumber": {
+      "type": "string"
+    },
+    "productVariants": {
+      "type": "array",
+      "items": {
+        "$ref": "./request_productvariant.v1.json"
+      }
+    },
+    "riskData": {
+      "$ref": "./request_riskdata.v1.json"
+    },
+    "coverData": {
+      "$ref": "./request_coverdata.v1.json"
+    },
+    "customerData": {
+      "$ref": "./request_customerdata.v1.json"
+    },
+    "startDate": {
+      "type": "string"
+    },
+    "endDate": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "area"
+  ]
+}

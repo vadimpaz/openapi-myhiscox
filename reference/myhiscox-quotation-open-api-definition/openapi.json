@@ -57,7 +57,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "type": "integer"
+                "$ref": "./models/request_productvariant.v1.json"
               }
             },
             "description": "Array of product variants Ids"
@@ -81,7 +81,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "./models/productvariant.v1.json"
+                "$ref": "./models/response_productvariant.v1.json"
               }
             }
           }
@@ -175,7 +175,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "./models/sector.v1.json"
+                "$ref": "./models/response_sector.v1.json"
               }
             }
           }
@@ -203,10 +203,11 @@
             "in": "body",
             "name": "body",
             "schema": {
-              "$ref": "./models/area.v1.json"
+              "$ref": "./models/request_area.v1.json"
             }
           }
-        ]
+        ],
+        "operationId": "4.1"
       },
       "parameters": []
     },
@@ -255,7 +256,7 @@
             "in": "body",
             "name": "body",
             "schema": {
-              "$ref": "./models/area.v1.json"
+              "$ref": "./models/request_area.v1.json"
             }
           }
         ],
@@ -273,7 +274,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "./models/area.v1.json"
+                "$ref": "./models/response_area.v1.json"
               }
             }
           }
@@ -297,7 +298,8 @@
             "description": "broker email",
             "required": true
           }
-        ]
+        ],
+        "operationId": "1"
       }
     },
     "/v1/quotation": {
@@ -351,7 +353,7 @@
             "description": ""
           }
         ],
-        "operationId": "1"
+        "operationId": "0"
       },
       "parameters": []
     },

@@ -1,5 +1,5 @@
 {
-  "title": "Sector",
+  "title": "Response_Sector",
   "type": "object",
   "properties": {
     "id": {
@@ -10,14 +10,9 @@
     },
     "activities": {
       "type": "array",
-      "description": "this property for GET endpoint only used",
       "items": {
-        "$ref": ""
+        "$ref": "./response_activity.v1.json"
       }
     }
-  },
-  "required": [
-    "id",
-    "name"
-  ]
+  }
 }

@@ -1,0 +1,12 @@
+{
+  "title": "Response_Answer",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "value": {
+      "type": "string"
+    }
+  }
+}

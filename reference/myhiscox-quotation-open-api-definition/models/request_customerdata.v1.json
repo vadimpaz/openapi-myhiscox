@@ -1,0 +1,9 @@
+{
+  "title": "Request_CustomerData",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    }
+  }
+}

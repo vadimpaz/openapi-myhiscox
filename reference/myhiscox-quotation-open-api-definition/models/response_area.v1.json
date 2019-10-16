@@ -1,11 +1,14 @@
 {
-  "title": "BankInformation",
+  "title": "Response_Area",
   "type": "object",
   "properties": {
-    "swift": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
       "type": "string"
     },
-    "iban": {
+    "slug": {
       "type": "string"
     }
   }
