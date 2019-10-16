@@ -31,6 +31,9 @@
     },
     "paymentMethod": {
       "$ref": "./request_paymentmethod.v1.json"
+    },
+    "policyHolder": {
+      "$ref": "./policyholder.v1.json"
     }
   },
   "required": [

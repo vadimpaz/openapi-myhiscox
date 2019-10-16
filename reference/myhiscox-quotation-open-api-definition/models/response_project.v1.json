@@ -49,6 +49,12 @@
     },
     "paymentMethod": {
       "$ref": "./response_paymentmethod.v1.json"
+    },
+    "bankInformation": {
+      "$ref": "./bankinformation.v1.json"
+    },
+    "policyHolder": {
+      "$ref": "./policyholder.v1.json"
     }
   }
 }
