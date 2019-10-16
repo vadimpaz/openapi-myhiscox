@@ -33,6 +33,12 @@
     },
     "premium": {
       "type": "number"
+    },
+    "projectId": {
+      "type": "integer"
+    },
+    "area": {
+      "$ref": "./area.v1.json"
     }
   }
 }
