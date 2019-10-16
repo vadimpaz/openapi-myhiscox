@@ -180,7 +180,7 @@
             }
           }
         },
-        "description": "GET\n\nGet List of Sectors and activities by each one\n  Return list of Sector DTOs and inside each element list of activities DTO\n\n",
+        "description": "GET\n\nGet List of Sectors and activities by each one\n  Return list of Sector DTOs and inside each element list of activities DTO\n  For APC this list will be empty\n",
         "security": [
           {
             "API Key - 1": []
@@ -198,6 +198,13 @@
             "name": "email",
             "description": "broker email",
             "required": true
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "./models/area.v1.json"
+            }
           }
         ]
       },
