@@ -210,7 +210,7 @@
       },
       "parameters": []
     },
-    "/v1/quotation/business-areas/{area}": {
+    "/v1/quotation/business-areas": {
       "post": {
         "summary": "Business area to start new project quotation",
         "responses": {
@@ -257,34 +257,15 @@
           "areas"
         ]
       },
-      "parameters": [
-        {
-          "type": "string",
-          "name": "area",
-          "in": "path",
-          "required": true,
-          "description": "area = 'psc'"
-        }
-      ]
-    },
-    "/v1/quotation/business-areas": {
+      "parameters": [],
       "get": {
         "summary": "Get Business Areas",
-        "tags": [
-          "areas"
-        ],
         "responses": {
           "200": {
-            "description": "OK",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "./models/area.v1.json"
-              }
-            }
+            "description": "OK"
           }
         },
-        "description": "GET\n\nRetieve business areas\n  1. Return list of array for business areas DTO\n",
+        "description": "GET\n\nRetieve business areas\n  1. Return list of array for business areas DTO",
         "security": [
           {
             "API Key - 1": []
@@ -302,10 +283,16 @@
             "name": "email",
             "description": "broker email",
             "required": true
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "./models/area.v1.json"
+            }
           }
         ]
-      },
-      "parameters": []
+      }
     },
     "/v1/quotation": {
       "post": {
