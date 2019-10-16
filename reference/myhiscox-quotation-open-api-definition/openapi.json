@@ -121,7 +121,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "./models/apiquotationobject.v1.json"
+              "$ref": "./models/response_project.v1.json"
             }
           }
         },
@@ -348,7 +348,7 @@
             "in": "body",
             "name": "body",
             "schema": {
-              "$ref": "./models/apiquotationobject.v1.json"
+              "$ref": "./models/request_project.v1.json"
             },
             "description": ""
           }
@@ -472,7 +472,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "./models/customerdata.v1.json"
+              "$ref": "./models/response_customerdata.v1.json"
             }
           }
         },
@@ -518,7 +518,7 @@
             "in": "body",
             "name": "body",
             "schema": {
-              "$ref": "./models/customerdata.v1.json"
+              "$ref": "./models/request_customerdata.v1.json"
             }
           },
           {
@@ -585,7 +585,7 @@
             "in": "body",
             "name": "body",
             "schema": {
-              "$ref": "./models/apiquotationobject.v1.json"
+              "$ref": "./models/request_project.v1.json"
             }
           }
         ],
@@ -603,41 +603,7 @@
           "required": true,
           "description": "projectId"
         }
-      ],
-      "get": {
-        "summary": "Obtaining policy summary information",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "./models/policysummary.v1.json"
-            }
-          }
-        },
-        "description": "GET \n\nObtaining Policy Premium based on payment information",
-        "security": [
-          {
-            "API Key - 1": []
-          }
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "in": "header",
-            "name": "Accept-Language"
-          },
-          {
-            "type": "string",
-            "in": "header",
-            "name": "email",
-            "description": "broker email",
-            "required": true
-          }
-        ],
-        "tags": [
-          "premium"
-        ]
-      }
+      ]
     },
     "/v1/quotation/project/{id}/risk-data": {
       "parameters": [
@@ -705,7 +671,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "./models/riskdata.v1.json"
+              "$ref": "./models/response_riskdata.v1.json"
             }
           }
         },

@@ -34,6 +34,21 @@
     },
     "endDate": {
       "type": "string"
+    },
+    "isClean": {
+      "type": "boolean"
+    },
+    "premium": {
+      "type": "number"
+    },
+    "turnOver": {
+      "type": "number"
+    },
+    "paymentInstallment": {
+      "$ref": "./response_paymentinstallment.v1.json"
+    },
+    "paymentMethod": {
+      "$ref": "./response_paymentmethod.v1.json"
     }
   }
 }
