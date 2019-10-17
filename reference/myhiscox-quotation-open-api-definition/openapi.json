@@ -527,7 +527,8 @@
       "post": {
         "summary": "Create customer-info questions and answers",
         "responses": {
-          "200": {
+          "201": {
+            "description": "Created",
             "schema": {
               "type": "object",
               "properties": {
@@ -535,12 +536,6 @@
                   "type": "integer"
                 }
               }
-            }
-          },
-          "201": {
-            "description": "Created",
-            "schema": {
-              "type": "object"
             }
           }
         },
@@ -584,54 +579,6 @@
       ]
     },
     "/v1/quotation/project/{id}/premium": {
-      "post": {
-        "summary": "Store policy summary information",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "projectId": {
-                  "type": "integer"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "API Key - 1": []
-          }
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "in": "header",
-            "name": "Accept Language",
-            "description": "API Language\n"
-          },
-          {
-            "type": "string",
-            "in": "header",
-            "name": "email",
-            "description": "broker email",
-            "required": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "./models/request_project.v1.json"
-            }
-          }
-        ],
-        "description": "POST\n\nPremium calculation based on payment data, risk and cover questions",
-        "operationId": "'40.2'",
-        "tags": [
-          "premium"
-        ]
-      },
       "parameters": [
         {
           "type": "string",
@@ -669,6 +616,48 @@
             "in": "header",
             "name": "email",
             "description": "broker email"
+          }
+        ]
+      },
+      "put": {
+        "summary": "Store policy premium",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "projectId": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        },
+        "description": "PUT\n\nUpdate Premium calculation based on payment data, risk and cover questions",
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept-Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "./models/request_project.v1.json"
+            },
+            "description": ""
           }
         ]
       }
@@ -887,11 +876,21 @@
           "description": "format yyyy-mm-dd"
         }
       ],
-      "post": {
+      "get": {
+        "summary": "Getting project period values",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "./models/response_project.v1.json"
+            }
+          }
+        },
+        "description": "GET\n\nGeting project period",
+        "operationId": "'43.2'"
+      },
+      "put": {
         "summary": "Finalize policy emition with start date",
-        "tags": [
-          "period"
-        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -905,12 +904,15 @@
             }
           }
         },
-        "security": [
-          {
-            "API Key - 1": []
-          }
-        ],
+        "description": "POST\n\nfinalizing policy emition\nUpdating project state to emition request\nUpdating policy period dates",
         "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "./models/request_project.v1.json"
+            }
+          },
           {
             "type": "string",
             "in": "header",
@@ -920,32 +922,14 @@
             "type": "string",
             "in": "header",
             "name": "email",
-            "description": "broker email",
-            "required": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "./models/request_project.v1.json"
-            }
+            "description": "broker email"
           }
         ],
-        "description": "POST\n\nfinalze policy emition with specifing period and create quote document",
-        "operationId": "'40.4'"
-      },
-      "get": {
-        "summary": "Getting project period values",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "./models/response_project.v1.json"
-            }
+        "security": [
+          {
+            "API Key - 1": []
           }
-        },
-        "description": "GET\n\nGeting project period",
-        "operationId": "'43.2'"
+        ]
       }
     },
     "/v1/quotation/project/{id}/finalize": {
@@ -976,7 +960,7 @@
             }
           }
         },
-        "description": "POST\n\nFinalize project policy submition \n  fill bank information",
+        "description": "POST\n\nFinalize project policy submition \n  fill bank information\n  store signed documents\n  update project status",
         "security": [
           {
             "API Key - 1": []
