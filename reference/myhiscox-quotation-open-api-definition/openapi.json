@@ -320,7 +320,11 @@
             "description": "Created quotation",
             "schema": {
               "type": "object",
-              "properties": {}
+              "properties": {
+                "projectId": {
+                  "type": "integer"
+                }
+              }
             },
             "headers": {}
           },
@@ -523,6 +527,16 @@
       "post": {
         "summary": "Create customer-info questions and answers",
         "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "projectId": {
+                  "type": "integer"
+                }
+              }
+            }
+          },
           "201": {
             "description": "Created",
             "schema": {
@@ -576,7 +590,12 @@
           "200": {
             "description": "OK",
             "schema": {
-              "type": "object"
+              "type": "object",
+              "properties": {
+                "projectId": {
+                  "type": "integer"
+                }
+              }
             }
           }
         },
@@ -670,7 +689,12 @@
           "201": {
             "description": "Created",
             "schema": {
-              "type": "object"
+              "type": "object",
+              "properties": {
+                "projectId": {
+                  "type": "integer"
+                }
+              }
             }
           },
           "401": {
@@ -804,7 +828,12 @@
           "201": {
             "description": "Created",
             "schema": {
-              "type": "object"
+              "type": "object",
+              "properties": {
+                "projectId": {
+                  "type": "integer"
+                }
+              }
             }
           }
         },
@@ -868,12 +897,11 @@
             "description": "OK",
             "schema": {
               "type": "object",
-              "properties": {}
-            }
-          },
-          "201": {
-            "schema": {
-              "$ref": "./models/apiquotationobject.v1.json"
+              "properties": {
+                "projectId": {
+                  "type": "integer"
+                }
+              }
             }
           }
         },
@@ -940,7 +968,11 @@
             "description": "OK",
             "schema": {
               "type": "object",
-              "properties": {}
+              "properties": {
+                "projectId": {
+                  "type": "integer"
+                }
+              }
             }
           }
         },
