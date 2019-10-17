@@ -6,7 +6,10 @@
       "type": "integer"
     },
     "value": {
-      "type": "string"
+      "type": [
+        "string",
+        "null"
+      ]
     }
   }
 }

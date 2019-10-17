@@ -7,12 +7,6 @@
       "items": {
         "$ref": "./response_question.v1.json"
       }
-    },
-    "answers": {
-      "type": "array",
-      "items": {
-        "$ref": "./response_answer.v1.json"
-      }
     }
   }
 }

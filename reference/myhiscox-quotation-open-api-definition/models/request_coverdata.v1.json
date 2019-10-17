@@ -2,12 +2,6 @@
   "title": "Request_CoverData",
   "type": "object",
   "properties": {
-    "questions": {
-      "type": "array",
-      "items": {
-        "$ref": "./request_question.v1.json"
-      }
-    },
     "answers": {
       "type": "array",
       "items": {

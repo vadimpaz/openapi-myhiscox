@@ -1,9 +1,0 @@
-{
-  "title": "Request_Question",
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer"
-    }
-  }
-}

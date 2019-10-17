@@ -7,6 +7,24 @@
     },
     "text": {
       "type": "string"
+    },
+    "answer": {
+      "$ref": "./response_answer.v1.json"
+    },
+    "childQuestions": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": ""
+      }
+    },
+    "section": {
+      "type": "integer"
+    },
+    "position": {
+      "type": "integer"
     }
   }
 }
