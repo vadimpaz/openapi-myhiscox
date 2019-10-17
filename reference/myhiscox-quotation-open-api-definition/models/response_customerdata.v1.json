@@ -2,8 +2,11 @@
   "title": "Response_CustomerData",
   "type": "object",
   "properties": {
-    "id": {
-      "type": "string"
+    "questions": {
+      "type": "array",
+      "items": {
+        "$ref": "./response_question.v1.json"
+      }
     }
   }
 }

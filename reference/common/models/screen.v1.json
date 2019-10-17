@@ -1,0 +1,13 @@
+{
+  "title": "Screen",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string",
+      "description": "risk-data, cover-dat, customer-data ..."
+    }
+  }
+}
