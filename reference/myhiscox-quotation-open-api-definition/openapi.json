@@ -390,6 +390,20 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
           }
         },
         "description": "PUT\n\nFind Project based on projectId path parameter\nIf project exist \n Update activity in Project based on activity path parameter\n Update project updatedAt field property\n\n",
@@ -410,6 +424,30 @@
             "name": "email",
             "description": "broker email",
             "required": true
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "projectId": {
+                  "type": "integer",
+                  "example": "0",
+                  "description": "Internal Project Id"
+                },
+                "activityId": {
+                  "type": "integer",
+                  "example": "0",
+                  "description": "Activity Id"
+                }
+              },
+              "required": [
+                "projectId",
+                "activityId"
+              ]
+            },
+            "description": ""
           }
         ],
         "tags": [
