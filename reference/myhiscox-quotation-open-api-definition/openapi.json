@@ -522,7 +522,8 @@
             "required": true
           }
         ],
-        "description": "GET\n\nget policy holder info based on project Id"
+        "description": "GET\n\nget policy holder info based on project Id",
+        "operationId": "'42.6'"
       },
       "post": {
         "summary": "Create customer-info questions and answers",
@@ -770,7 +771,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "./models/coverdata.v1.json"
+              "$ref": "./models/response_coverdata.v1.json"
             }
           }
         },
