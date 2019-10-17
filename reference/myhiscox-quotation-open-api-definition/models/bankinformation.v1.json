@@ -7,6 +7,12 @@
     },
     "iban": {
       "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "province": {
+      "type": "string"
     }
   }
 }
