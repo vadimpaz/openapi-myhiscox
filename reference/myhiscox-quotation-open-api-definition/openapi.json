@@ -903,7 +903,7 @@
             }
           }
         ],
-        "description": "finalze policy emition with specifing period and create quote document",
+        "description": "POST\n\nfinalze policy emition with specifing period and create quote document",
         "operationId": "'40.4'"
       },
       "get": {
