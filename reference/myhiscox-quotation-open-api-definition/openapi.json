@@ -368,11 +368,11 @@
       },
       "parameters": []
     },
-    "/v1/quotation/project/{projectId}/activity/{activityId}": {
+    "/v1/quotation/project/{id}/activity/{activityId}": {
       "parameters": [
         {
           "type": "integer",
-          "name": "projectId",
+          "name": "id",
           "in": "path",
           "required": true,
           "description": "projectId"
@@ -475,7 +475,7 @@
             }
           }
         },
-        "description": "Getting document PDF based on type parameter \nThe process creates a quote policy file in server\n\n\n ",
+        "description": "POST\n\nGetting document PDF based on type parameter \nThe process creates a quote policy file in server\n\n\n ",
         "security": [
           {
             "API Key - 1": []
@@ -657,7 +657,7 @@
           }
         },
         "operationId": "'42.5'",
-        "description": "Getting project premium value",
+        "description": "GET\n\nGetting project premium value",
         "security": [
           {
             "API Key - 1": []
@@ -815,7 +815,7 @@
             "required": true
           }
         ],
-        "description": "Getting cover data based on risk data info based on product variants list",
+        "description": "GET\n\nGetting cover data based on risk data info based on product variants list",
         "operationId": "'42.4'"
       },
       "parameters": [
@@ -842,7 +842,7 @@
             }
           }
         },
-        "description": "Store cover data",
+        "description": "POST \n\nStore cover data",
         "security": [
           {
             "API Key - 1": []
@@ -907,7 +907,7 @@
             }
           }
         },
-        "description": "POST\n\nfinalizing policy emition\nUpdating project state to emition request\nUpdating policy period dates",
+        "description": "PUT\n\nfinalizing policy emition\nUpdating project state to emition request\nUpdating policy period dates",
         "parameters": [
           {
             "in": "body",
