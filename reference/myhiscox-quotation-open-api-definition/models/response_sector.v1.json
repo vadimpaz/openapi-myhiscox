@@ -14,5 +14,6 @@
         "$ref": "./response_activity.v1.json"
       }
     }
-  }
+  },
+  "description": ""
 }
