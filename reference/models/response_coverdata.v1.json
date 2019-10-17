@@ -1,0 +1,12 @@
+{
+  "title": "Response_CoverData",
+  "type": "object",
+  "properties": {
+    "questions": {
+      "type": "array",
+      "items": {
+        "$ref": "./response_question.v1.json"
+      }
+    }
+  }
+}

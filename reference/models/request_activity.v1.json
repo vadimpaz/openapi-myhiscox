@@ -1,0 +1,12 @@
+{
+  "title": "Request_Activity",
+  "type": "object",
+  "properties": {
+    "idActivity": {
+      "type": "integer"
+    },
+    "idSector": {
+      "type": "integer"
+    }
+  }
+}

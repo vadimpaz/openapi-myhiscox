@@ -1,0 +1,9 @@
+{
+  "title": "Request_Area",
+  "type": "object",
+  "properties": {
+    "slug": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "title": "Request_FinalizeObject",
+  "type": "object",
+  "properties": {
+    "bankInfo": {
+      "$ref": "./bankinformation.v1.json"
+    },
+    "attachments": {
+      "type": "array",
+      "items": {
+        "$ref": "./document.v1.json"
+      }
+    },
+    "projectId": {
+      "type": "integer"
+    }
+  }
+}

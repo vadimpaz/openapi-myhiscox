@@ -1,0 +1,60 @@
+{
+  "title": "Response_Project",
+  "type": "object",
+  "properties": {
+    "idProject": {
+      "type": "integer"
+    },
+    "area": {
+      "$ref": "./response_area.v1.json"
+    },
+    "activity": {
+      "$ref": "./response_activity.v1.json"
+    },
+    "policyNumber": {
+      "type": "string"
+    },
+    "productVariants": {
+      "type": "array",
+      "items": {
+        "$ref": "./response_productvariant.v1.json"
+      }
+    },
+    "riskData": {
+      "$ref": "./response_riskdata.v1.json"
+    },
+    "coverData": {
+      "$ref": "./response_coverdata.v1.json"
+    },
+    "customerData": {
+      "$ref": "./response_customerdata.v1.json"
+    },
+    "starDate": {
+      "type": "string"
+    },
+    "endDate": {
+      "type": "string"
+    },
+    "isClean": {
+      "type": "boolean"
+    },
+    "premium": {
+      "type": "number"
+    },
+    "turnOver": {
+      "type": "number"
+    },
+    "paymentInstallment": {
+      "$ref": "./response_paymentinstallment.v1.json"
+    },
+    "paymentMethod": {
+      "$ref": "./response_paymentmethod.v1.json"
+    },
+    "bankInformation": {
+      "$ref": "./bankinformation.v1.json"
+    },
+    "policyHolder": {
+      "$ref": "./policyholder.v1.json"
+    }
+  }
+}
