@@ -1,0 +1,33 @@
+{
+  "title": "Response_Question",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "text": {
+      "type": "string"
+    },
+    "answer": {
+      "$ref": "./response_answer.v1.json"
+    },
+    "childQuestions": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "./response_question.v1.json"
+      }
+    },
+    "section": {
+      "type": "integer"
+    },
+    "position": {
+      "type": "integer"
+    },
+    "screen": {
+      "$ref": "../../common/models/screen.v1.json"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Request_Sector",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    }
+  }
+}
