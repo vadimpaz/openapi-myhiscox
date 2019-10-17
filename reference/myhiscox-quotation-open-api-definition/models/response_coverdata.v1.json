@@ -2,8 +2,11 @@
   "title": "Response_CoverData",
   "type": "object",
   "properties": {
-    "id": {
-      "type": "integer"
+    "questions": {
+      "type": "array",
+      "items": {
+        "$ref": "./response_question.v1.json"
+      }
     }
   }
 }

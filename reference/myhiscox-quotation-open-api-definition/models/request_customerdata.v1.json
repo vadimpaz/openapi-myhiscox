@@ -2,8 +2,14 @@
   "title": "Request_CustomerData",
   "type": "object",
   "properties": {
-    "id": {
-      "type": "string"
+    "questions": {
+      "type": "array",
+      "items": {
+        "$ref": "./request_answer.v1.json"
+      }
+    },
+    "policyHolder": {
+      "$ref": "./policyholder.v1.json"
     }
   }
 }
