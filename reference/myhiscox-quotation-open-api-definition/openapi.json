@@ -368,11 +368,11 @@
       },
       "parameters": []
     },
-    "/v1/quotation/project/{id}/activity/{activityId}": {
+    "/v1/quotation/project/{projectId}/activity/{activityId}": {
       "parameters": [
         {
           "type": "integer",
-          "name": "id",
+          "name": "projectId",
           "in": "path",
           "required": true,
           "description": "projectId"
@@ -381,7 +381,8 @@
           "type": "integer",
           "name": "activityId",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "activityId"
         }
       ],
       "put": {
@@ -603,37 +604,6 @@
           "description": "projectId"
         }
       ],
-      "get": {
-        "summary": "Obtain project premium",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "./models/response_project.v1.json"
-            }
-          }
-        },
-        "operationId": "'42.5'",
-        "description": "Getting project premium value",
-        "security": [
-          {
-            "API Key - 1": []
-          }
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "in": "header",
-            "name": "Accept-Language"
-          },
-          {
-            "type": "string",
-            "in": "header",
-            "name": "email",
-            "description": "broker email"
-          }
-        ]
-      },
       "put": {
         "summary": "Store policy premium",
         "responses": {
@@ -673,6 +643,37 @@
               "$ref": "./models/request_project.v1.json"
             },
             "description": ""
+          }
+        ]
+      },
+      "get": {
+        "summary": "Obtain project premium",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "./models/response_project.v1.json"
+            }
+          }
+        },
+        "operationId": "'42.5'",
+        "description": "Getting project premium value",
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept-Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email",
+            "description": "broker email"
           }
         ]
       }
@@ -891,19 +892,6 @@
           "description": "format yyyy-mm-dd"
         }
       ],
-      "get": {
-        "summary": "Getting project period values",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "./models/response_project.v1.json"
-            }
-          }
-        },
-        "description": "GET\n\nGeting project period",
-        "operationId": "'43.2'"
-      },
       "put": {
         "summary": "Finalize policy emition with start date",
         "responses": {
@@ -945,6 +933,19 @@
             "API Key - 1": []
           }
         ]
+      },
+      "get": {
+        "summary": "Getting project period values",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "./models/response_project.v1.json"
+            }
+          }
+        },
+        "description": "GET\n\nGeting project period",
+        "operationId": "'43.2'"
       }
     },
     "/v1/quotation/project/{id}/finalize": {
