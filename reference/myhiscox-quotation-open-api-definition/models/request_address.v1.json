@@ -1,0 +1,21 @@
+{
+  "title": "Request_Address",
+  "type": "object",
+  "properties": {
+    "address": {
+      "type": "string"
+    },
+    "number": {
+      "type": "string"
+    },
+    "floor": {
+      "type": "string"
+    },
+    "postalcode": {
+      "type": "string"
+    },
+    "province": {
+      "type": "string"
+    }
+  }
+}

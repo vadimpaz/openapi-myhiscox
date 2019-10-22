@@ -2,18 +2,14 @@
   "title": "Request_Answer",
   "type": "object",
   "properties": {
-    "id": {
-      "type": "integer"
-    },
-    "value": {
-      "type": [
-        "string",
-        "integer",
-        "null"
-      ]
+    "answer": {
+      "type": "string"
     },
     "questionId": {
-      "type": "string"
+      "type": "integer"
+    },
+    "productVariantId": {
+      "type": "integer"
     }
   }
 }
