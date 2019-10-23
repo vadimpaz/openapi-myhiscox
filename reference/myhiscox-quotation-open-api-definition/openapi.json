@@ -619,7 +619,7 @@
             }
           }
         },
-        "description": "PUT\n\nUpdate Premium calculation based on payment data, risk and cover questions",
+        "description": "PUT\n\nUpdate Premium calculation & Clean info based on payment data, risk and cover questions",
         "security": [
           {
             "API Key - 1": []
@@ -644,7 +644,8 @@
             },
             "description": ""
           }
-        ]
+        ],
+        "operationId": "'40.2'"
       },
       "get": {
         "summary": "Obtain project premium",
