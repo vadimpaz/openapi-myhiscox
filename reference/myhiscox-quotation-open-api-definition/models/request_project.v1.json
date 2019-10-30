@@ -41,5 +41,6 @@
   },
   "required": [
     "area"
-  ]
+  ],
+  "description": "Quotation consolidation object"
 }

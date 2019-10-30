@@ -14,5 +14,6 @@
     "projectId": {
       "type": "integer"
     }
-  }
+  },
+  "description": "DTO for last finilize endpoint"
 }

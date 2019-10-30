@@ -2,11 +2,15 @@
   "title": "Request_Activity",
   "type": "object",
   "properties": {
-    "idActivity": {
+    "activityId": {
       "type": "integer"
     },
-    "idSector": {
-      "type": "integer"
+    "customActivity": {
+      "type": "string",
+      "description": "Field will be filled only for custom activies, providing the custom activity name or description"
     }
-  }
+  },
+  "required": [
+    "activityId"
+  ]
 }
