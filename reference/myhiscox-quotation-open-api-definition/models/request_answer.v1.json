@@ -3,13 +3,26 @@
   "type": "object",
   "properties": {
     "answer": {
-      "type": "string"
+      "type": [
+        "string",
+        "integer",
+        "boolean",
+        "number"
+      ]
     },
     "questionId": {
       "type": "integer"
     },
     "productVariantId": {
-      "type": "integer"
+      "type": [
+        "integer",
+        "null"
+      ],
+      "description": "for risk data and customer info , productVariantId is null"
     }
-  }
+  },
+  "required": [
+    "answer",
+    "questionId"
+  ]
 }
