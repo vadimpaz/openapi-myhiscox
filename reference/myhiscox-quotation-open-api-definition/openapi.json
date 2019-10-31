@@ -619,7 +619,7 @@
             }
           }
         },
-        "description": "PUT\n\nUpdate Premium calculation & Clean info based on payment data, risk and cover questions",
+        "description": "PUT\n\nUpdate Premium calculation & Clean info based on payment data (in request), and risk and cover questions stored",
         "security": [
           {
             "API Key - 1": []
@@ -640,7 +640,15 @@
             "in": "body",
             "name": "body",
             "schema": {
-              "$ref": "./models/request_project.v1.json"
+              "type": "object",
+              "properties": {
+                "paymentMethod": {
+                  "$ref": "../models/request_paymentmethod.v1.json"
+                },
+                "paymentInstallment": {
+                  "$ref": "../models/request_paymentinstallment.v1.json"
+                }
+              }
             },
             "description": ""
           }
