@@ -18,11 +18,12 @@
         "integer",
         "null"
       ],
-      "description": "for risk data and customer info , productVariantId is null"
+      "description": "Required for Cover Data\nfor risk data and customer info , productVariantId is null"
     }
   },
   "required": [
     "answer",
     "questionId"
-  ]
+  ],
+  "description": ""
 }
