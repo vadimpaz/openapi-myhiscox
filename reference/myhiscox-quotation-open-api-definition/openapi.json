@@ -916,15 +916,8 @@
             }
           }
         },
-        "description": "PUT\n\nfinalizing policy emition\nUpdating project state to emition request\nUpdating policy period dates",
+        "description": "PUT\n\nUpdating project state to emition request : 2 quoted.\nUpdating policy period dates\n -  start date to current opetation day\n -  end date: + year - 1 day\n",
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "./models/request_project.v1.json"
-            }
-          },
           {
             "type": "string",
             "in": "header",
