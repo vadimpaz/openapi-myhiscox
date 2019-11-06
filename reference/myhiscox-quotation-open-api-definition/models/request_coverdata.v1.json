@@ -5,7 +5,7 @@
     "answers": {
       "type": "array",
       "items": {
-        "$ref": "./request_answer.v1.json"
+        "$ref": "./request_answer_productvariant.v1.json"
       }
     }
   }

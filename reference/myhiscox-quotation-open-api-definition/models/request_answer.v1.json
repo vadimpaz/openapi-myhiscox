@@ -1,29 +1,17 @@
 {
   "title": "Request_Answer",
   "type": "object",
+  "description": "",
   "properties": {
     "answer": {
-      "type": [
-        "string",
-        "integer",
-        "boolean",
-        "number"
-      ]
+      "type": "string"
     },
     "questionId": {
       "type": "integer"
-    },
-    "productVariantId": {
-      "type": [
-        "integer",
-        "null"
-      ],
-      "description": "Required for Cover Data\nfor risk data and customer info , productVariantId is null"
     }
   },
   "required": [
     "answer",
     "questionId"
-  ],
-  "description": ""
+  ]
 }

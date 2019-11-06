@@ -1,0 +1,16 @@
+{
+  "title": "request_answer_productvariant",
+  "type": "object",
+  "properties": {
+    "answer": {
+      "type": "string"
+    },
+    "questionId": {
+      "type": "integer"
+    },
+    "productVariantId": {
+      "type": "integer",
+      "description": "- Product Variant is required for Cover Data\n- Risk data and customer info , productVariantId is null, them use request_answer model"
+    }
+  }
+}
