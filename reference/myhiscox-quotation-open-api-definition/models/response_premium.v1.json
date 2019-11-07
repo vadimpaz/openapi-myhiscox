@@ -1,0 +1,21 @@
+{
+  "title": "response_premium",
+  "type": "object",
+  "properties": {
+    "baseNetRate": {
+      "type": "number"
+    },
+    "netRate": {
+      "type": "number"
+    },
+    "taxes": {
+      "type": "number"
+    },
+    "surcharge": {
+      "type": "number"
+    },
+    "consortium": {
+      "type": "number"
+    }
+  }
+}

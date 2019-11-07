@@ -1,0 +1,12 @@
+{
+  "title": "payment_response",
+  "type": "object",
+  "properties": {
+    "paymentMethod": {
+      "type": "string"
+    },
+    "paymentInstallment": {
+      "type": "string"
+    }
+  }
+}

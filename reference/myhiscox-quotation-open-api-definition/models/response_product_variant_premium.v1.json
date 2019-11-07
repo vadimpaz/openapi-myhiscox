@@ -1,0 +1,12 @@
+{
+  "title": "response_product_variant_premium",
+  "type": "object",
+  "properties": {
+    "productVariantId": {
+      "type": "integer"
+    },
+    "premium": {
+      "$ref": "./response_premium.v1.json"
+    }
+  }
+}

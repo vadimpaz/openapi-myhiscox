@@ -1,9 +1,0 @@
-{
-  "title": "Request_PaymentMethod",
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string"
-    }
-  }
-}

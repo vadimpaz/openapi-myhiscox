@@ -1,0 +1,12 @@
+{
+  "title": "response_payment",
+  "type": "object",
+  "properties": {
+    "paymentMethod": {
+      "$ref": "./response_paymentmethod.v1.json"
+    },
+    "paymentInstallment": {
+      "$ref": "./response_paymentinstallment.v1.json"
+    }
+  }
+}

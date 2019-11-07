@@ -594,7 +594,7 @@
         }
       ]
     },
-    "/v1/quotation/project/{id}/premium": {
+    "/v1/quotation/project/{id}/payment": {
       "parameters": [
         {
           "type": "string",
@@ -619,7 +619,7 @@
             }
           }
         },
-        "description": "PUT\n\nUpdate Premium calculation & Clean info based on payment data (in request), and risk and cover questions stored",
+        "description": "PUT\n\nupdate project payment fields",
         "security": [
           {
             "API Key - 1": []
@@ -640,15 +640,7 @@
             "in": "body",
             "name": "body",
             "schema": {
-              "type": "object",
-              "properties": {
-                "paymentMethod": {
-                  "$ref": "../models/request_paymentmethod.v1.json"
-                },
-                "paymentInstallment": {
-                  "$ref": "../models/request_paymentinstallment.v1.json"
-                }
-              }
+              "$ref": "../models/request_payment.v1.json"
             },
             "description": ""
           }
@@ -661,12 +653,12 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "./models/response_project.v1.json"
+              "$ref": "../models/response_payment.v1.json"
             }
           }
         },
         "operationId": "'42.5'",
-        "description": "GET\n\nGetting project premium value",
+        "description": "GET\n\nGetting project payment value",
         "security": [
           {
             "API Key - 1": []
@@ -1005,6 +997,78 @@
           }
         ],
         "operationId": "'45.1'"
+      }
+    },
+    "/v1/quotation/project/{id}/premium": {
+      "parameters": [
+        {
+          "type": "string",
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Getting project premium information",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "projectId": {
+                  "type": "integer"
+                },
+                "premium": {
+                  "$ref": "./models/response_premium.v1.json"
+                },
+                "productVariantPremium": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "./models/response_product_variant_premium.v1.json"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "Getting premium values:\n- base_net_rate = initial premium, without increments and discounts.\n- net_rate = net premium, includes increments and discounts.\n- taxes , acts over net_rate some %\n- surchange: is a broker fee commissions \n- consortium\n- total_rate = net_rate + taxes + surcharge + consortium"
+      },
+      "put": {
+        "summary": "Update project premium information",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "projectId": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        },
+        "description": "Calculate Premium fields and store in project and   per Product Variant, based on current infoarmtion stored:\n\n\n- base_net_rate = initial premium, without increments and discounts.\n- net_rate = net premium, includes increments and discounts.\n- taxes , acts over net_rate some %\n- surchange: is a broker fee commissions \n- consortium\n- total_rate = net_rate + taxes + surcharge + consortium\n",
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept-Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "email"
+          }
+        ]
       }
     }
   },

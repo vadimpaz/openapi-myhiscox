@@ -1,0 +1,12 @@
+{
+  "title": "request_payment",
+  "type": "object",
+  "properties": {
+    "paymentMethodId": {
+      "type": "integer"
+    },
+    "paymentInstallmentId": {
+      "type": "integer"
+    }
+  }
+}
