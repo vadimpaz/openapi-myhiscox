@@ -173,7 +173,24 @@
         "summary": "",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "projectId": {
+                  "type": "integer"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "screen": {
+                  "$ref": "../models/screen.v1.json"
+                },
+                "updatedAt": {
+                  "type": "string"
+                }
+              }
+            }
           }
         },
         "description": "PUT\n\nConsolidate PUT operations update.\nBased on infomation provided in each endpoint.\nIf projectId{id} exists:\n\n- PUT /quotation/project/{projectId}/business-areas/ WILL UPDATE AREA\n\n- PUT /quotation/project/{projectId}/sectors-activities/ WILL UPDATE ACTIVITY\n\n- PUT /quotation/project/{projectId}/product-variants/ DELETE RELATED PROJECT DATA\n\n- PUT /quotation/project/{projectId}/risk-data DELETE RELATED PROJECT DATA            \n\n- PUT /quotation/project/{projectId}/cover-data/\nDELETE RELATED PROJECT DATA\n\n- PUT /quotation/project/{projectId}/payment/\nDELETE RELATED PROJECT DATA\n\n- PUT /quotation/project/{projectId}/premium/\nDELETE RELATED PROJECT DATA , product variants premium and reset to 0 values in projects fields\n\n- PUT /quotation/project/{projectId}/customer-info/ DELETE RELATED PROJECT DATA\n\n- PUT /quotation/project/{projectId}/period/ DELETE RELATED PROJECT DATA\n\nConsolidated PUT endpoint will be check initial 3 endpoint if needed information to delete in cascade. \n\n"
