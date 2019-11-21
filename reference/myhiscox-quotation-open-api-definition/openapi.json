@@ -602,7 +602,7 @@
             "required": true
           }
         ],
-        "description": "POST\n\npost policy holder info\nValidate if policy is Clean, stay in curren project status.\nIf Non Clean Project update status to \"Need Information\"",
+        "description": "POST\n\npost policy holder info\nValidate if policy is Clean, stay in curren project status.\nIf Non Clean Project update status to \"Pending Info\"",
         "security": [
           {
             "API Key - 1": []
@@ -934,7 +934,7 @@
             }
           }
         },
-        "description": "PUT\n\nUpdating project state to emition request : 2 quoted.\nUpdating policy period dates\n -  start date to current opetation day\n -  end date: + year - 1 day\n",
+        "description": "PUT\nCheck if project is non clean to return error \nIf is clean then: \nUpdating project state to emition request : \n    2 - quoted.\nUpdating policy period dates\n -  start date to current opetation day\n -  end date: + year - 1 day\n",
         "parameters": [
           {
             "type": "string",
