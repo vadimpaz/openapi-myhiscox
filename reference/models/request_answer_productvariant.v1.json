@@ -1,0 +1,15 @@
+{
+  "title": "request_answer_productvariant",
+  "type": "object",
+  "properties": {
+    "answer": {
+      "type": "string"
+    },
+    "questionId": {
+      "type": "integer"
+    },
+    "productVariantId": {
+      "type": "integer"
+    }
+  }
+}
