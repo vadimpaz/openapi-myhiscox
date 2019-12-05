@@ -8,5 +8,8 @@
     "customActivity": {
       "type": "string"
     }
-  }
+  },
+  "required": [
+    "idActivity"
+  ]
 }
