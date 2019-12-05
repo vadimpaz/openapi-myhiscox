@@ -5,8 +5,8 @@
     "idActivity": {
       "type": "integer"
     },
-    "idSector": {
-      "type": "integer"
+    "customActivity": {
+      "type": "string"
     }
   }
 }
