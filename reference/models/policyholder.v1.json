@@ -8,17 +8,26 @@
     "name": {
       "type": "string"
     },
-    "adress": {
+    "address": {
       "type": "string"
     },
     "cp": {
+      "type": "string"
+    },
+    "building": {
+      "type": "string"
+    },
+    "door": {
+      "type": "string"
+    },
+    "provice": {
       "type": "string"
     }
   },
   "required": [
     "id",
     "name",
-    "adress",
+    "address",
     "cp"
   ]
 }
