@@ -20,7 +20,7 @@
     "door": {
       "type": "string"
     },
-    "provice": {
+    "province": {
       "type": "string"
     }
   },
