@@ -11,5 +11,6 @@
         "$ref": "./document.v1.json"
       }
     }
-  }
+  },
+  "description": "Last step for policy creation"
 }
