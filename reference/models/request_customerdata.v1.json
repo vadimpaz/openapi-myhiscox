@@ -29,5 +29,6 @@
     "postalcode": {
       "type": "string"
     }
-  }
+  },
+  "description": ""
 }

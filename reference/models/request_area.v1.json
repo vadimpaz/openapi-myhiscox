@@ -1,9 +1,5 @@
 {
   "title": "Request_Area",
-  "type": "object",
-  "properties": {
-    "slug": {
-      "type": "string"
-    }
-  }
+  "type": "string",
+  "description": "'psc' for current version"
 }
