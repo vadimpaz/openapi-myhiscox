@@ -1,6 +1,7 @@
 {
   "title": "Request_CustomerData",
   "type": "object",
+  "description": "",
   "properties": {
     "answers": {
       "type": "array",
@@ -8,8 +9,29 @@
         "$ref": "./request_answer.v1.json"
       }
     },
-    "policyHolder": {
-      "$ref": "./policyholder.v1.json"
+    "holder": {
+      "type": "string"
+    },
+    "idNumber": {
+      "type": "string"
+    },
+    "addressStreet": {
+      "type": "string"
+    },
+    "addressNumber": {
+      "type": "string"
+    },
+    "addressFloor": {
+      "type": "string"
+    },
+    "addressDoor": {
+      "type": "string"
+    },
+    "postalcode": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
     }
   }
 }

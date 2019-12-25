@@ -55,9 +55,6 @@
     },
     "policyHolder": {
       "$ref": "./policyholder.v1.json"
-    },
-    "finalize": {
-      "$ref": "./finalizeobject.v1.json"
     }
   }
 }

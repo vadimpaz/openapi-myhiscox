@@ -1,6 +1,7 @@
 {
   "title": "Request_FinalizeObject",
   "type": "object",
+  "description": "DTO for last finilize endpoint",
   "properties": {
     "bankInfo": {
       "$ref": "./bankinformation.v1.json"
@@ -10,10 +11,6 @@
       "items": {
         "$ref": "./document.v1.json"
       }
-    },
-    "projectId": {
-      "type": "integer"
     }
-  },
-  "description": "DTO for last finilize endpoint"
+  }
 }
