@@ -2,16 +2,16 @@
   "title": "BankInformation",
   "type": "object",
   "properties": {
-    "swift": {
-      "type": "string"
-    },
     "iban": {
       "type": "string"
     },
-    "name": {
+    "bic": {
       "type": "string"
     },
-    "province": {
+    "entity": {
+      "type": "string"
+    },
+    "city": {
       "type": "string"
     }
   }

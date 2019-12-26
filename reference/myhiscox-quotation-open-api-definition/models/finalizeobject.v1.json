@@ -4,7 +4,7 @@
   "description": "DTO for last finilize endpoint",
   "properties": {
     "bankInfo": {
-      "$ref": "./bankinformation.v1.json"
+      "$ref": "./request_bankinfo.v1.json"
     },
     "attachments": {
       "type": "array",
