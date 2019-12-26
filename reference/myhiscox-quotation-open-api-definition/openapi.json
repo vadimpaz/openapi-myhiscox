@@ -194,7 +194,31 @@
           }
         },
         "description": "PUT\n\nConsolidate PUT operations update.\nBased on infomation provided in each endpoint.\nIf projectId{id} exists:\n\n- PUT /quotation/project/{projectId}/business-areas/ WILL UPDATE AREA\n\n- PUT /quotation/project/{projectId}/sectors-activities/ WILL UPDATE ACTIVITY\n\n- PUT /quotation/project/{projectId}/product-variants/ DELETE RELATED PROJECT DATA \n    THEN INSERT LIKE GLOBAL INSERTING PROCESS\n\n- PUT /quotation/project/{projectId}/risk-data DELETE RELATED PROJECT DATA            \n    THEN INSERT LIKE GLOBAL INSERTING PROCESS\n\n- PUT /quotation/project/{projectId}/cover-data/\nDELETE RELATED PROJECT DATA THEN INSERT LIKE GLOBAL INSERTING PROCESS\n\n- PUT /quotation/project/{projectId}/payment/\nUPDATE PROJECT DATA \n\n- PUT /quotation/project/{projectId}/premium/\nDELETE RELATED PROJECT DATA THEN INSERT LIKE GLOBAL INSERTING PROCESS\n, product variants premium and reset to 0 values in projects fields\n\n- PUT /quotation/project/{projectId}/customer-info/ DELETE RELATED PROJECT DATA \n THEN INSERT LIKE GLOBAL INSERTING PROCESS\n\n- PUT /quotation/project/{projectId}/period/ DELETE RELATED PROJECT DATA\n THEN INSERT LIKE GLOBAL INSERTING PROCESS\n \nConsolidated PUT endpoint will be check initial 3 endpoint if needed information to delete in cascade. \n\n",
-        "operationId": "'3'"
+        "operationId": "'3'",
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "in": "query",
+            "name": "Accept-Language"
+          },
+          {
+            "type": "string",
+            "in": "query",
+            "name": "email"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "./models/request_quotation.v1.json"
+            }
+          }
+        ]
       }
     },
     "/v1/quotation/sectors": {
@@ -386,7 +410,7 @@
             "in": "body",
             "name": "body",
             "schema": {
-              "$ref": "./models/request_project.v1.json"
+              "$ref": "./models/request_quotation.v1.json"
             },
             "description": ""
           }

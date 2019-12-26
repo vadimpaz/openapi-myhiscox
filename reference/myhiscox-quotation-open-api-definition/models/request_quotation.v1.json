@@ -1,5 +1,5 @@
 {
-  "title": "Request_Project",
+  "title": "Request Quotation Object",
   "type": "object",
   "description": "Quotation consolidation object",
   "properties": {
@@ -21,17 +21,17 @@
     "coverData": {
       "$ref": "./request_coverdata.v1.json"
     },
-    "customerData": {
+    "customerInfo": {
       "$ref": "./request_customerdata.v1.json"
+    },
+    "paymentMethodId": {
+      "$ref": "./request_paymentinstallment.v1.json"
+    },
+    "paymentInstallmentId": {
+      "$ref": "./request_paymentmethod.v1.json"
     },
     "startDate": {
       "type": "string"
-    },
-    "paymentInstallment": {
-      "$ref": "./request_paymentinstallment.v1.json"
-    },
-    "paymentMethod": {
-      "$ref": "./request_paymentmethod.v1.json"
     }
   },
   "required": [
