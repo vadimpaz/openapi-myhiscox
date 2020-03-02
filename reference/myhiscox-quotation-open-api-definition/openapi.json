@@ -691,7 +691,7 @@
             "in": "body",
             "name": "body",
             "schema": {
-              "$ref": "../models/request_payment.v1.json"
+              "$ref": "./models/request_premium.v1.json"
             },
             "description": ""
           }
@@ -704,8 +704,9 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "../models/response_payment.v1.json"
-            }
+              "$ref": "./models/response_premium.v1.json"
+            },
+            "headers": {}
           }
         },
         "operationId": "'42.5'",

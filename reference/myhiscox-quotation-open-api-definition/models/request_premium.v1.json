@@ -1,0 +1,12 @@
+{
+  "title": "request_premium",
+  "type": "object",
+  "properties": {
+    "paymentInstallment": {
+      "$ref": "./request_paymentinstallment.v1.json"
+    },
+    "paymentMethod": {
+      "$ref": "./request_paymentmethod.v1.json"
+    }
+  }
+}
