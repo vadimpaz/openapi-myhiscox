@@ -9,7 +9,8 @@
       }
     },
     "policyHolder": {
-      "$ref": "../../models/policyholder.v1.json"
+      "$ref": "./policyholder.v1.json"
     }
-  }
+  },
+  "description": ""
 }
