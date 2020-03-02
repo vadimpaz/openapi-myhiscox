@@ -184,7 +184,7 @@
                   "type": "string"
                 },
                 "screen": {
-                  "$ref": "../models/screen.v1.json"
+                  "$ref": "./models/screen.v1.json"
                 },
                 "updatedAt": {
                   "type": "string"
