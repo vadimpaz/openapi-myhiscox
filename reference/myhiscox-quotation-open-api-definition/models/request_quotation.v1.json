@@ -4,7 +4,7 @@
   "description": "Quotation consolidation object",
   "properties": {
     "area": {
-      "$ref": "./request_area.v1.json"
+      "$ref": "./request_businessarea.v1.json"
     },
     "activity": {
       "$ref": "./request_activity.v1.json"
@@ -22,13 +22,13 @@
       "$ref": "./request_coverdata.v1.json"
     },
     "customerInfo": {
-      "$ref": "./request_customerdata.v1.json"
+      "$ref": "./request_customerinfo.v1.json"
     },
     "paymentMethodId": {
-      "$ref": "./request_paymentinstallment.v1.json"
+      "type": "integer"
     },
     "paymentInstallmentId": {
-      "$ref": "./request_paymentmethod.v1.json"
+      "type": "integer"
     },
     "startDate": {
       "type": "string"

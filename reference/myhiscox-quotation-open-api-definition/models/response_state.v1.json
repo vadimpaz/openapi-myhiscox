@@ -1,0 +1,15 @@
+{
+  "title": "response_state.v1",
+  "type": "object",
+  "properties": {
+    "slug": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

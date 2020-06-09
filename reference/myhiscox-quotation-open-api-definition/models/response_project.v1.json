@@ -2,56 +2,29 @@
   "title": "Response_Project",
   "type": "object",
   "properties": {
-    "idProject": {
+    "projectId": {
       "type": "integer"
     },
-    "area": {
-      "$ref": "./response_area.v1.json"
-    },
-    "activity": {
-      "$ref": "./response_activity.v1.json"
-    },
-    "policyNumber": {
-      "type": "string"
-    },
-    "productVariants": {
-      "type": "array",
-      "items": {
-        "$ref": "./response_productvariant.v1.json"
-      }
-    },
-    "riskData": {
-      "$ref": "./response_riskdata.v1.json"
-    },
-    "coverData": {
-      "$ref": "./response_coverdata.v1.json"
-    },
-    "customerData": {
-      "$ref": "./response_customerdata.v1.json"
-    },
-    "starDate": {
-      "type": "string"
-    },
-    "endDate": {
+    "reference": {
       "type": "string"
     },
     "isClean": {
       "type": "boolean"
     },
-    "premium": {
-      "type": "number"
+    "premiumData": {
+      "$ref": "./response_premium.v1.json"
     },
-    "turnOver": {
-      "type": "number"
+    "periodData": {
+      "$ref": "./response_period.v1.json"
     },
-    "paymentInstallment": {
-      "$ref": "./response_paymentinstallment.v1.json"
+    "createdAt": {
+      "type": "string"
     },
-    "paymentMethod": {
-      "$ref": "./response_paymentmethod.v1.json"
+    "updatedAt": {
+      "type": "string"
     },
-    "policyHolder": {
-      "$ref": "./policyholder.v1.json"
+    "stateData": {
+      "$ref": "./response_state.v1.json"
     }
   }
 }

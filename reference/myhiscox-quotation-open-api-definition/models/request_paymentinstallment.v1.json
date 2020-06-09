@@ -1,9 +1,0 @@
-{
-  "title": "Request_PaymentInstallment",
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string"
-    }
-  }
-}

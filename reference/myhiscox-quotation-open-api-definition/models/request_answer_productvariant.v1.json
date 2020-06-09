@@ -11,6 +11,9 @@
     "productVariantId": {
       "type": "integer",
       "description": "- Product Variant is required for Cover Data\n- Risk data and customer info , productVariantId is null, them use request_answer model"
+    },
+    "parentQuestionId": {
+      "type": "integer"
     }
   }
 }

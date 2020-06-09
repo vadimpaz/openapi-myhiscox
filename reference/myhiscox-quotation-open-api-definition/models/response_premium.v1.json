@@ -2,7 +2,7 @@
   "title": "response_premium",
   "type": "object",
   "properties": {
-    "baseNetRate": {
+    "totalPremium": {
       "type": "number"
     },
     "netRate": {

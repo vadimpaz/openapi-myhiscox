@@ -1,0 +1,12 @@
+{
+  "title": "response_period.v1",
+  "type": "object",
+  "properties": {
+    "startDate": {
+      "type": "string"
+    },
+    "endDate": {
+      "type": "string"
+    }
+  }
+}
