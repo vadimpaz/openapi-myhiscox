@@ -8,7 +8,7 @@
     },
     "description": "Start policy creation API\n"
   },
-  "host": "localhost:3000",
+  "host": "localhost:81",
   "schemes": [
     "https"
   ],
@@ -253,7 +253,7 @@
           {
             "type": "string",
             "in": "header",
-            "name": "email",
+            "name": "Auth-Email",
             "description": "broker email",
             "required": true
           },
@@ -263,6 +263,13 @@
             "schema": {
               "$ref": "./models/request_area.v1.json"
             }
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Auth-Brokerage-Id",
+            "description": "broker id",
+            "required": true
           }
         ],
         "operationId": "'42.1'"
@@ -402,7 +409,7 @@
           {
             "type": "string",
             "in": "header",
-            "name": "email",
+            "name": "Auth-Email",
             "description": "broker email",
             "required": true
           },
@@ -413,6 +420,13 @@
               "$ref": "./models/request_quotation.v1.json"
             },
             "description": ""
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Auth-Brokerage-Id",
+            "description": "broker id",
+            "required": true
           }
         ],
         "operationId": "'3.0'"

@@ -1,0 +1,18 @@
+{
+  "title": "response_activitysector.v1",
+  "type": "object",
+  "properties": {
+    "idActivity": {
+      "type": "integer"
+    },
+    "nameActivity": {
+      "type": "string"
+    },
+    "idSector": {
+      "type": "integer"
+    },
+    "nameSector": {
+      "type": "string"
+    }
+  }
+}
