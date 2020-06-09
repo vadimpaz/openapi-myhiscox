@@ -1117,6 +1117,15 @@
                 "$ref": "./models/response_activitysector.v1.json"
               }
             }
+          },
+          "": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "./models/response_activitysector.v1.json"
+              }
+            },
+            "description": ""
           }
         },
         "operationId": "get-v1-quotation-activities",
