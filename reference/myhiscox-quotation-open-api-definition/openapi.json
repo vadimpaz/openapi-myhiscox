@@ -1103,6 +1103,46 @@
         },
         "description": "Getting premium values:\n- base_net_rate = initial premium, without increments and discounts.\n- net_rate = net premium, includes increments and discounts.\n- taxes , acts over net_rate some %\n- surchange: is a broker fee commissions \n- consortium\n- total_rate = net_rate + taxes + surcharge + consortium"
       }
+    },
+    "/v1/quotation/activities": {
+      "get": {
+        "summary": "List of available activities/sectors of brokerage",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "./models/response_activitysector.v1.json"
+              }
+            }
+          }
+        },
+        "operationId": "get-v1-quotation-activities",
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Accept-Language"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Auth-Email",
+            "description": "broker email",
+            "required": true
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Auth-Brokerage-Id",
+            "description": "broker id",
+            "required": true
+          }
+        ],
+        "description": "GET\n\nSummary\nList of activities and sectors belongs to the current Auth_Brokerage-Id and contains associations to API product variants\nSteps\nObtain brokerage API product variants associated \nFind the associated activities to these product variants"
+      }
     }
   },
   "definitions": {},
