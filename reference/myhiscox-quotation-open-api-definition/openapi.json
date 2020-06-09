@@ -1146,7 +1146,7 @@
     },
     "/v1/quotation/product-variants": {
       "get": {
-        "summary": "Your GET endpoint",
+        "summary": "Get available product variants for brokerage",
         "tags": [],
         "responses": {},
         "operationId": "get-v1-quotation-product-variants",
