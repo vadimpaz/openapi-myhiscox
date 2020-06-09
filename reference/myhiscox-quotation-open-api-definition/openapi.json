@@ -1143,6 +1143,36 @@
         ],
         "description": "GET\n\nSummary\nList of activities and sectors belongs to the current Auth_Brokerage-Id and contains associations to API product variants\nSteps\nObtain brokerage API product variants associated \nFind the associated activities to these product variants"
       }
+    },
+    "/v1/quotation/product-variants": {
+      "get": {
+        "summary": "Your GET endpoint",
+        "tags": [],
+        "responses": {},
+        "operationId": "get-v1-quotation-product-variants",
+        "description": "GET\n\nSummary\nList of product variants available to the current Auth_Brokerage-Id that contains API flag enabled\nSteps\nObtain brokerage API product variants associated \n",
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "AcceptLanguage"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Auth-Email",
+            "description": "broker email",
+            "required": true
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Auth-Brokerage-Id",
+            "description": "broker id",
+            "required": true
+          }
+        ]
+      }
     }
   },
   "definitions": {},
