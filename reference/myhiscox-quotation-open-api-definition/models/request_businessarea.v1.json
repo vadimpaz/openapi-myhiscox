@@ -2,7 +2,7 @@
   "title": "Request_Area",
   "type": "object",
   "properties": {
-    "slug": {
+    "productFamily": {
       "type": "string"
     }
   }
