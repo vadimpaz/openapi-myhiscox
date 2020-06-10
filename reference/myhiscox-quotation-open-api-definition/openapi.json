@@ -233,7 +233,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "./models/response_sector.v1.json"
+                "$ref": "./models/response_sectoractivities.v1.json"
               }
             }
           }

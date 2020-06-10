@@ -1,0 +1,21 @@
+{
+  "title": "response_sectoractivities.v1",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "activities": {
+      "type": [
+        "string",
+        "array"
+      ],
+      "items": {
+        "$ref": "./request_sector.v1.json"
+      }
+    }
+  }
+}

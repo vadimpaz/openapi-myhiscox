@@ -2,17 +2,11 @@
   "title": "response_activitysector.v1",
   "type": "object",
   "properties": {
-    "idActivity": {
-      "type": "integer"
+    "activity": {
+      "$ref": "./response_activity.v1.json"
     },
-    "nameActivity": {
-      "type": "string"
-    },
-    "idSector": {
-      "type": "integer"
-    },
-    "nameSector": {
-      "type": "string"
+    "sector": {
+      "$ref": "./response_sector.v1.json"
     }
   }
 }
