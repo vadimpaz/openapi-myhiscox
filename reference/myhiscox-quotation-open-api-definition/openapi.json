@@ -1183,16 +1183,6 @@
           {
             "type": "string",
             "in": "query",
-            "name": "sectorId"
-          },
-          {
-            "type": "string",
-            "in": "query",
-            "name": "sectorName"
-          },
-          {
-            "type": "string",
-            "in": "query",
             "name": "order1",
             "description": "'activityName ASC'"
           },
