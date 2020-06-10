@@ -246,7 +246,7 @@
             }
           }
         },
-        "description": "GET\n\nGet List of Sectors and activities per sector/activity if provided \n  \nSummary\nList of sectors and activies belongs to the current Auth_Brokerage-Id (based on ROLE capabilities) and contains associations to API product variants\nSteps\nObtain brokerage API product variants associated \nFind the associated sector/activities to these product variants  \n  \n  \n  Return list of Sector DTOs and inside each     \n         element list of activities DTO\n  \n  Filter data obtained based on [if exist] not mandatory query parameters in request. (this is not requeriment, inprovement if team has time)\n  \n  For APC this list will be empty\n",
+        "description": "GET\n\nGet List of Sectors and activities per sector/activity if provided \n  \nSummary\nList of sectors and activies belongs to the current Auth_Brokerage-Id (based on ROLE capabilities) and contains associations to API product variants\nSteps\nObtain brokerage API product variants associated \nFind the associated sector/activities to these product variants  \n  \n  \n  Return list of Sector DTOs and inside each     \n         element list of activities DTO\n  \n  Filter data obtained based on [if exist] not mandatory path & query parameters in request. (this is not requeriment, inprovement if team has time)\n  \n  For APC this list will be empty\n",
         "security": [
           {
             "API Key - 1": []
