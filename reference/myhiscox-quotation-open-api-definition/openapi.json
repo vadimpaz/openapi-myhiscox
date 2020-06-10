@@ -1133,7 +1133,9 @@
     "/v1/quotation/activities/{activityId}": {
       "get": {
         "summary": "List of available activities/sectors of brokerage",
-        "tags": [],
+        "tags": [
+          "sectors-activities"
+        ],
         "responses": {
           "200": {
             "description": "OK",
