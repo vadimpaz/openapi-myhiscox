@@ -1,0 +1,12 @@
+{
+  "title": "request_sectoractivity.v1",
+  "type": "object",
+  "properties": {
+    "sectot": {
+      "$ref": "./request_sector.v1.json"
+    },
+    "activity": {
+      "$ref": "./request_activity.v1.json"
+    }
+  }
+}
