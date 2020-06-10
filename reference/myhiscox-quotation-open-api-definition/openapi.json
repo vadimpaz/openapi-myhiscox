@@ -295,7 +295,7 @@
       },
       "parameters": [
         {
-          "type": "string",
+          "type": "integer",
           "name": "sectorId",
           "in": "path",
           "description": "sector Id for filtering"
@@ -1130,7 +1130,7 @@
         "description": "Getting premium values:\n- base_net_rate = initial premium, without increments and discounts.\n- net_rate = net premium, includes increments and discounts.\n- taxes , acts over net_rate some %\n- surchange: is a broker fee commissions \n- consortium\n- total_rate = net_rate + taxes + surcharge + consortium"
       }
     },
-    "/v1/quotation/activities": {
+    "/v1/quotation/activities/{activityId}": {
       "get": {
         "summary": "List of available activities/sectors of brokerage",
         "tags": [],
@@ -1174,10 +1174,45 @@
             "name": "Auth-Brokerage-Id",
             "description": "broker id",
             "required": true
+          },
+          {
+            "type": "string",
+            "in": "query",
+            "name": "activityName"
+          },
+          {
+            "type": "string",
+            "in": "query",
+            "name": "sectorId"
+          },
+          {
+            "type": "string",
+            "in": "query",
+            "name": "sectorName"
+          },
+          {
+            "type": "string",
+            "in": "query",
+            "name": "order1",
+            "description": "'activityName ASC'"
+          },
+          {
+            "type": "string",
+            "in": "query",
+            "name": "order2",
+            "description": "sectorName ASC"
           }
         ],
-        "description": "GET\n\nSummary\nList of activities and sectors belongs to the current Auth_Brokerage-Id and contains associations to API product variants\nSteps\nObtain brokerage API product variants associated \nFind the associated activities to these product variants"
-      }
+        "description": "GET\n\nSummary\nList of activities and sectors belongs to the current Auth_Brokerage-Id (based on ROLE capabilities) and contains associations to API product variants\nSteps\nObtain brokerage API product variants associated \nFind the associated activities to these product variants"
+      },
+      "parameters": [
+        {
+          "type": "integer",
+          "name": "activityId",
+          "in": "path",
+          "required": true
+        }
+      ]
     },
     "/v1/quotation/product-variants": {
       "get": {
