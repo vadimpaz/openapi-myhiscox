@@ -279,18 +279,6 @@
             "description": "sectorName filter"
           },
           {
-            "type": "integer",
-            "in": "query",
-            "name": "activityId",
-            "description": "activityId filter"
-          },
-          {
-            "type": "string",
-            "in": "query",
-            "name": "activityName",
-            "description": "activityName filter"
-          },
-          {
             "type": "string",
             "in": "query",
             "name": "order",
