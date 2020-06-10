@@ -281,8 +281,14 @@
           {
             "type": "string",
             "in": "query",
-            "name": "order",
-            "description": "'sectorName ASC, activityName ASC' (default)"
+            "name": "order1",
+            "description": "'sectorName ASC' (default)"
+          },
+          {
+            "type": "string",
+            "in": "query",
+            "name": "order2",
+            "description": "'activityName ASC' (default)"
           }
         ],
         "operationId": "'42.1'"
