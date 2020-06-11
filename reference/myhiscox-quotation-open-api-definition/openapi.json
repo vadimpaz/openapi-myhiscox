@@ -223,7 +223,7 @@
     },
     "/v1/quotation/sectors/{sectorId}": {
       "get": {
-        "summary": "Get List of Sectors and activities",
+        "summary": "List of available sectorId/activities of brokerage",
         "tags": [
           "sectors-activities"
         ],
@@ -1138,7 +1138,7 @@
     },
     "/v1/quotation/activities/{activityId}": {
       "get": {
-        "summary": "List of available activities/sectors of brokerage",
+        "summary": "List of available activityId/sectors of brokerage",
         "tags": [
           "sectors-activities"
         ],
@@ -1244,6 +1244,73 @@
             "name": "Auth-Brokerage-Id",
             "description": "broker id",
             "required": true
+          }
+        ]
+      }
+    },
+    "/v1/quotation/sectors": {
+      "get": {
+        "summary": "List of available sectors/activities of brokerage",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "./models/response_sectoractivities.v1.json"
+              }
+            }
+          }
+        },
+        "operationId": "get-v1-quotation-sectors",
+        "description": "GET\n\nGet List of Sectors and activities per sector/activity if provided \n  \nSummary\nList of sectors and activies belongs to the current Auth_Brokerage-Id (based on ROLE capabilities) and contains associations to API product variants\nSteps\nObtain brokerage API product variants associated \nFind the associated sector/activities to these product variants  \n  \n  \n  Return list of Sector DTOs and inside each     \n         element list of activities DTO\n  \n  Filter data obtained based on [if exist] not mandatory query parameters in request. (this is not requeriment, inprovement if team has time)\n  \n  For APC this list will be empty\n",
+        "parameters": [
+          {
+            "type": "string",
+            "in": "query",
+            "name": "order1"
+          },
+          {
+            "type": "string",
+            "in": "query",
+            "name": "order2",
+            "description": "'activityName ASC' (default)"
+          },
+          {
+            "type": "string",
+            "in": "query",
+            "name": "keywords",
+            "description": "activities keywords"
+          }
+        ]
+      }
+    },
+    "/v1/quotation/activities": {
+      "get": {
+        "summary": "List of available activities/sectors of brokerage",
+        "tags": [],
+        "responses": {},
+        "operationId": "get-v1-quotation-activities",
+        "description": "GET\n\nSummary\nList of activities and sectors belongs to the current Auth_Brokerage-Id (based on ROLE capabilities) and contains associations to API product variants\nSteps\nObtain brokerage API product variants associated \nFind the associated activities to these product variants",
+        "parameters": [
+          {
+            "type": "string",
+            "in": "query",
+            "name": "order1",
+            "description": "'activityName ASC' (default)"
+          },
+          {
+            "type": "string",
+            "in": "query",
+            "name": "order2",
+            "description": "'sectorName ASC' (default)"
+          },
+          {
+            "type": "string",
+            "in": "query",
+            "name": "keywords",
+            "description": "activities keywords"
           }
         ]
       }
