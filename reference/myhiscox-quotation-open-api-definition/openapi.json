@@ -289,6 +289,12 @@
             "in": "query",
             "name": "order2",
             "description": "'activityName ASC' (default)"
+          },
+          {
+            "type": "string",
+            "in": "query",
+            "name": "keywords",
+            "description": "activity keywords"
           }
         ],
         "operationId": "'42.1'"
@@ -1193,6 +1199,12 @@
             "in": "query",
             "name": "order2",
             "description": "sectorName ASC"
+          },
+          {
+            "type": "string",
+            "in": "query",
+            "name": "keywords",
+            "description": "activity keywords"
           }
         ],
         "description": "GET\n\nSummary\nList of activities and sectors belongs to the current Auth_Brokerage-Id (based on ROLE capabilities) and contains associations to API product variants\nSteps\nObtain brokerage API product variants associated \nFind the associated activities to these product variants"

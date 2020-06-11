@@ -9,12 +9,9 @@
       "type": "string"
     },
     "activities": {
-      "type": [
-        "string",
-        "array"
-      ],
+      "type": "array",
       "items": {
-        "$ref": "./request_sector.v1.json"
+        "$ref": "./response_activity.v1.json"
       }
     }
   }
