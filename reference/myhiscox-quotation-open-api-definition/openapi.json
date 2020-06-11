@@ -276,19 +276,19 @@
             "type": "string",
             "in": "query",
             "name": "sectorName",
-            "description": "sectorName filter"
+            "description": "sectorName filtering"
           },
           {
             "type": "string",
             "in": "query",
             "name": "order1",
-            "description": "'sectorName ASC' (default)"
+            "description": "'sectorName ASC' (default without order)"
           },
           {
             "type": "string",
             "in": "query",
             "name": "order2",
-            "description": "'activityName ASC' (default)"
+            "description": "'activityName ASC' (default without order)"
           },
           {
             "type": "string",
@@ -1186,19 +1186,14 @@
           {
             "type": "string",
             "in": "query",
-            "name": "activityName"
+            "name": "activityName",
+            "description": "activityName filtering"
           },
           {
             "type": "string",
             "in": "query",
-            "name": "order1",
-            "description": "'activityName ASC'"
-          },
-          {
-            "type": "string",
-            "in": "query",
-            "name": "order2",
-            "description": "sectorName ASC"
+            "name": "order",
+            "description": "'activityName ASC' (default without order)"
           },
           {
             "type": "string",
@@ -1297,13 +1292,20 @@
           {
             "type": "string",
             "in": "query",
-            "name": "order1"
+            "name": "sectorName",
+            "description": "sector Name filtering"
+          },
+          {
+            "type": "string",
+            "in": "query",
+            "name": "order1",
+            "description": "'sectorName ASC' (default without order)"
           },
           {
             "type": "string",
             "in": "query",
             "name": "order2",
-            "description": "'activityName ASC' (default)"
+            "description": "'activityName ASC' (default without order)"
           },
           {
             "type": "string",
@@ -1325,14 +1327,14 @@
           {
             "type": "string",
             "in": "query",
-            "name": "order1",
-            "description": "'activityName ASC' (default)"
+            "name": "activityName",
+            "description": "activityName filtering"
           },
           {
             "type": "string",
             "in": "query",
-            "name": "order2",
-            "description": "'sectorName ASC' (default)"
+            "name": "order",
+            "description": "'activityName ASC' (default without order)"
           },
           {
             "type": "string",
@@ -1341,7 +1343,8 @@
             "description": "activities keywords"
           }
         ]
-      }
+      },
+      "parameters": []
     }
   },
   "definitions": {},
