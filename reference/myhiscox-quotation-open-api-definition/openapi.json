@@ -1218,13 +1218,23 @@
         }
       ]
     },
-    "/v1/quotation/product-variants": {
+    "/v1/quotation/activity/{activityId}/product-variants": {
       "get": {
-        "summary": "Get available product variants for brokerage",
+        "summary": "Get available product variants for brokerage activity",
         "tags": [],
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "./models/response_productvariant.v1.json"
+              }
+            }
+          }
+        },
         "operationId": "get-v1-quotation-product-variants",
-        "description": "GET\n\nSummary\nList of product variants available to the current Auth_Brokerage-Id that contains API flag enabled\nSteps\nObtain brokerage API product variants associated \n",
+        "description": "GET\n\nSummary\nList of product variants available to the current Auth_Brokerage-Id and Activity that contains API flag enabled\nSteps\nObtain brokerage API product variants associated \nMatch these product variants associated to Path parameter activityId\n",
         "parameters": [
           {
             "type": "string",
@@ -1244,9 +1254,27 @@
             "name": "Auth-Brokerage-Id",
             "description": "broker id",
             "required": true
+          },
+          {
+            "type": "string",
+            "in": "query",
+            "name": "order1"
+          },
+          {
+            "type": "string",
+            "in": "query",
+            "name": "order2"
           }
         ]
-      }
+      },
+      "parameters": [
+        {
+          "type": "string",
+          "name": "activityId",
+          "in": "path",
+          "required": true
+        }
+      ]
     },
     "/v1/quotation/sectors": {
       "get": {
