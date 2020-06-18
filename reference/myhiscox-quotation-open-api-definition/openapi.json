@@ -221,93 +221,6 @@
         ]
       }
     },
-    "/v1/quotation/sectors/{sectorId}": {
-      "get": {
-        "summary": "List of available sectorId/activities of brokerage",
-        "tags": [
-          "sectors-activities"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "./models/response_sectoractivities.v1.json"
-              }
-            }
-          },
-          "": {
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "./models/response_sectoractivities.v1.json"
-              }
-            }
-          }
-        },
-        "description": "GET\n\nGet List of Sectors and activities per sector/activity if provided \n  \nSummary\nList of sectors and activies belongs to the current Auth_Brokerage-Id (based on ROLE capabilities) and contains associations to API product variants\nSteps\nObtain brokerage API product variants associated \nFind the associated sector/activities to these product variants  \n  \n  \n  Return list of Sector DTOs and inside each     \n         element list of activities DTO\n  \n  Filter data obtained based on [if exist] not mandatory path & query parameters in request. (this is not requeriment, inprovement if team has time)\n  \n  For APC this list will be empty\n",
-        "security": [
-          {
-            "API Key - 1": []
-          }
-        ],
-        "parameters": [
-          {
-            "type": "string",
-            "in": "header",
-            "name": "Accept-Language"
-          },
-          {
-            "type": "string",
-            "in": "header",
-            "name": "Auth-Email",
-            "description": "broker email",
-            "required": true
-          },
-          {
-            "type": "string",
-            "in": "header",
-            "name": "Auth-Brokerage-Id",
-            "description": "broker id",
-            "required": true
-          },
-          {
-            "type": "string",
-            "in": "query",
-            "name": "sectorName",
-            "description": "sectorName filtering"
-          },
-          {
-            "type": "string",
-            "in": "query",
-            "name": "order1",
-            "description": "'sectorName ASC' (default without order)"
-          },
-          {
-            "type": "string",
-            "in": "query",
-            "name": "order2",
-            "description": "'activityName ASC' (default without order)"
-          },
-          {
-            "type": "string",
-            "in": "query",
-            "name": "keywords",
-            "description": "activity keywords"
-          }
-        ],
-        "operationId": "'42.1'"
-      },
-      "parameters": [
-        {
-          "type": "integer",
-          "name": "sectorId",
-          "in": "path",
-          "description": "sector Id for filtering"
-        }
-      ]
-    },
     "/v1/quotation/business-areas": {
       "post": {
         "summary": "Business area to start new project quotation",
@@ -1292,6 +1205,12 @@
           {
             "type": "string",
             "in": "query",
+            "name": "sectorId",
+            "description": "sector Id filtering"
+          },
+          {
+            "type": "string",
+            "in": "query",
             "name": "sectorName",
             "description": "sector Name filtering"
           },
@@ -1305,7 +1224,7 @@
             "type": "string",
             "in": "query",
             "name": "order2",
-            "description": "'activityName ASC' (default without order)"
+            "description": "'activityName ASC' (default without order)\n"
           },
           {
             "type": "string",
