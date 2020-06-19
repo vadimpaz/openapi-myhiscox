@@ -1162,7 +1162,17 @@
       "get": {
         "summary": "List of available activities/sectors of brokerage",
         "tags": [],
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "./models/response_activitysector.v1.json"
+              }
+            }
+          }
+        },
         "operationId": "get-v1-quotation-activities",
         "description": "GET\n\nSummary\nList of activities and sectors belongs to the current Auth_Brokerage-Id (based on ROLE capabilities) and contains associations to API product variants\nSteps\nObtain brokerage API product variants associated \nFind the associated activities to these product variants",
         "parameters": [
