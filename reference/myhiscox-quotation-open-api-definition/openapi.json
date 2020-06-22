@@ -1049,7 +1049,7 @@
         "description": "Getting premium values:\n- base_net_rate = initial premium, without increments and discounts.\n- net_rate = net premium, includes increments and discounts.\n- taxes , acts over net_rate some %\n- surchange: is a broker fee commissions \n- consortium\n- total_rate = net_rate + taxes + surcharge + consortium"
       }
     },
-    "/v1/quotation/activity/{activityId}/product-variants": {
+    "/v1/quotation/product-variants": {
       "get": {
         "summary": "Get available product variants for brokerage activity",
         "tags": [],
@@ -1065,7 +1065,7 @@
           }
         },
         "operationId": "get-v1-quotation-product-variants",
-        "description": "GET\n\nSummary\nList of product variants available to the current Auth_Brokerage-Id and Activity that contains API flag enabled\nSteps\nObtain brokerage API product variants associated \nMatch these product variants associated to Path parameter activityId\n",
+        "description": "GET\n\nSummary\nList of product variants available to the current Auth_Brokerage-Id and ActivityId (in exists in parameters) that contains API flag enabled\nSteps\nObtain brokerage API product variants associated \nMatch these product variants associated to Path parameter activityId\n",
         "parameters": [
           {
             "type": "string",
@@ -1089,23 +1089,24 @@
           {
             "type": "string",
             "in": "query",
-            "name": "order1"
+            "name": "ActivityId",
+            "description": "activity Id fiter"
           },
           {
             "type": "string",
             "in": "query",
-            "name": "order2"
+            "name": "order1",
+            "description": "'productVariantId ASC' (default without order)"
+          },
+          {
+            "type": "string",
+            "in": "query",
+            "name": "order2",
+            "description": "'productVariantName ASC' (default without order)"
           }
         ]
       },
-      "parameters": [
-        {
-          "type": "string",
-          "name": "activityId",
-          "in": "path",
-          "required": true
-        }
-      ]
+      "parameters": []
     },
     "/v1/quotation/sectors": {
       "get": {
