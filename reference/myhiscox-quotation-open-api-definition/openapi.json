@@ -1204,6 +1204,16 @@
         ]
       },
       "parameters": []
+    },
+    "/v1/quotation/product-variants/specification": {
+      "get": {
+        "summary": "Your GET endpoint",
+        "tags": [],
+        "responses": {},
+        "operationId": "get-v1-quotation-product-specifications",
+        "description": "GET\n\nSummary\nList of product variants specifications based on Product Variants available to the current Auth_Brokerage-Id and ActivityId (in exists in parameters) that contains API flag enabled\nSteps\nObtain brokerage API product variants associated \nMatch these product variants associated to Path parameter activityId"
+      },
+      "parameters": []
     }
   },
   "definitions": {},
