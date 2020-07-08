@@ -547,7 +547,7 @@
             "required": true
           }
         ],
-        "description": "GET\n\nget policy holder info based on project Id",
+        "description": "GET\n\nget policy holder info based on project Id\nand questions related\nObtaining customer data based on project Id path parameter\nObtaing query proyect located in Project_Has_question table and join wuth question table to obtain all values\nIn project_has_question screen = 3 (customer_data)",
         "operationId": "'42.6'"
       },
       "post": {
@@ -784,7 +784,7 @@
             "required": true
           }
         ],
-        "description": "GET\n\nObtaining risk data based on project Id path parameter",
+        "description": "GET\n\nObtaining risk data based on project Id path parameter\nObtaing query proyect located in Project_Has_question table and join wuth question table to obtain all values\nIn project_has_question screen = 1 (risk_data)",
         "operationId": "'42.3'"
       }
     },
@@ -827,7 +827,7 @@
             "required": true
           }
         ],
-        "description": "GET\n\nGetting cover data based on risk data info based on product variants list",
+        "description": "GET\n\nObtaining covera data based on project Id path parameter\nObtaing query proyect located in Project_Has_question table and join wuth question table to obtain all values\nIn project_has_question screen = 2 (cover_data)",
         "operationId": "'42.4'"
       },
       "parameters": [
