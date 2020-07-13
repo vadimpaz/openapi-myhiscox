@@ -6,9 +6,9 @@
       "type": "string",
       "description": "id_number in db: cifnif"
     },
-    "name": {
+    "holder": {
       "type": "string",
-      "description": "first name + last namne"
+      "description": "holder field"
     },
     "address": {
       "type": "string"
@@ -31,7 +31,7 @@
   },
   "required": [
     "idNumber",
-    "name",
+    "holder",
     "address",
     "number"
   ]
