@@ -2,22 +2,27 @@
   "title": "PolicyHolder",
   "type": "object",
   "properties": {
-    "id": {
-      "type": "string"
+    "idNumber": {
+      "type": "string",
+      "description": "id_number in db: cifnif"
     },
     "name": {
-      "type": "string"
+      "type": "string",
+      "description": "first name + last namne"
     },
     "address": {
       "type": "string"
     },
-    "cp": {
+    "number": {
       "type": "string"
     },
-    "building": {
+    "floor": {
       "type": "string"
     },
     "door": {
+      "type": "string"
+    },
+    "cp": {
       "type": "string"
     },
     "province": {
@@ -25,9 +30,9 @@
     }
   },
   "required": [
-    "id",
+    "idNumber",
     "name",
     "address",
-    "cp"
+    "number"
   ]
 }
